@@ -31,7 +31,7 @@ public class RestResult<T> {
     private String message;
     
     //返回对象
-    private T t;
+    private T data;
 
     public boolean isSuccess() {
         return success;
@@ -49,12 +49,12 @@ public class RestResult<T> {
         this.message = message;
     }
 
-    public T getT() {
-        return t;
+    public T getData() {
+        return data;
     }
 
-    public void setT(T t) {
-        this.t = t;
+    public void setT(T data) {
+        this.data = data;
     }
     
     
