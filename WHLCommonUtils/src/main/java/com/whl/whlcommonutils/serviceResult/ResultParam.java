@@ -14,5 +14,6 @@ public enum ResultParam {
     IntValue,     //值，  int
     Name,         //名称， String
     Url,          //路径， String
+    Data,         //对象数据
     
 }

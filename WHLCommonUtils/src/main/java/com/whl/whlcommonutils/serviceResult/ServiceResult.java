@@ -1,7 +1,7 @@
 package com.whl.whlcommonutils.serviceResult;
 
 /**
- * 服务端结果返回，用于替代非对象、数组、集合框架等数据（比如返回成功信息、错误信息）
+ * 服务端结果返回
  * @author wuhailong
  * @version 1.0.0
  * @createTime 2019-5-1
@@ -26,6 +26,14 @@ public class ServiceResult {
     
     //int类型参数，用于返回int型数据
     private int intValue;
+    
+    //返回对象数据
+    private Object data;
+
+    public ServiceResult() {
+        success = false;
+        message = "输入参数错了吧，服务器啥也没干，给你返回了一个真空！";
+    }
 
     public boolean isSuccess() {
         return success;
@@ -74,5 +82,14 @@ public class ServiceResult {
     public void setIntValue(int intValue) {
         this.intValue = intValue;
     }
+
+    public Object getData() {
+        return data;
+    }
+
+    public void setData(Object data) {
+        this.data = data;
+    }
+    
     
 }

@@ -42,4 +42,23 @@ public class PageTool {
         
         return page;
     }
+    
+    /**
+     * 根据总条数设置分页
+     * @param page  分页信息
+     * @param totalCount  总条数
+     * @return Page
+     */
+    public static Page getPage(Page page, int totalCount){
+        
+        
+        //设置总条数
+        page.setTotalCount(totalCount);
+        
+        //设置总页数
+        int totalPage = (int) Math.ceil(totalCount /(double) page.getCountOfOnePage());
+        page.setTotalPage(totalPage);
+        
+        return page;
+    }
 }
