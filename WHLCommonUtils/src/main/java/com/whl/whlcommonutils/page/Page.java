@@ -6,9 +6,6 @@ import java.util.List;
 /**
  * 封装类：分页信息
  * @author wuhailong
- * @version 0.0.1
- * @createTime：2019-4-13
- * @updateTime：2019-4-13
  */
 public class Page {
     

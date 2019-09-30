@@ -1,6 +1,7 @@
 package com.whl.whlcommonutils.string;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -10,9 +11,6 @@ import java.util.TreeMap;
 /**
  * 工具类：字符串
  * @author wuhailong
- * @version 1.0.0
- * @createTime 2019-4-12
- * @updateTime 2019-5-1
  */
 public class StringTool {
     
@@ -29,9 +27,7 @@ public class StringTool {
         //正向比
         int sameCount1 = 0;
         Set<String> set = new HashSet<>();
-        for(String str : splitOne){
-            set.add(str);
-        }
+        set.addAll(Arrays.asList(splitOne));
         for(String str2 : splitTwo){
             if(set.contains(str2)){
                 sameCount1++;
@@ -41,9 +37,7 @@ public class StringTool {
         //反向比
         int sameCount2 = 0;
         Set<String> set2 = new HashSet<>();
-        for(String str : splitTwo){
-            set2.add(str);
-        }
+        set2.addAll(Arrays.asList(splitTwo));
         for(String str2 : splitOne){
             if(set2.contains(str2)){
                 sameCount2++;

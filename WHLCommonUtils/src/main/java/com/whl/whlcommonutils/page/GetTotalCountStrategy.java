@@ -3,9 +3,6 @@ package com.whl.whlcommonutils.page;
 /**
  * 抽象策略角色——获取总条数的策略
  * @author wuhailong
- * @version 0.0.1
- * @createTime：2019-4-13
- * @updateTime：2019-4-13
  */
 public interface GetTotalCountStrategy {
     

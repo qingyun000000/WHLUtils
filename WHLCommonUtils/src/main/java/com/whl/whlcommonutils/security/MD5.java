@@ -7,9 +7,6 @@ import java.security.NoSuchAlgorithmException;
 /**
  * 工具类：MD5
  * @author wuhailong
- * @version 1.0.0
- * @createTime 2019-4-12
- * @updateTime 2019-5-1
  */
 public class MD5 {
     public static String MD5Encrypt(String input){

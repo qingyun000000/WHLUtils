@@ -1,17 +1,18 @@
 package com.whl.whlcommonutils.verification;
 
+import java.util.Map;
+
 /**
  * 封装类：校验结果
  * @author wuhailong
- * @version 1.0.0
- * @createTime 2019-5-1
- * @updateTime 2019-5-1
  */
 public class VerificationResult {
     
     private boolean success;
     
     private String message;
+    
+    private Map<String, Object> map;
 
     public boolean isSuccess() {
         return success;
@@ -27,6 +28,14 @@ public class VerificationResult {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public Map<String, Object> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, Object> map) {
+        this.map = map;
     }
     
 }

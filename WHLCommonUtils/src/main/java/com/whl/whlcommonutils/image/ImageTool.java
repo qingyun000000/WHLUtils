@@ -18,9 +18,6 @@ import javax.imageio.stream.ImageInputStream;
 /**
  * 工具类：图片加工工具
  * @author wuhailong
- * @version 0.0.1
- * @createTime 2019-4-16
- * @updateTime 2019-4-16
  */
 public class ImageTool {
     

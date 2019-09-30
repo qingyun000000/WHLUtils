@@ -4,9 +4,6 @@ package com.whl.whlcommonutils.serviceResult;
  * Controller层返回ServiceResult的工具
  *
  * @author wuhailong
- * @version 1.0.0
- * @createTime 2019-5-1
- * @updateTime 2019-5-1
  */
 public class ServiceResultTool {
 
@@ -28,22 +25,22 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
-                if (resultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
-                if (resultParam.Name.equals(resultParam)) {
+                if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
                 }
-                if (resultParam.Message.equals(resultParam)) {
+                if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
                 }
-                if (resultParam.IntValue.equals(resultParam)) {
+                if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
                 }
-                if (resultParam.Url.equals(resultParam)) {
+                if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
                 }
-                if (resultParam.Data.equals(resultParam)) {
+                if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }
@@ -104,22 +101,22 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
-                if (resultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
-                if (resultParam.Name.equals(resultParam)) {
+                if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
                 }
-                if (resultParam.Message.equals(resultParam)) {
+                if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
                 }
-                if (resultParam.IntValue.equals(resultParam)) {
+                if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
                 }
-                if (resultParam.Url.equals(resultParam)) {
+                if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
                 }
-                if (resultParam.Data.equals(resultParam)) {
+                if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }
@@ -192,22 +189,22 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
-                if (resultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
-                if (resultParam.Name.equals(resultParam)) {
+                if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
                 }
-                if (resultParam.Message.equals(resultParam)) {
+                if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
                 }
-                if (resultParam.IntValue.equals(resultParam)) {
+                if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
                 }
-                if (resultParam.Url.equals(resultParam)) {
+                if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
                 }
-                if (resultParam.Data.equals(resultParam)) {
+                if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }
@@ -289,22 +286,22 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
-                if (resultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
-                if (resultParam.Name.equals(resultParam)) {
+                if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
                 }
-                if (resultParam.Message.equals(resultParam)) {
+                if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
                 }
-                if (resultParam.IntValue.equals(resultParam)) {
+                if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
                 }
-                if (resultParam.Url.equals(resultParam)) {
+                if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
                 }
-                if (resultParam.Data.equals(resultParam)) {
+                if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }

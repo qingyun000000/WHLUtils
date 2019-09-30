@@ -7,9 +7,6 @@ import org.springframework.data.domain.Sort;
 /**
  * 工具类——Spring Data分页
  * @author wuhailong
- * @version 0.0.1
- * @createTime 2019-4-11
- * @updateTime 2019-4-12
  */
 public class PageableTool {
     

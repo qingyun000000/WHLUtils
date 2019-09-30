@@ -3,9 +3,6 @@ package com.whl.whlcommonutils.serviceResult;
 /**
  * ServiceResult的结果类型枚举
  * @author wuhailong
- * @version 1.0.0
- * @createTime 2019-5-1
- * @updateTime 2019-5-1
  */
 public enum ResultParam {
     

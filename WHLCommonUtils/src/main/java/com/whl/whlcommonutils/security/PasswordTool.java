@@ -1,7 +1,7 @@
 package com.whl.whlcommonutils.security;
 
 /**
- * 工具类：密码
+ * 密码工具
  * @author wuhailong
  */
 public class PasswordTool {
@@ -23,6 +23,7 @@ public class PasswordTool {
      * 判断明文和密码是否一致
      * @param password
      * @param ciphertext
+     * @param cypher
      * @return
      */
     public static Boolean Equals(String password, String ciphertext, Cypher cypher){
@@ -30,9 +31,6 @@ public class PasswordTool {
         if(cypher == Cypher.MD5){
             ct = MD5.MD5Encrypt(password);
         }
-        if(ct.equals(ciphertext)){
-             return true;
-        }
-        return false;
+        return ct.equals(ciphertext);
     }
 }

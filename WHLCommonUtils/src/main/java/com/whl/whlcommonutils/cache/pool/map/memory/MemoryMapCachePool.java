@@ -12,9 +12,6 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /**
  * 使用主存保存数据的Map型缓存池，泛型，实现MapCachePool
  * @author wuhailong
- * @version 0.0.1
- * @createTime 2019-1-13
- * @updateTime 2019-4-16
  * @param <T> 存入的List的数据类型
  */
 /*

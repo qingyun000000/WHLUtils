@@ -1,12 +1,8 @@
 package com.whl.whlcommonutils.token;
 
-import java.util.Date;
-
 /**
  * Token工具
  * @author wuhailong
- * @createTime 2019-8-6
- * @updateTime 2019-8-6
  */
 public class TokenTool {
     
@@ -41,7 +37,4 @@ public class TokenTool {
         return id - 25011407 - (1L<<60);
     }
     
-    public static void main(String[] args){
-        System.out.println(createToken(51L));
-    } 
 }

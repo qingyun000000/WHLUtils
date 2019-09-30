@@ -10,9 +10,6 @@ import java.util.Map;
  * 工厂：享元工厂，每个类型生成单例缓存池。
  * 每个类只提供一个缓存池（缓存池唯一，通过工厂为单例模式，且获取工厂和缓存池时均双重判断实现）
  * @author wuhailong
- * @version 0.0.1
- * @createTime 2019-1-13
- * @updateTime 2019-4-16
  */
 /* 
  * 0.0.1版：初始版本

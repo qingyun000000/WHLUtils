@@ -3,9 +3,6 @@ package com.whl.whlcommonutils.page;
 /**
  * 工具类：分页信息
  * @author wuhailong
- * @version 0.0.1
- * @createTime：2019-4-13
- * @updateTime：2019-4-13
  */
 public class PageTool {
     

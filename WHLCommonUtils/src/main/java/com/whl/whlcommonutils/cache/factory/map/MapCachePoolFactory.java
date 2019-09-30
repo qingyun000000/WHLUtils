@@ -5,9 +5,6 @@ import com.whl.whlcommonutils.cache.pool.map.MapCachePool;
 /**
  * 工厂接口：生产Map型缓存池
  * @author wuhailong
- * @version 0.0.1
- * @createTime 2019-4-7
- * @updateTime 2019-4-16
  */
 /*
 * 0.0.1版本，初始化版本，从SingletonforClassMemoryMapCachePoolFactory中提取接口

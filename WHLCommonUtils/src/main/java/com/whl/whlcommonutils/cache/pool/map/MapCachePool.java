@@ -7,14 +7,8 @@ import java.util.Set;
 /**
  * 接口：Map型缓存池，泛型，继承CachePool
  * @author wuhailong
- * @version 0.0.1
- * @createTime 2019-1-13
- * @updateTime 2019-4-16
  * @param <T> 存入的List的数据类型
  */
-/*
-* 0.0.1版：初始版本
-*/
 public interface MapCachePool <T> extends CachePool{
     
     /**
