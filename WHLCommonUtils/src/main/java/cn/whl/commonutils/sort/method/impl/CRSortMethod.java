@@ -1,9 +1,9 @@
 package cn.whl.commonutils.sort.method.impl;
 
 import cn.whl.commonutils.sort.method.SortMethod;
-import cn.whl.commonutils.sort.strag.ISortStrag;
 import java.util.Arrays;
 import java.util.List;
+import cn.whl.commonutils.sort.strategy.ISortStrategy;
 
 /**
  * 插入排序
@@ -12,7 +12,7 @@ import java.util.List;
 public class CRSortMethod implements SortMethod {
 
     @Override
-    public <T> void sort(T[] array, ISortStrag<T> strag) {
+    public <T> void sort(T[] array, ISortStrategy<T> strag) {
         for(int i = 0; i < array.length; i++){
             //数组需要逐位右移
             for(int j = i - 1; j >= 0; j--){
@@ -29,7 +29,7 @@ public class CRSortMethod implements SortMethod {
     }
 
     @Override
-    public <T> void sort(List<T> list, ISortStrag<T> strag) {
+    public <T> void sort(List<T> list, ISortStrategy<T> strag) {
         for(int i = 0; i < list.size(); i++){
             //逐位右移
             for(int j = i - 1; j >= 0; j--){
