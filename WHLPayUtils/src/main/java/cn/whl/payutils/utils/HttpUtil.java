@@ -1,7 +1,5 @@
 package cn.whl.payutils.utils;
 
-
-import cn.whl.payutils.wx.WxUtil;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;

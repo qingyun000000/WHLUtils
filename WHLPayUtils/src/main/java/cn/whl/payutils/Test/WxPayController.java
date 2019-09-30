@@ -1,13 +1,10 @@
 package cn.whl.payutils.Test;
 
 import cn.whl.payutils.interfaces.Pay;
-import cn.whl.payutils.interfaces.PayNotifyDo;
-import cn.whl.payutils.interfaces.PayNotifyDoParams;
-import cn.whl.payutils.wx.WeChatParams;
+import cn.whl.payutils.wx.dto.WeChatInDto;
 import cn.whl.payutils.wx.WeChatPay;
-import cn.whl.payutils.wx.WeChatPayNotifyDoParams;
-import cn.whl.payutils.wx.WeChatPayNotifyParams;
-import cn.whl.payutils.wx.WeChatPayOrderParams;
+import cn.whl.payutils.wx.dto.WeChatOutDto;
+import cn.whl.payutils.wx.dto.WeChatPayOrderParams;
 
 /**
  *
@@ -15,7 +12,7 @@ import cn.whl.payutils.wx.WeChatPayOrderParams;
  */
 public class WxPayController {
     
-    static Pay<WeChatParams> pay = new WeChatPay();
+    static Pay<WeChatInDto, WeChatOutDto> pay = new WeChatPay();
     
     public static void main(String[] args){
         payNotify();
@@ -41,12 +38,12 @@ public class WxPayController {
     }
     
     private static void payNotify() {
-        WeChatPayNotifyParams weChatParams = new WeChatPayNotifyParams();
+        WeChatInDto weChatParams = new WeChatInDto();
         weChatParams.setAppId("wx11b764518a486e6b");
         weChatParams.setKey("tangchaokejitangchaokejitangchao");
         weChatParams.setMchId("1469855002");
         
-        Object payOrder = pay.payNotify(weChatParams, (PayNotifyDo<WeChatPayNotifyDoParams>) (WeChatPayNotifyDoParams t) -> {
+        Object payOrder = pay.payNotify(weChatParams, (in)->{
             System.out.println("订单状态修改");
             return null;
         });

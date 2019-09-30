@@ -1,10 +1,10 @@
-package cn.whl.payutils.wx;
+package cn.whl.payutils.wx.dto;
 
 /**
- * 微信支付参数
- * @author Administrator
+ * 微信支付下单传入参数封装
+ * @author wuhailong
  */
-public class WeChatPayOrderParams extends WeChatParams{
+public class WeChatPayOrderParams extends WeChatInDto{
     
     private String unifiedOrderUrl;
     

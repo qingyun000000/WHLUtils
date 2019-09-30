@@ -1,10 +1,12 @@
-package cn.whl.payutils.wx;
+package cn.whl.payutils.wx.dto;
+
+import cn.whl.payutils.interfaces.PayInDto;
 
 /**
- * 微信支付参数
- * @author Administrator
+ * 微信支付传入参数封装
+ * @author wuhailong
  */
-public class WeChatParams {
+public class WeChatInDto implements PayInDto{
     
     private String appId;
     

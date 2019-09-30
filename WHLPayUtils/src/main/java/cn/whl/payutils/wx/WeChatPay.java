@@ -1,8 +1,13 @@
 package cn.whl.payutils.wx;
 
+import cn.whl.payutils.wx.dto.WeChatPayOrderParams;
+import cn.whl.payutils.alipay.dto.AliPayOutDto;
+import cn.whl.payutils.wx.dto.WeChatInDto;
 import cn.whl.payutils.interfaces.Pay;
 import cn.whl.payutils.interfaces.PayNotifyDo;
+import cn.whl.payutils.interfaces.PayOutDto;
 import cn.whl.payutils.utils.HttpUtil;
+import cn.whl.payutils.wx.dto.WeChatOutDto;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -12,15 +17,15 @@ import org.slf4j.LoggerFactory;
 
 /**
  * 微信支付类
- * @author Administrator
+ * @author wuhailong
  */
-public class WeChatPay implements Pay<WeChatParams>{
+public class WeChatPay implements Pay<WeChatInDto, WeChatOutDto>{
     
     //日志输出工具
     private static final Logger LOGGER = LoggerFactory.getLogger(WeChatPay.class);
 
     @Override
-    public Object payOrder(WeChatParams params) {
+    public WeChatOutDto payOrder(WeChatInDto params) {
         WeChatPayOrderParams payOrderParams = (WeChatPayOrderParams) params;
         LOGGER.info("进入微信下单");
         
@@ -56,7 +61,7 @@ public class WeChatPay implements Pay<WeChatParams>{
 
             LOGGER.info("微信支付返回的结果:" + resultMap);
             
-            return resultMap;
+            return new WeChatOutDto();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -66,37 +71,32 @@ public class WeChatPay implements Pay<WeChatParams>{
     }
     
     @Override
-    public Object orderQuery(WeChatParams params) {
+    public WeChatOutDto orderQuery(WeChatInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object payNotify(WeChatParams params, PayNotifyDo payNotifyDo) {
-        //回调解析
-        WeChatPayNotifyParams weChatPayNotifyParams = (WeChatPayNotifyParams) params;
+    public WeChatOutDto payNotify(WeChatInDto params, PayNotifyDo payNotifyDo) {
         
-        //回调后的操作
-        WeChatPayNotifyDoParams chatPayNotifyDoParams = new WeChatPayNotifyDoParams();
-        payNotifyDo.payNotifyDo(chatPayNotifyDoParams);
+        payNotifyDo.payNotifyDo(params);
         
         return null;
     }
 
     @Override
-    public Object refund(WeChatParams params) {
+    public WeChatOutDto refund(WeChatInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object refundNotify(WeChatParams params) {
+    public WeChatOutDto refundNotify(WeChatInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object payByMch(WeChatParams params) {
+    public WeChatOutDto payByMch(WeChatInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
     
 
    

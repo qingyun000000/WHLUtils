@@ -1,10 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cn.whl.payutils.alipay;
 
+import cn.whl.payutils.alipay.dto.AliPayPayOrderInDto;
+import cn.whl.payutils.alipay.dto.AliPayInDto;
+import cn.whl.payutils.alipay.dto.AliPayOutDto;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
@@ -16,15 +14,15 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- *
- * @author Administrator
+ * 阿里支付
+ * @author wuhailong
  */
-public class AliPay implements Pay<AliPayParams>{
+public class AliPay implements Pay<AliPayInDto, AliPayOutDto>{
 
     @Override
-    public Object payOrder(AliPayParams params) {
+    public AliPayOutDto payOrder(AliPayInDto params) {
         try {
-            AliPayPayOrderParams payOrderParams = (AliPayPayOrderParams) params;
+            AliPayPayOrderInDto payOrderParams = (AliPayPayOrderInDto) params;
             AlipayClient alipayClient = new DefaultAlipayClient(payOrderParams.getServerUrl(),payOrderParams.getAppId(), payOrderParams.getPrivateKey(), payOrderParams.getFormat(), payOrderParams.getCharSet(), payOrderParams.getAlipayPublicKey(), payOrderParams.getSignType());
             AlipayTradeCreateRequest request = new AlipayTradeCreateRequest();
             request.setNotifyUrl(payOrderParams.getNotifyUrl());
@@ -32,7 +30,7 @@ public class AliPay implements Pay<AliPayParams>{
             request.setBizContent(bizContent);
             AlipayTradeCreateResponse response = alipayClient.execute(request);
             if(response.isSuccess()){
-                return response;
+                                                     
             }else{
                 
             }
@@ -44,32 +42,32 @@ public class AliPay implements Pay<AliPayParams>{
     }
 
     @Override
-    public Object orderQuery(AliPayParams params) {
+    public AliPayOutDto orderQuery(AliPayInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object payNotify(AliPayParams params, PayNotifyDo payNotifyDo) {
+    public AliPayOutDto payNotify(AliPayInDto params, PayNotifyDo payNotifyDo) {
         
-        AliPayPayNotifyDoParams aliPayPayNotifyDoParams = new AliPayPayNotifyDoParams();
-        payNotifyDo.payNotifyDo(aliPayPayNotifyDoParams);
+        payNotifyDo.payNotifyDo(params);
         
         return null;
     }
 
     @Override
-    public Object refund(AliPayParams params) {
+    public AliPayOutDto refund(AliPayInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object refundNotify(AliPayParams params) {
+    public AliPayOutDto refundNotify(AliPayInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public Object payByMch(AliPayParams params) {
+    public AliPayOutDto payByMch(AliPayInDto params) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
     
 }
