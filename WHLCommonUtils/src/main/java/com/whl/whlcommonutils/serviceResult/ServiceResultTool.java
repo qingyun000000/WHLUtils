@@ -222,7 +222,6 @@ public class ServiceResultTool {
      * 不带返回值的动作，输入校验
      *
      * @param vs 校验用户输入的策略实现
-     * @param pcs 权限校验的策略实现
      * @param ar 操作的策略实现
      * @return SericeResult
      */

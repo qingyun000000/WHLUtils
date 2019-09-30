@@ -1,5 +1,6 @@
-package com.whl.whlcommonutils.cache;
+package com.whl.whlcommonutils.cache.pool.map;
 
+import com.whl.whlcommonutils.cache.pool.CachePool;
 import java.util.List;
 import java.util.Set;
 

@@ -1,4 +1,6 @@
-package com.whl.whlcommonutils.cache;
+package com.whl.whlcommonutils.cache.factory.map;
+
+import com.whl.whlcommonutils.cache.pool.map.MapCachePool;
 
 /**
  * 工厂接口：生产Map型缓存池

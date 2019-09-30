@@ -1,4 +1,4 @@
-package com.whl.whlcommonutils.cache;
+package com.whl.whlcommonutils.cache.pool;
 
 /**
  * 接口：缓存池

@@ -1,5 +1,6 @@
-package com.whl.whlcommonutils.cache;
+package com.whl.whlcommonutils.cache.pool.map.memory;
 
+import com.whl.whlcommonutils.cache.pool.map.MapCachePool;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
