@@ -1,7 +1,7 @@
 package cn.whl.commonutils.log;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import cn.whl.commonutils.log.log4j.Log4JWriter;
+import cn.whl.commonutils.log.system.SystemOutWriter;
 
 /**
  * 工具类：日志
@@ -9,11 +9,9 @@ import org.slf4j.LoggerFactory;
  */
 public class LoggerTools {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(LoggerTools.class);
+    public static LoggerWrite log4j_write = new Log4JWriter();
     
-    public static LoggerWrite write = (String info) -> {
-        LOGGER.info(info);
-    };
+    public static LoggerWrite sys_write = new SystemOutWriter();
     
 }
 

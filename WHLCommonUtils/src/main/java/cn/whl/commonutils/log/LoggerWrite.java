@@ -10,5 +10,12 @@ public interface LoggerWrite{
      * 基本日志输出
      * @param info 输出信息
      */
-    public void simpleInfo(String info);
+    public void info(String info);
+    
+    public void info(Class clazz, String info);
+    
+    public void error(Exception e);
+    
+    public void error(Class clazz, Exception e);
+    
 }
