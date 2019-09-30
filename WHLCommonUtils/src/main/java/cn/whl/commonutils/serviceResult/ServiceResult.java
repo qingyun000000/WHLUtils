@@ -1,16 +1,12 @@
 package cn.whl.commonutils.serviceResult;
 
+import cn.whl.commonutils.Result;
+
 /**
  * 服务端结果返回
  * @author wuhailong
  */
-public class ServiceResult {
-    
-    //操作是否成功
-    private boolean success;
-    
-    //消息
-    private String message;
+public class ServiceResult extends Result{
     
     //Long类型参数, 用于返回id等信息
     private Long resultId;
@@ -28,24 +24,8 @@ public class ServiceResult {
     private Object data;
 
     public ServiceResult() {
-        success = false;
-        message = "输入参数错了吧，服务器啥也没干，给你返回了一个真空！";
-    }
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+        super.setSuccess(false);
+        super.setMessage("输入参数错了吧，服务器啥也没干，给你返回了一个真空！");
     }
 
     public Long getResultId() {

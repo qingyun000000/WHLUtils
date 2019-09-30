@@ -19,7 +19,7 @@ import javax.imageio.stream.ImageInputStream;
  * 工具类：图片加工工具
  * @author wuhailong
  */
-public class ImageTool {
+public class ImageUpdateTool {
     
     /**
      * 压缩图片

@@ -1,35 +1,17 @@
 package cn.whl.commonutils.verification;
 
+import cn.whl.commonutils.Result;
 import java.util.Map;
 
 /**
- * 封装类：校验结果
+ * 校验结果封装
  * @author wuhailong
  */
-public class VerificationResult {
+public class VerificationResult extends Result{
     
-    private boolean success;
-    
-    private String message;
     
     private Map<String, Object> map;
-
-    public boolean isSuccess() {
-        return success;
-    }
-
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
+    
     public Map<String, Object> getMap() {
         return map;
     }
