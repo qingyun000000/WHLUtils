@@ -13,7 +13,7 @@ import java.security.NoSuchAlgorithmException;
  */
 public class MD5 {
     public static String MD5Encrypt(String input){
-        StringBuffer hexValue = new StringBuffer();
+        StringBuilder hexValue = new StringBuilder();
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
             byte[] bytes = md.digest(input.getBytes("utf-8"));
