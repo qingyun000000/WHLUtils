@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cn.whl.wechatutils.user;
 
 import com.alibaba.fastjson.JSONObject;
@@ -13,7 +8,7 @@ import cn.whl.wechatutils.utils.WxPKCS7Encoder;
 import org.apache.commons.codec.binary.Base64;
 
 /**
- *
+ * 微信用户信息相关工具
  * @author Administrator
  */
 public class WxUserUtil {

@@ -1,13 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cn.whl.wechatutils.domain;
 
 /**
- *
- * @author Administrator
+ * 微信用户信息
+ * @author wuhailong
  */
 public class WxUser {
     private String openid;
