@@ -1,7 +1,6 @@
 package cn.whl.commonutils.sort.method.impl;
 
 import cn.whl.commonutils.sort.method.SortMethod;
-import java.util.Arrays;
 import java.util.List;
 import cn.whl.commonutils.sort.strategy.ISortStrategy;
 
