@@ -1,4 +1,9 @@
-package cn.whl.commonutils.serviceResult;
+package cn.whl.commonutils.service.result;
+
+import cn.whl.commonutils.service.result.strategy.ActionResultStrategy;
+import cn.whl.commonutils.service.result.strategy.ActionStrategy;
+import cn.whl.commonutils.service.result.strategy.PermissionCheckStrategy;
+import cn.whl.commonutils.service.result.strategy.VerificationStrategy;
 
 /**
  * Controller层返回ServiceResult的工具

@@ -1,4 +1,4 @@
-package cn.whl.commonutils.serviceResult;
+package cn.whl.commonutils.service.result.strategy;
 
 /**
  * 抽象策略角色——Controller层校验用户权限的策略

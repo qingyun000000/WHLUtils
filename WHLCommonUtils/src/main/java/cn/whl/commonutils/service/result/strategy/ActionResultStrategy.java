@@ -1,4 +1,4 @@
-package cn.whl.commonutils.serviceResult;
+package cn.whl.commonutils.service.result.strategy;
 
 /**
  * 抽象策略角色——Controller层调用Service层的动作策略，带返回值

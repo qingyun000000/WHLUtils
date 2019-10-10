@@ -1,4 +1,4 @@
-package cn.whl.commonutils.serviceResult;
+package cn.whl.commonutils.service.result;
 
 import cn.whl.commonutils.Result;
 

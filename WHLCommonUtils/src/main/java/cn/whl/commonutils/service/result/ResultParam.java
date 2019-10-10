@@ -1,4 +1,4 @@
-package cn.whl.commonutils.serviceResult;
+package cn.whl.commonutils.service.result;
 
 /**
  * ServiceResult的结果类型枚举
