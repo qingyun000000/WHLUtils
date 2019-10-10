@@ -21,12 +21,12 @@ public class SystemOutWriter implements LoggerWrite {
 
     @Override
     public void error(Exception e) {
-        System.out.println(new Date() + " 错误信息：" + e.getMessage());
+        System.out.println(new Date() + " [*]错误信息：" + e.getMessage());
     }
 
     @Override
     public void error(Class clazz, Exception e) {
-        System.out.println(new Date() + " 类" + clazz.getName() + " 错误信息：" + e.getMessage());
+        System.out.println(new Date() + " 类" + clazz.getName() + " [*]错误信息：" + e.getMessage());
     }
 
 }

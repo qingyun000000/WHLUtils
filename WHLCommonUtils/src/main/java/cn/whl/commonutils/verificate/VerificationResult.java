@@ -1,4 +1,4 @@
-package cn.whl.commonutils.verification;
+package cn.whl.commonutils.verificate;
 
 import cn.whl.commonutils.Result;
 import java.util.Map;
@@ -8,8 +8,7 @@ import java.util.Map;
  * @author wuhailong
  */
 public class VerificationResult extends Result{
-    
-    
+        
     private Map<String, Object> map;
     
     public Map<String, Object> getMap() {

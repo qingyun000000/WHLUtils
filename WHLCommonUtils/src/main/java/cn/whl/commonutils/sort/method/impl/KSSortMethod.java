@@ -3,6 +3,7 @@ package cn.whl.commonutils.sort.method.impl;
 import cn.whl.commonutils.sort.method.SortMethod;
 import cn.whl.commonutils.sort.strategy.ISortStrategy;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 快速排序

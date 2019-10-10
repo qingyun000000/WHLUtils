@@ -2,8 +2,10 @@ package cn.whl.commonutils.sort.method.impl;
 
 import cn.whl.commonutils.sort.method.SortMethod;
 import cn.whl.commonutils.sort.strategy.ISortStrategy;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -15,7 +17,18 @@ public class TreeSetSortMethod implements SortMethod {
 
     @Override
     public <T> void sort(T[] array, ISortStrategy<T> strag) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        List<T> list = new ArrayList<>();
+        
+        for(T t : array){
+            list.add(t);
+        }
+        
+        this.sort(list, strag);
+        
+        int i = 0;
+        for(T t : list){
+            array[i] = t;
+        }
     }
 
     @Override

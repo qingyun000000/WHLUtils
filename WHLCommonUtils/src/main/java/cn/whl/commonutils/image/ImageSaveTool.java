@@ -10,8 +10,26 @@ import java.io.File;
  */
 public class ImageSaveTool {
     
+    /**
+     * 保存图片
+     * @param file
+     * @param path
+     * @param name
+     * @return
+     */
     public static Result saveImage(File file, String path, String name){
-        return FileSaveTool.saveImage(file, path, name);
+        return FileSaveTool.saveFile(file, path, name);
+    }
+    
+    /**
+     * 上传图片到FastDFS
+     * @param file
+     * @param path
+     * @param name
+     * @return
+     */
+    public static Result uploadFileToFastDFS(File file, String path, String name){
+        return FileSaveTool.uploadFileToFastDFS(file, path, name);
     }
     
 }

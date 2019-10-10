@@ -8,6 +8,10 @@ import cn.whl.commonutils.sort.method.SortMethod;
  */
 public interface SortFactory {
     
+    /**
+     * 生成排序方法
+     * @return 
+     */
     public SortMethod createSortMethod();
     
 }

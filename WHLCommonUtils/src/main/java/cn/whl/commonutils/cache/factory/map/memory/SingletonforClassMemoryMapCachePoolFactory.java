@@ -11,9 +11,6 @@ import java.util.Map;
  * 每个类只提供一个缓存池（缓存池唯一，通过工厂为单例模式，且获取工厂和缓存池时均双重判断实现）
  * @author wuhailong
  */
-/* 
- * 0.0.1版：初始版本
- */
 public class SingletonforClassMemoryMapCachePoolFactory implements MapCachePoolFactory{
     
     /**
