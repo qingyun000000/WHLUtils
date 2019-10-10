@@ -30,6 +30,7 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
+                result.setMessage("操作成功");
                 if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
@@ -68,6 +69,7 @@ public class ServiceResultTool {
         try {
             ar.action();
             result.setSuccess(true);
+            result.setMessage("操作成功");
         } catch (Exception ex) {
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
@@ -106,6 +108,7 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
+                result.setMessage("操作成功");
                 if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
@@ -157,6 +160,7 @@ public class ServiceResultTool {
         try {
             ar.action();
             result.setSuccess(true);
+            result.setMessage("操作成功");
         } catch (Exception ex) {
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
@@ -194,6 +198,7 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
+                result.setMessage("操作成功");
                 if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
@@ -243,6 +248,7 @@ public class ServiceResultTool {
         try {
             ar.action();
             result.setSuccess(true);
+            result.setMessage("操作成功");
         } catch (Exception ex) {
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
@@ -291,6 +297,7 @@ public class ServiceResultTool {
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
+                result.setMessage("操作成功");
                 if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
                 }
@@ -353,6 +360,7 @@ public class ServiceResultTool {
         try {
             ar.action();
             result.setSuccess(true);
+            result.setMessage("操作成功");
         } catch (Exception ex) {
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
