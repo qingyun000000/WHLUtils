@@ -1,7 +1,7 @@
 package cn.whl.commonutils.image;
 
 import cn.whl.commonutils.Result;
-import cn.whl.commonutils.file.FileSaveTool;
+import cn.whl.commonutils.file.common.FileSaveTool;
 import java.io.File;
 
 /**

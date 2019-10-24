@@ -15,7 +15,7 @@ import java.util.TreeMap;
 public class StringTool {
     
     /**
-     * 判断两个字符串有多少个字符相等
+     * 判断两个字符串有多少个字符相同
      * @param stringOne
      * @param stringTwo
      * @return
@@ -25,27 +25,31 @@ public class StringTool {
         String[] splitTwo = stringTwo.split("");
         
         //正向比
-        int sameCount1 = 0;
-        Set<String> set = new HashSet<>();
-        set.addAll(Arrays.asList(splitOne));
-        for(String str2 : splitTwo){
-            if(set.contains(str2)){
-                sameCount1++;
-            }
-        }
+        int sameCount1 = getSameCharCountSingle(splitOne, splitTwo);
         
         //反向比
-        int sameCount2 = 0;
-        Set<String> set2 = new HashSet<>();
-        set2.addAll(Arrays.asList(splitTwo));
-        for(String str2 : splitOne){
-            if(set2.contains(str2)){
-                sameCount2++;
-            }
-        }
+        int sameCount2 = getSameCharCountSingle(splitTwo, splitOne);
         
         //返回较大的值
         return sameCount1 > sameCount2 ? sameCount1 : sameCount2;
+    }
+    
+    /**
+     * two中有多少个字符是one中出现过的。
+     * @param one
+     * @param two
+     * @return 
+     */
+    private static int getSameCharCountSingle(String[] one, String[] two){
+        int sameCount = 0;
+        Set<String> set = new HashSet<>();
+        set.addAll(Arrays.asList(one));
+        for(String str2 : two){
+            if(set.contains(str2)){
+                sameCount++;
+            }
+        }
+        return sameCount;
     }
     
     /**
@@ -57,12 +61,36 @@ public class StringTool {
      * @return
      */
     public static <T>  List<T> OrderByKeywordsDesc(List<T> list, String keyword, GetParamInterface<T> gpi) {
+        return OrderByKeywordsDesc(1.0/3, list, keyword, gpi);
+    }
+    
+    /**
+     * 按照属性值和关键字匹配字符数降序排列，不到关键字长度指定长度比例或者字符数的结果抛弃
+     * @param <T>
+     * @param list
+     * @param keyword
+     * @param gpi
+     * @return
+     */
+    public static <T>  List<T> OrderByKeywordsDesc(double length, List<T> list, String keyword, GetParamInterface<T> gpi) {
+        
+        int len = 0;
+        
+        if(length <= 0){
+            len = 1;
+            length = 1.0 / 3;
+        }else if(length < 1){
+            len = 1;
+        }else if(length >= 1){
+            len = Math.min((int)length, keyword.length());
+        }
+        
         //TreeMap,按照key值从大到小排序
         Map<Integer,List<T>> map = new TreeMap<>((Integer o1, Integer o2) -> o2 - o1);
         for(T t : list){
             
             int sameCharCount = getSameCharCount(keyword, gpi.GetParam(t));
-            if(sameCharCount == 0 || sameCharCount < keyword.length() / 3){
+            if(sameCharCount <= len || sameCharCount < keyword.length() * length){
                 continue;
             }
             

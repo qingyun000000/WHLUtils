@@ -6,6 +6,5 @@ package cn.whl.commonutils.file.xml;
  */
 public class XMLTool {
     
-   
-    
+     
 }

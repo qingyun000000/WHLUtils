@@ -1,4 +1,4 @@
-package cn.whl.commonutils.file;
+package cn.whl.commonutils.file.common;
 
 import cn.whl.commonutils.Result;
 import java.io.File;
