@@ -1,38 +1,28 @@
 package cn.whl.commonutils.cache.pool.map;
 
 import cn.whl.commonutils.cache.pool.CachePool;
-import java.util.List;
 import java.util.Set;
 
 /**
  * 接口：Map型缓存池，泛型，继承CachePool
  * @author wuhailong
- * @param <T> 存入的List的数据类型
+ * @param <T> 数据类型
  */
 public interface MapCachePool <T> extends CachePool{
     
     /**
      * 放入元素（列表型）
      * @param key  Map的Key
-     * @param list  Map的Value，泛型类的列表
+     * @param t 泛型对象
      */
-    public void put(String key, List<T> list);
+    public void put(String key, T t);
     
     /**
-     * 分段取出，取出Map的一个Value(列表）中的一段
+     * 取出元素
      * @param key   Map的Key
-     * @param start  开始位置下标
-     * @param count  段长的长度（取出元素的数量）
      * @return  子列表
      */
-    public List<T> getByStartAndCount(String key, int start, int count);
-    
-    
-    /**
-     * 清空
-     */
-    @Override
-    public void clear();
+    public T getValue(String key);
     
     /**
      * 判断是否存在Key
@@ -40,13 +30,6 @@ public interface MapCachePool <T> extends CachePool{
      * @return  是否存在
      */
     public Boolean containsKey(String key);
-    
-    /**
-     * 获取Key对应的List长度
-     * @param key Map的Key
-     * @return  对应Value(列表）的size
-     */
-    public int listSize(String key);
     
     /**
      * 清除Key对应的记录

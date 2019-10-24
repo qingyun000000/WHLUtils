@@ -1,11 +1,13 @@
 package cn.whl.commonutils.cache.pool.map.memory;
 
-import cn.whl.commonutils.cache.pool.map.MapCachePool;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
+import cn.whl.commonutils.cache.pool.map.MapListCachePool;
 
 /**
  * 使用主存保存数据的Map型缓存池，泛型，实现MapCachePool
@@ -15,12 +17,12 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /*
 * 0.0.1版：初始版本
 */
-public class MemoryMapCachePool <T> implements MapCachePool<T>{
+public class MemoryMapListCachePool <T> implements MapListCachePool<T>{
     
     /**
      * 主存Map
      */
-    private final Map<String, T> map = new HashMap<>();
+    private final Map<String, List<T>> map = new HashMap<>();
     
     /**
      * 读写锁
@@ -30,15 +32,41 @@ public class MemoryMapCachePool <T> implements MapCachePool<T>{
     /**
      * 放入元素（列表型）
      * @param key  Map的Key
-     * @param t mapValue
+     * @param list  Map的Value，泛型类的列表
      */
     @Override
-    public void put(String key, T value){
+    public void put(String key, List<T> list){
         lock.writeLock().lock();
         try {
-            map.put(key, value);
+            map.put(key, list);
         } finally {
             lock.writeLock().unlock();
+        }
+    }
+    
+    /**
+     * 分段取出，取出Map的一个Value(列表）中的一段
+     * @param key   Map的Key
+     * @param start  开始位置下标
+     * @param count  段长的长度（取出元素的数量）
+     * @return  子列表
+     */
+    @Override
+    public List<T> getByStartAndCount(String key, int start, int count){
+        lock.readLock().lock();
+        try {
+            List<T> list = map.get(key);
+            int size = list.size();
+            List<T> get = new ArrayList<>();
+            
+            for(int i = 0; i < count && i < size - start; i++){
+                T t = list.get(start + i);
+                get.add(t);
+            }
+            
+            return get;
+        } finally {
+            lock.readLock().unlock();
         }
     }
     
@@ -66,6 +94,21 @@ public class MemoryMapCachePool <T> implements MapCachePool<T>{
         lock.readLock().lock();
         try {
             return map.containsKey(key);
+        } finally {
+            lock.readLock().unlock();
+        }
+    }
+    
+    /**
+     * 获取Key对应的List长度
+     * @param key Map的Key
+     * @return  对应Value(列表）的size
+     */
+    @Override
+    public int listSize(String key){
+        lock.readLock().lock();
+        try {
+            return map.get(key).size();
         } finally {
             lock.readLock().unlock();
         }
@@ -105,7 +148,7 @@ public class MemoryMapCachePool <T> implements MapCachePool<T>{
     }
 
     @Override
-    public T getValue(String key) {
+    public List<T> getValue(String key) {
         lock.writeLock().lock();
         try {
             return map.get(key);
