@@ -31,22 +31,19 @@ public class ServiceResultTool {
             } else {
                 result.setSuccess(true);
                 result.setMessage("操作成功");
-                if (ResultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.Bool.equals(resultParam)) {
+                    result.setBeTrue((Boolean) actionResult);
+                }else if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
-                }
-                if (ResultParam.Name.equals(resultParam)) {
+                }else if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
-                }
-                if (ResultParam.Message.equals(resultParam)) {
+                }else if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
-                }
-                if (ResultParam.IntValue.equals(resultParam)) {
+                }else if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
-                }
-                if (ResultParam.Url.equals(resultParam)) {
+                }else if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
-                }
-                if (ResultParam.Data.equals(resultParam)) {
+                }else if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }
@@ -109,22 +106,19 @@ public class ServiceResultTool {
             } else {
                 result.setSuccess(true);
                 result.setMessage("操作成功");
-                if (ResultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.Bool.equals(resultParam)) {
+                    result.setBeTrue((Boolean) actionResult);
+                }else if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
-                }
-                if (ResultParam.Name.equals(resultParam)) {
+                }else if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
-                }
-                if (ResultParam.Message.equals(resultParam)) {
+                }else if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
-                }
-                if (ResultParam.IntValue.equals(resultParam)) {
+                }else if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
-                }
-                if (ResultParam.Url.equals(resultParam)) {
+                }else if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
-                }
-                if (ResultParam.Data.equals(resultParam)) {
+                }else if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }
@@ -199,22 +193,19 @@ public class ServiceResultTool {
             } else {
                 result.setSuccess(true);
                 result.setMessage("操作成功");
-                if (ResultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.Bool.equals(resultParam)) {
+                    result.setBeTrue((Boolean) actionResult);
+                }else if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
-                }
-                if (ResultParam.Name.equals(resultParam)) {
+                }else if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
-                }
-                if (ResultParam.Message.equals(resultParam)) {
+                }else if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
-                }
-                if (ResultParam.IntValue.equals(resultParam)) {
+                }else if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
-                }
-                if (ResultParam.Url.equals(resultParam)) {
+                }else if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
-                }
-                if (ResultParam.Data.equals(resultParam)) {
+                }else if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }
@@ -298,22 +289,19 @@ public class ServiceResultTool {
             } else {
                 result.setSuccess(true);
                 result.setMessage("操作成功");
-                if (ResultParam.ResultId.equals(resultParam)) {
+                if (ResultParam.Bool.equals(resultParam)) {
+                    result.setBeTrue((Boolean) actionResult);
+                }else if (ResultParam.ResultId.equals(resultParam)) {
                     result.setResultId((Long) actionResult);
-                }
-                if (ResultParam.Name.equals(resultParam)) {
+                }else if (ResultParam.Name.equals(resultParam)) {
                     result.setName((String) actionResult);
-                }
-                if (ResultParam.Message.equals(resultParam)) {
+                }else if (ResultParam.Message.equals(resultParam)) {
                     result.setMessage((String) actionResult);
-                }
-                if (ResultParam.IntValue.equals(resultParam)) {
+                }else if (ResultParam.IntValue.equals(resultParam)) {
                     result.setIntValue((Integer) actionResult);
-                }
-                if (ResultParam.Url.equals(resultParam)) {
+                }else if (ResultParam.Url.equals(resultParam)) {
                     result.setUrl((String) actionResult);
-                }
-                if (ResultParam.Data.equals(resultParam)) {
+                }else if (ResultParam.Data.equals(resultParam)) {
                     result.setData(actionResult);
                 }
             }

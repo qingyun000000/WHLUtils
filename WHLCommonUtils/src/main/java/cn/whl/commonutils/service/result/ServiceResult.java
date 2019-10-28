@@ -8,6 +8,9 @@ import cn.whl.commonutils.Result;
  */
 public class ServiceResult extends Result{
     
+    //Boolean类型参数, 用于返回Boolean值
+    private Boolean beTrue;
+    
     //Long类型参数, 用于返回id等信息
     private Long resultId;
     
@@ -67,6 +70,13 @@ public class ServiceResult extends Result{
     public void setData(Object data) {
         this.data = data;
     }
-    
+
+    public Boolean getBeTrue() {
+        return beTrue;
+    }
+
+    public void setBeTrue(Boolean beTrue) {
+        this.beTrue = beTrue;
+    }
     
 }

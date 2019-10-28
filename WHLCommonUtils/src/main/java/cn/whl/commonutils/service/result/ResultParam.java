@@ -5,7 +5,7 @@ package cn.whl.commonutils.service.result;
  * @author wuhailong
  */
 public enum ResultParam {
-    
+    Bool,         //结果， Boolean
     Message,      //消息， String
     ResultId,     //结果id， Long
     IntValue,     //值，  int
