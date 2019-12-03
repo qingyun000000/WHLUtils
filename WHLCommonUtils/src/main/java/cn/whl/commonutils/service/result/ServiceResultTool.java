@@ -1,5 +1,6 @@
 package cn.whl.commonutils.service.result;
 
+import cn.whl.commonutils.exception.CommonException;
 import cn.whl.commonutils.service.result.strategy.ActionResultStrategy;
 import cn.whl.commonutils.service.result.strategy.ActionStrategy;
 import cn.whl.commonutils.service.result.strategy.PermissionCheckStrategy;
@@ -27,6 +28,7 @@ public class ServiceResultTool {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 result.setSuccess(false);
+                result.setExceptionCode("<NULL>");
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
@@ -47,8 +49,13 @@ public class ServiceResultTool {
                     result.setData(actionResult);
                 }
             }
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
         return result;
@@ -67,8 +74,13 @@ public class ServiceResultTool {
             ar.action();
             result.setSuccess(true);
             result.setMessage("操作成功");
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
         return result;
@@ -102,6 +114,7 @@ public class ServiceResultTool {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 result.setSuccess(false);
+                result.setExceptionCode("<NULL>");
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
@@ -122,8 +135,13 @@ public class ServiceResultTool {
                     result.setData(actionResult);
                 }
             }
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
         return result;
@@ -155,8 +173,13 @@ public class ServiceResultTool {
             ar.action();
             result.setSuccess(true);
             result.setMessage("操作成功");
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
         return result;
@@ -178,10 +201,14 @@ public class ServiceResultTool {
         //输入校验
         try {
             vs.verification();
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
+            return result;
         } catch (Exception ex) {
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
-
             return result;
         }
 
@@ -189,6 +216,7 @@ public class ServiceResultTool {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 result.setSuccess(false);
+                result.setExceptionCode("<NULL>");
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
@@ -209,8 +237,13 @@ public class ServiceResultTool {
                     result.setData(actionResult);
                 }
             }
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
         return result;
@@ -229,10 +262,14 @@ public class ServiceResultTool {
         //输入校验
         try {
             vs.verification();
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
+            return result;
         } catch (Exception ex) {
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
-
             return result;
         }
 
@@ -240,8 +277,13 @@ public class ServiceResultTool {
             ar.action();
             result.setSuccess(true);
             result.setMessage("操作成功");
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
         return result;
@@ -263,10 +305,15 @@ public class ServiceResultTool {
         //输入校验
         try {
             vs.verification();
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
+            return result;
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
-
             return result;
         }
 
@@ -276,6 +323,7 @@ public class ServiceResultTool {
         if (!verResult) {
             //权限校验未通过
             result.setSuccess(false);
+            result.setExceptionCode("<NOPOWER>");
             result.setMessage("不具备权限进行此操作");
 
             return result;
@@ -285,6 +333,7 @@ public class ServiceResultTool {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 result.setSuccess(false);
+                result.setExceptionCode("<NULL>");
                 result.setMessage("运行结果为空");
             } else {
                 result.setSuccess(true);
@@ -305,10 +354,16 @@ public class ServiceResultTool {
                     result.setData(actionResult);
                 }
             }
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
+        
         return result;
     }
 
@@ -326,10 +381,15 @@ public class ServiceResultTool {
         //输入校验
         try {
             vs.verification();
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
+            return result;
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
-
             return result;
         }
 
@@ -340,6 +400,7 @@ public class ServiceResultTool {
         if (!verResult) {
             //校验未通过
             result.setSuccess(false);
+            result.setExceptionCode("<NOPOWER>");
             result.setMessage("不具备权限进行此操作");
 
             return result;
@@ -349,10 +410,16 @@ public class ServiceResultTool {
             ar.action();
             result.setSuccess(true);
             result.setMessage("操作成功");
+        } catch (CommonException ex) {
+            result.setSuccess(false);
+            result.setExceptionCode(ex.getCODE());
+            result.setMessage(ex.exceptionOut());
         } catch (Exception ex) {
             result.setSuccess(false);
+            result.setExceptionCode("COMMONEXP");
             result.setMessage(ex.getMessage());
         }
+        
         return result;
     }
 

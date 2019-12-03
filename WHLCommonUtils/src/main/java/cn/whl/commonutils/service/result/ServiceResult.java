@@ -25,6 +25,8 @@ public class ServiceResult extends Result{
     
     //返回对象数据
     private Object data;
+    
+    private String exceptionCode;
 
     public ServiceResult() {
         super.setSuccess(false);
@@ -77,6 +79,14 @@ public class ServiceResult extends Result{
 
     public void setBeTrue(Boolean beTrue) {
         this.beTrue = beTrue;
+    }
+
+    public String getExceptionCode() {
+        return exceptionCode;
+    }
+
+    public void setExceptionCode(String exceptionCode) {
+        this.exceptionCode = exceptionCode;
     }
     
 }
