@@ -2,13 +2,13 @@ package cn.whl.commonutils.exception;
 
 /**
  * 空异常
- * @createTime 20191129
- * @updateTime 20191129
+ * @createTime 2019-11-29
+ * @updateTime 2019-11-29
  * @author wuhailong
  */
 public class NullException extends CommonException{
     
-    private final String CODE = "NULL";
+    private static final String CODE = "NULL";
 
     public NullException() {
     }
@@ -28,7 +28,7 @@ public class NullException extends CommonException{
     
     @Override
     public String exceptionOut(){
-        return "[" + this.getMessage() + "]为空值";
+        return "[" + this.getMessage() + "] 为空值";
     }
     
     

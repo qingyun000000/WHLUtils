@@ -2,13 +2,13 @@ package cn.whl.commonutils.exception;
 
 /**
  * 通用异常
- * @createTime 20191129
- * @updateTime 20191129
+ * @createTime 2019-11-29
+ * @updateTime 2019-11-29
  * @author wuhailong
  */
 public class CommonException extends Exception{
     
-    private final String CODE = "COMMONEXP";
+    private static final String CODE = "COMMONEXP";
 
     public CommonException() {
     }
@@ -26,7 +26,7 @@ public class CommonException extends Exception{
     }
     
     public String exceptionOut(){
-        return "通用异常：[" + this.getMessage() + "]";
+        return "通用异常 [" + this.getMessage() + "]";
     }
     
 }
