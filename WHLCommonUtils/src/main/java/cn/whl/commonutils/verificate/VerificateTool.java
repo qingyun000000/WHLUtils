@@ -142,4 +142,11 @@ public class VerificateTool {
         return false;
     }
     
+    public static boolean existAndGreaterThanZero(Long num){
+        if(num == null || num <= 0 ){
+            return false;
+        }
+        return false;
+    }
+    
 }
