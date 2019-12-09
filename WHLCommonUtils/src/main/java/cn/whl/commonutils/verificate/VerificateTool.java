@@ -143,8 +143,8 @@ public class VerificateTool {
     }
     
     public static boolean existAndGreaterThanZero(Long num){
-        if(num == null || num <= 0 ){
-            return false;
+        if(num != null && num > 0 ){
+            return true;
         }
         return false;
     }
