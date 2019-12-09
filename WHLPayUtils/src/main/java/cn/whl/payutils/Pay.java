@@ -1,4 +1,6 @@
-package cn.whl.payutils.interfaces;
+package cn.whl.payutils;
+
+import cn.whl.payutils.strategy.PayNotifyDo;
 
 /**
  * 支付接口

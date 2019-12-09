@@ -1,11 +1,11 @@
 package cn.whl.payutils.wx;
 
-import cn.whl.payutils.wx.dto.WeChatPayOrderParams;
+import cn.whl.payutils.wx.dto.WeChatPayOrderInDto;
 import cn.whl.payutils.alipay.dto.AliPayOutDto;
 import cn.whl.payutils.wx.dto.WeChatInDto;
-import cn.whl.payutils.interfaces.Pay;
-import cn.whl.payutils.interfaces.PayNotifyDo;
-import cn.whl.payutils.interfaces.PayOutDto;
+import cn.whl.payutils.Pay;
+import cn.whl.payutils.PayOutDto;
+import cn.whl.payutils.strategy.PayNotifyDo;
 import cn.whl.payutils.utils.HttpUtil;
 import cn.whl.payutils.wx.dto.WeChatOutDto;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class WeChatPay implements Pay<WeChatInDto, WeChatOutDto>{
 
     @Override
     public WeChatOutDto payOrder(WeChatInDto params) {
-        WeChatPayOrderParams payOrderParams = (WeChatPayOrderParams) params;
+        WeChatPayOrderInDto payOrderParams = (WeChatPayOrderInDto) params;
         LOGGER.info("进入微信下单");
         
         String url = payOrderParams.getUnifiedOrderUrl();

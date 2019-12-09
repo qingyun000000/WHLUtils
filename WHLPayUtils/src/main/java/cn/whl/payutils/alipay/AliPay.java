@@ -8,8 +8,8 @@ import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.request.AlipayTradeCreateRequest;
 import com.alipay.api.response.AlipayTradeCreateResponse;
-import cn.whl.payutils.interfaces.Pay;
-import cn.whl.payutils.interfaces.PayNotifyDo;
+import cn.whl.payutils.Pay;
+import cn.whl.payutils.strategy.PayNotifyDo;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.dto;
 
-import cn.whl.payutils.interfaces.PayInDto;
+import cn.whl.payutils.PayInDto;
 
 /**
  * 微信支付传入参数封装

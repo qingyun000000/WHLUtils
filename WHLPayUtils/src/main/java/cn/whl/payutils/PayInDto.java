@@ -1,4 +1,4 @@
-package cn.whl.payutils.interfaces;
+package cn.whl.payutils;
 
 /**
  * Pay类传入参数封装

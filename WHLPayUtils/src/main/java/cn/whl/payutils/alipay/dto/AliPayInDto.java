@@ -1,6 +1,6 @@
 package cn.whl.payutils.alipay.dto;
 
-import cn.whl.payutils.interfaces.PayInDto;
+import cn.whl.payutils.PayInDto;
 
 /**
  * 阿里支付传入参数封装

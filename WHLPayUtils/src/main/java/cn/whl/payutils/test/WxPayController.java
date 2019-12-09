@@ -1,10 +1,10 @@
-package cn.whl.payutils.Test;
+package cn.whl.payutils.test;
 
-import cn.whl.payutils.interfaces.Pay;
+import cn.whl.payutils.Pay;
 import cn.whl.payutils.wx.dto.WeChatInDto;
 import cn.whl.payutils.wx.WeChatPay;
 import cn.whl.payutils.wx.dto.WeChatOutDto;
-import cn.whl.payutils.wx.dto.WeChatPayOrderParams;
+import cn.whl.payutils.wx.dto.WeChatPayOrderInDto;
 
 /**
  *
@@ -19,7 +19,7 @@ public class WxPayController {
     }
 
     private static void payOrder() {
-        WeChatPayOrderParams weChatParams = new WeChatPayOrderParams();
+        WeChatPayOrderInDto weChatParams = new WeChatPayOrderInDto();
         weChatParams.setAppId("wx11b764518a486e6b");
         weChatParams.setBody("sde");
         weChatParams.setDeviceInfo("weew");

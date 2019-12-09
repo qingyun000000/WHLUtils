@@ -1,4 +1,6 @@
-package cn.whl.payutils.interfaces;
+package cn.whl.payutils.strategy;
+
+import cn.whl.payutils.PayInDto;
 
 /**
  * 支付回调策略
