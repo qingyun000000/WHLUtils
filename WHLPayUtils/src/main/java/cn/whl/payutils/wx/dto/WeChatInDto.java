@@ -6,7 +6,7 @@ import cn.whl.payutils.PayInDto;
  * 微信支付传入参数封装
  * @author wuhailong
  */
-public class WeChatInDto implements PayInDto{
+public class WeChatInDto {
     
     private String appId;
     

@@ -1,12 +1,10 @@
 package cn.whl.payutils.alipay.dto;
 
-import cn.whl.payutils.PayInDto;
-
 /**
- * 阿里支付传入参数封装
+ * 阿里支付下单传入参数封装
  * @author wuhailong
  */
-public class AliPayInDto implements PayInDto{
+public class AliPayInDto{
     
     private String serverUrl;
     
@@ -23,7 +21,9 @@ public class AliPayInDto implements PayInDto{
     private String signType = "RSA2";
     
     private String notifyUrl;
-
+    
+    private String returnUrl;
+    
     public String getServerUrl() {
         return serverUrl;
     }
@@ -87,7 +87,14 @@ public class AliPayInDto implements PayInDto{
     public void setNotifyUrl(String notifyUrl) {
         this.notifyUrl = notifyUrl;
     }
-    
+
+    public String getReturnUrl() {
+        return returnUrl;
+    }
+
+    public void setReturnUrl(String returnUrl) {
+        this.returnUrl = returnUrl;
+    }
     
     
 }
