@@ -78,7 +78,9 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayRefundOutDto refund(AliPayRefundInDto refundParams) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AliPayRefundOutDto out = AliPayRefundTool.refund(refundParams);
+        
+        return out;
     }
 
     @Override
@@ -88,7 +90,9 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayRefundQueryOutDto refundQuery(AliPayRefundQueryInDto refundQueryParams) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AliPayRefundQueryOutDto out = AliPayRefundTool.query(refundQueryParams);
+        
+        return out;
     }
 
     @Override

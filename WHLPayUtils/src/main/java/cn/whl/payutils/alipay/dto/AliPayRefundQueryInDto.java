@@ -49,9 +49,9 @@ public class AliPayRefundQueryInDto extends AliPayInDto implements PayInDto{
     
     private String outTradeNo;   //与outTradeNo二选一， 商户网站唯一订单号
     
-    private String orgPid;       //仅银行间联模式，收单机构pid
+    private String outRequestNo;   //退款请求试传入的退款请求号，如果未填则为创建交易时的外部交易号outTradeNo
     
-    private List<String> queryOptions;  //查询选项，定制查询返回信息
+    private String orgPid;       //仅银行间联模式，收单机构pid\
 
     public String getTradeNo() {
         return tradeNo;
@@ -69,6 +69,14 @@ public class AliPayRefundQueryInDto extends AliPayInDto implements PayInDto{
         this.outTradeNo = outTradeNo;
     }
 
+    public String getOutRequestNo() {
+        return outRequestNo;
+    }
+
+    public void setOutRequestNo(String outRequestNo) {
+        this.outRequestNo = outRequestNo;
+    }
+
     public String getOrgPid() {
         return orgPid;
     }
@@ -76,13 +84,4 @@ public class AliPayRefundQueryInDto extends AliPayInDto implements PayInDto{
     public void setOrgPid(String orgPid) {
         this.orgPid = orgPid;
     }
-
-    public List<String> getQueryOptions() {
-        return queryOptions;
-    }
-
-    public void setQueryOptions(List<String> queryOptions) {
-        this.queryOptions = queryOptions;
-    }
-    
 }

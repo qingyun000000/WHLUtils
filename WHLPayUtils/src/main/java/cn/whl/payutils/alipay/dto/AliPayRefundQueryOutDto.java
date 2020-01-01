@@ -3,6 +3,7 @@ package cn.whl.payutils.alipay.dto;
 import cn.whl.payutils.PayOutDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
+import com.alipay.api.domain.RefundRoyaltyResult;
 import com.alipay.api.domain.TradeFundBill;
 import com.alipay.api.domain.TradeSettleInfo;
 import java.math.BigDecimal;
@@ -44,69 +45,29 @@ public class AliPayRefundQueryOutDto extends AliPayOutDto implements PayOutDto{
      
     private String tradeNo;                    //支付宝系统交易流水号
     
-    private String subject;                    //订单标题
+    private String outRequestNo;               //退款请求号
     
-    private String body;                       //订单描述
+    private String refundReason;               //退款原因
     
-    private String buyerLogonId;               //买家支付宝账号
+    private BigDecimal totalAmount;            //订单金额
     
-    private String buyerUserType;              //买家用户类型
+    private BigDecimal refundAmount;           //退款金额
     
-    private String buyerUserId;                //买家支付宝用户Id
+    private List<RefundRoyaltyResult> refundRoyaltys;    //退分帐明细
     
-    private String buyerUserName;              //买家名称
+    private Date gmtRefundPay;      //退款支付时间
     
-    private String tradeStatus;    //交易状态
+    private List<TradeFundBill> refundDetailItemList;      //退款使用的资金渠道
     
-    private BigDecimal totalAmount;    //订单金额
+    private BigDecimal sendBackFee;                //本次商户实际退回金额
     
-    private String transCurrency;      //标价币种
+    private String refundSettlementId;   //退款清算编号
     
-    private String settleCurrency;     //结算币种
+    private BigDecimal presentRefundBuyerAmount;       //买家收到的退款金额
     
-    private BigDecimal settleAmount;       //结算币种订单金额
+    private BigDecimal presentRefundDiscountAmount;    //平台优惠退款金额
     
-    private String payCurrency;        //订单支付币种
-    
-    private BigDecimal payAmount;          //订单支付币种金额
-    
-    private double settleTransRate;        //结算币种兑换标价币种汇率
-    
-    private double transPayRate;          //标价币种兑换支付币种汇率
-    
-    private BigDecimal buyerPayAmount;      //买家实际支付金额
-    
-    private BigDecimal receiptAmount;       //卖家实收金额
-    
-    private BigDecimal mdiscountAmount;       //商家优惠金额
-    
-    private BigDecimal discountAmount;         //平台优惠金额
-    
-    private BigDecimal pointAmount;         //积分支付的金额
-    
-    private BigDecimal invoiceAmount;        //可开票金额
-    
-    private Date sendPayDate;              //交易贷款给卖家时间
-    
-    private String storeId;               //卖家门店编号
-    
-    private String storeName;             //商户店铺名
-    
-    private String terminalId;            //终端编号
-    
-    private List<TradeFundBill> fundBillList;     //支付使用的资金渠道
-    
-    private String chargeFlags;           //费率活动标识
-    
-    private String settlementId;          //支付清算编号，仅银行间联交易返回
-    
-    private TradeSettleInfo tradeSettleInfo;      //交易结算信息
-    
-    private String authTradePayMode;           //预授权支付模式
-    
-    private String alipaySubMerchantId;         //间连商户编号
-    
-    private String extInfos;                   //额外信息
+    private BigDecimal presentRefundMdiscountAmount;   //商家优惠退款金额
 
     public String getOutTradeNo() {
         return outTradeNo;
@@ -124,60 +85,20 @@ public class AliPayRefundQueryOutDto extends AliPayOutDto implements PayOutDto{
         this.tradeNo = tradeNo;
     }
 
-    public String getSubject() {
-        return subject;
+    public String getOutRequestNo() {
+        return outRequestNo;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setOutRequestNo(String outRequestNo) {
+        this.outRequestNo = outRequestNo;
     }
 
-    public String getBody() {
-        return body;
+    public String getRefundReason() {
+        return refundReason;
     }
 
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getBuyerLogonId() {
-        return buyerLogonId;
-    }
-
-    public void setBuyerLogonId(String buyerLogonId) {
-        this.buyerLogonId = buyerLogonId;
-    }
-
-    public String getBuyerUserType() {
-        return buyerUserType;
-    }
-
-    public void setBuyerUserType(String buyerUserType) {
-        this.buyerUserType = buyerUserType;
-    }
-
-    public String getBuyerUserId() {
-        return buyerUserId;
-    }
-
-    public void setBuyerUserId(String buyerUserId) {
-        this.buyerUserId = buyerUserId;
-    }
-
-    public String getBuyerUserName() {
-        return buyerUserName;
-    }
-
-    public void setBuyerUserName(String buyerUserName) {
-        this.buyerUserName = buyerUserName;
-    }
-
-    public String getTradeStatus() {
-        return tradeStatus;
-    }
-
-    public void setTradeStatus(String tradeStatus) {
-        this.tradeStatus = tradeStatus;
+    public void setRefundReason(String refundReason) {
+        this.refundReason = refundReason;
     }
 
     public BigDecimal getTotalAmount() {
@@ -188,196 +109,76 @@ public class AliPayRefundQueryOutDto extends AliPayOutDto implements PayOutDto{
         this.totalAmount = totalAmount;
     }
 
-    public String getTransCurrency() {
-        return transCurrency;
+    public BigDecimal getRefundAmount() {
+        return refundAmount;
     }
 
-    public void setTransCurrency(String transCurrency) {
-        this.transCurrency = transCurrency;
+    public void setRefundAmount(BigDecimal refundAmount) {
+        this.refundAmount = refundAmount;
     }
 
-    public String getSettleCurrency() {
-        return settleCurrency;
+    public List<RefundRoyaltyResult> getRefundRoyaltys() {
+        return refundRoyaltys;
     }
 
-    public void setSettleCurrency(String settleCurrency) {
-        this.settleCurrency = settleCurrency;
+    public void setRefundRoyaltys(List<RefundRoyaltyResult> refundRoyaltys) {
+        this.refundRoyaltys = refundRoyaltys;
     }
 
-    public BigDecimal getSettleAmount() {
-        return settleAmount;
+    public Date getGmtRefundPay() {
+        return gmtRefundPay;
     }
 
-    public void setSettleAmount(BigDecimal settleAmount) {
-        this.settleAmount = settleAmount;
+    public void setGmtRefundPay(Date gmtRefundPay) {
+        this.gmtRefundPay = gmtRefundPay;
     }
 
-    public String getPayCurrency() {
-        return payCurrency;
+    public List<TradeFundBill> getRefundDetailItemList() {
+        return refundDetailItemList;
     }
 
-    public void setPayCurrency(String payCurrency) {
-        this.payCurrency = payCurrency;
+    public void setRefundDetailItemList(List<TradeFundBill> refundDetailItemList) {
+        this.refundDetailItemList = refundDetailItemList;
     }
 
-    public BigDecimal getPayAmount() {
-        return payAmount;
+    public BigDecimal getSendBackFee() {
+        return sendBackFee;
     }
 
-    public void setPayAmount(BigDecimal payAmount) {
-        this.payAmount = payAmount;
+    public void setSendBackFee(BigDecimal sendBackFee) {
+        this.sendBackFee = sendBackFee;
     }
 
-    public double getSettleTransRate() {
-        return settleTransRate;
+    public String getRefundSettlementId() {
+        return refundSettlementId;
     }
 
-    public void setSettleTransRate(double settleTransRate) {
-        this.settleTransRate = settleTransRate;
+    public void setRefundSettlementId(String refundSettlementId) {
+        this.refundSettlementId = refundSettlementId;
     }
 
-    public double getTransPayRate() {
-        return transPayRate;
+    public BigDecimal getPresentRefundBuyerAmount() {
+        return presentRefundBuyerAmount;
     }
 
-    public void setTransPayRate(double transPayRate) {
-        this.transPayRate = transPayRate;
+    public void setPresentRefundBuyerAmount(BigDecimal presentRefundBuyerAmount) {
+        this.presentRefundBuyerAmount = presentRefundBuyerAmount;
     }
 
-    public BigDecimal getBuyerPayAmount() {
-        return buyerPayAmount;
+    public BigDecimal getPresentRefundDiscountAmount() {
+        return presentRefundDiscountAmount;
     }
 
-    public void setBuyerPayAmount(BigDecimal buyerPayAmount) {
-        this.buyerPayAmount = buyerPayAmount;
+    public void setPresentRefundDiscountAmount(BigDecimal presentRefundDiscountAmount) {
+        this.presentRefundDiscountAmount = presentRefundDiscountAmount;
     }
 
-    public BigDecimal getReceiptAmount() {
-        return receiptAmount;
+    public BigDecimal getPresentRefundMdiscountAmount() {
+        return presentRefundMdiscountAmount;
     }
 
-    public void setReceiptAmount(BigDecimal receiptAmount) {
-        this.receiptAmount = receiptAmount;
-    }
-
-    public BigDecimal getMdiscountAmount() {
-        return mdiscountAmount;
-    }
-
-    public void setMdiscountAmount(BigDecimal mdiscountAmount) {
-        this.mdiscountAmount = mdiscountAmount;
-    }
-
-    public BigDecimal getDiscountAmount() {
-        return discountAmount;
-    }
-
-    public void setDiscountAmount(BigDecimal discountAmount) {
-        this.discountAmount = discountAmount;
-    }
-
-    public BigDecimal getPointAmount() {
-        return pointAmount;
-    }
-
-    public void setPointAmount(BigDecimal pointAmount) {
-        this.pointAmount = pointAmount;
-    }
-
-    public BigDecimal getInvoiceAmount() {
-        return invoiceAmount;
-    }
-
-    public void setInvoiceAmount(BigDecimal invoiceAmount) {
-        this.invoiceAmount = invoiceAmount;
-    }
-
-    public Date getSendPayDate() {
-        return sendPayDate;
-    }
-
-    public void setSendPayDate(Date sendPayDate) {
-        this.sendPayDate = sendPayDate;
-    }
-
-    public String getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(String storeId) {
-        this.storeId = storeId;
-    }
-
-    public String getStoreName() {
-        return storeName;
-    }
-
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
-
-    public String getTerminalId() {
-        return terminalId;
-    }
-
-    public void setTerminalId(String terminalId) {
-        this.terminalId = terminalId;
-    }
-
-    public List<TradeFundBill> getFundBillList() {
-        return fundBillList;
-    }
-
-    public void setFundBillList(List<TradeFundBill> fundBillList) {
-        this.fundBillList = fundBillList;
-    }
-
-    public String getChargeFlags() {
-        return chargeFlags;
-    }
-
-    public void setChargeFlags(String chargeFlags) {
-        this.chargeFlags = chargeFlags;
-    }
-
-    public String getSettlementId() {
-        return settlementId;
-    }
-
-    public void setSettlementId(String settlementId) {
-        this.settlementId = settlementId;
-    }
-
-    public TradeSettleInfo getTradeSettleInfo() {
-        return tradeSettleInfo;
-    }
-
-    public void setTradeSettleInfo(TradeSettleInfo tradeSettleInfo) {
-        this.tradeSettleInfo = tradeSettleInfo;
-    }
-
-    public String getAuthTradePayMode() {
-        return authTradePayMode;
-    }
-
-    public void setAuthTradePayMode(String authTradePayMode) {
-        this.authTradePayMode = authTradePayMode;
-    }
-
-    public String getAlipaySubMerchantId() {
-        return alipaySubMerchantId;
-    }
-
-    public void setAlipaySubMerchantId(String alipaySubMerchantId) {
-        this.alipaySubMerchantId = alipaySubMerchantId;
-    }
-
-    public String getExtInfos() {
-        return extInfos;
-    }
-
-    public void setExtInfos(String extInfos) {
-        this.extInfos = extInfos;
+    public void setPresentRefundMdiscountAmount(BigDecimal presentRefundMdiscountAmount) {
+        this.presentRefundMdiscountAmount = presentRefundMdiscountAmount;
     }
     
 }
