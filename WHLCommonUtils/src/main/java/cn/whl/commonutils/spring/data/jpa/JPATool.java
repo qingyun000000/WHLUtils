@@ -2,6 +2,7 @@ package cn.whl.commonutils.spring.data.jpa;
 
 import cn.whl.commonutils.page.Page;
 import cn.whl.commonutils.page.PageTool;
+import cn.whl.commonutils.response.page.DataPageResponse;
 import cn.whl.commonutils.spring.data.jpa.strategy.ConstructStrategy;
 import cn.whl.commonutils.spring.data.jpa.strategy.QueryStrategy;
 import cn.whl.commonutils.spring.data.jpa.strategy.ResultStrategy;
@@ -80,5 +81,21 @@ public class JPATool {
         }
         
         return rs.getResult(page, responses);
+    }
+    
+    /**
+     * 封装的分页查询方法（返回值为DataPageResponse类）
+     * @param <T>
+     * @param <S>
+     * @param listClass
+     * @param responseClass
+     * @param page
+     * @param qs
+     * @param cs
+     * @return 
+     */
+    public static <T, S> DataPageResponse<S> queryByPageable(Class<T> listClass, Class<S> responseClass, Page page,
+            QueryStrategy<T> qs, ConstructStrategy<T, S> cs){
+        return queryByPageable(DataPageResponse.class, listClass, responseClass, page, qs, cs, (pg, responses)-> new DataPageResponse<>(pg, responses));
     }
 }
