@@ -13,7 +13,9 @@ public class Page {
     private int totalPage;                 //总页数
     private int showPage;                  //当前显示页
     private int countOfOnePage = 5;        //每页显示条数
-    private int countAllPage = 10;            //显示页码数
+    private int countAllPage = 10;         //显示页码数
+    private String orderByParamName = "tms";       //排序属性名
+    private boolean desc = false;                  //是否倒序
     
     /**
      * 获取要显示的所有页码
@@ -70,6 +72,20 @@ public class Page {
     public void setCountAllPage(int countAllPage) {
         this.countAllPage = countAllPage;
     }
-    
-    
+
+    public String getOrderByParamName() {
+        return orderByParamName;
+    }
+
+    public void setOrderByParamName(String orderByParamName) {
+        this.orderByParamName = orderByParamName;
+    }
+
+    public boolean isDesc() {
+        return desc;
+    }
+
+    public void setDesc(boolean desc) {
+        this.desc = desc;
+    }
 }

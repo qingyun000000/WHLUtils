@@ -25,8 +25,9 @@ public class InputVerWrongException extends CommonException{
         super(message);
     }
     
-    public InputVerWrongException(String param, String msg) {
+    public InputVerWrongException(String param, String input, String msg) {
         this.param = param;
+        this.input = input;
         this.msg = msg;
     }
 

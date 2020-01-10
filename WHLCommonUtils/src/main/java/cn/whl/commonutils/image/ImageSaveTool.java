@@ -17,7 +17,7 @@ public class ImageSaveTool {
      * @param name
      * @return
      */
-    public static Result saveImage(File file, String path, String name){
+    public static Result saveImage(byte[] file, String path, String name){
         return FileSaveTool.saveFile(file, path, name);
     }
     
@@ -28,7 +28,7 @@ public class ImageSaveTool {
      * @param name
      * @return
      */
-    public static Result uploadFileToFastDFS(File file, String path, String name){
+    public static Result uploadFileToFastDFS(byte[] file, String path, String name){
         return FileSaveTool.uploadFileToFastDFS(file, path, name);
     }
     

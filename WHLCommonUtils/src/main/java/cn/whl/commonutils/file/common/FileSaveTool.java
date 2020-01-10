@@ -2,6 +2,10 @@ package cn.whl.commonutils.file.common;
 
 import cn.whl.commonutils.Result;
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * 文件保存工具
@@ -16,8 +20,29 @@ public class FileSaveTool {
      * @param name
      * @return
      */
-    public static Result saveFile(File file, String path, String name){
+    public static Result saveFile(byte[] file, String path, String name){
         Result result = new Result();
+        
+        File filePath = new File(path + "/");
+        if (!filePath.exists()) {
+            filePath.mkdirs();
+        }
+        
+        //二进制流写入
+        FileOutputStream out;
+        try {
+            out = new FileOutputStream(path + "/" + name);
+            out.write(file);
+            out.flush();
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(FileSaveTool.class.getName()).log(Level.SEVERE, null, ex);
+            result.setSuccess(false);
+            result.setMessage(ex.getMessage());
+        }
+        
+        result.setSuccess(true);
+        result.setMessage(path + "/" + name);
         
         return result;
     }
@@ -29,7 +54,7 @@ public class FileSaveTool {
      * @param name
      * @return
      */
-    public static Result uploadFileToFastDFS(File file, String path, String name){
+    public static Result uploadFileToFastDFS(byte[] file, String path, String name){
         Result result = new Result();
         
         return result;
