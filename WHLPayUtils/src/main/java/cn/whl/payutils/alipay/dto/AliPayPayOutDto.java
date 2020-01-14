@@ -6,7 +6,7 @@ import cn.whl.payutils.enums.Platform;
 import java.math.BigDecimal;
 
 /**
- * 阿里支付下单传入参数封装
+ * 阿里支付下单返回参数封装
  * @author wuhailong
  */
 public class AliPayPayOutDto extends AliPayOutDto implements PayOutDto{

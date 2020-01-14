@@ -1,53 +1,60 @@
 package cn.whl.payutils.alipay.dto;
 
-import cn.whl.payutils.NotifyDto;
 import cn.whl.payutils.NotifyResultDto;
-import cn.whl.payutils.PayOutDto;
-import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.enums.Platform;
+import java.math.BigDecimal;
+import java.util.Date;
 
 /**
- * 阿里支付下单传入参数封装
+ * 阿里支付下单回调参数封装
  * @author wuhailong
  */
-public class AliPayPayNotifyOutDto extends AliPayOutDto implements NotifyResultDto{
+public class AliPayPayNotifyOutDto extends AliPayNotifyResultDto implements NotifyResultDto{
     
-    //通用部分 
-    private String outTradeNo;   //商户网站唯一订单号                    
-     
-    private String tradeNo;      //支付宝系统交易流水号
+    private String tradeNo;
     
-    private double totalAmount;     //订单总金额，0.01-100000000
+    private String outTradeTo;
     
-    private String sellerId;        //收款方支付宝用户ID
+    private String outBizNo;
     
-    private String merchantOrderNo;          //商户原始订单号， <32位
+    private String buyerId;
     
-    //wap+app
+    private String buyerLogonId;
     
+    private String sellerId;
     
+    private String sellerEmail;
     
+    private String tradeStatus;
     
-    //page+app
-    
-    
-    
-    
-    //wap
-    private String form;                      //form创建字符串   
-    
-    //page
+    private BigDecimal totalAmount;
 
+    private BigDecimal receiptAmount;
     
+    private BigDecimal invoiceAmount;
     
+    private BigDecimal buyerPayAmount;
     
-    public String getOutTradeNo() {
-        return outTradeNo;
-    }
-
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
-    }
+    private BigDecimal pointAmount;
+    
+    private BigDecimal refundFee;
+    
+    private String subject;
+    
+    private String body;
+    
+    private Date gmtCreate;
+    
+    private Date gmtPayment;
+    
+    private Date gmtRefund;
+    
+    private Date gmtClose;
+    
+    private String fundBillList;
+    
+    private String passbackParams;
+    
+    private String voucherDetailList;
 
     public String getTradeNo() {
         return tradeNo;
@@ -57,12 +64,36 @@ public class AliPayPayNotifyOutDto extends AliPayOutDto implements NotifyResultD
         this.tradeNo = tradeNo;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
+    public String getOutTradeTo() {
+        return outTradeTo;
     }
 
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setOutTradeTo(String outTradeTo) {
+        this.outTradeTo = outTradeTo;
+    }
+
+    public String getOutBizNo() {
+        return outBizNo;
+    }
+
+    public void setOutBizNo(String outBizNo) {
+        this.outBizNo = outBizNo;
+    }
+
+    public String getBuyerId() {
+        return buyerId;
+    }
+
+    public void setBuyerId(String buyerId) {
+        this.buyerId = buyerId;
+    }
+
+    public String getBuyerLogonId() {
+        return buyerLogonId;
+    }
+
+    public void setBuyerLogonId(String buyerLogonId) {
+        this.buyerLogonId = buyerLogonId;
     }
 
     public String getSellerId() {
@@ -73,21 +104,140 @@ public class AliPayPayNotifyOutDto extends AliPayOutDto implements NotifyResultD
         this.sellerId = sellerId;
     }
 
-    public String getMerchantOrderNo() {
-        return merchantOrderNo;
+    public String getSellerEmail() {
+        return sellerEmail;
     }
 
-    public void setMerchantOrderNo(String merchantOrderNo) {
-        this.merchantOrderNo = merchantOrderNo;
+    public void setSellerEmail(String sellerEmail) {
+        this.sellerEmail = sellerEmail;
     }
 
-    public String getForm() {
-        return form;
+    public String getTradeStatus() {
+        return tradeStatus;
     }
 
-    public void setForm(String form) {
-        this.form = form;
+    public void setTradeStatus(String tradeStatus) {
+        this.tradeStatus = tradeStatus;
     }
-   
-    
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
+    }
+
+    public BigDecimal getReceiptAmount() {
+        return receiptAmount;
+    }
+
+    public void setReceiptAmount(BigDecimal receiptAmount) {
+        this.receiptAmount = receiptAmount;
+    }
+
+    public BigDecimal getInvoiceAmount() {
+        return invoiceAmount;
+    }
+
+    public void setInvoiceAmount(BigDecimal invoiceAmount) {
+        this.invoiceAmount = invoiceAmount;
+    }
+
+    public BigDecimal getBuyerPayAmount() {
+        return buyerPayAmount;
+    }
+
+    public void setBuyerPayAmount(BigDecimal buyerPayAmount) {
+        this.buyerPayAmount = buyerPayAmount;
+    }
+
+    public BigDecimal getPointAmount() {
+        return pointAmount;
+    }
+
+    public void setPointAmount(BigDecimal pointAmount) {
+        this.pointAmount = pointAmount;
+    }
+
+    public BigDecimal getRefundFee() {
+        return refundFee;
+    }
+
+    public void setRefundFee(BigDecimal refundFee) {
+        this.refundFee = refundFee;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getBody() {
+        return body;
+    }
+
+    public void setBody(String body) {
+        this.body = body;
+    }
+
+    public Date getGmtCreate() {
+        return gmtCreate;
+    }
+
+    public void setGmtCreate(Date gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
+
+    public Date getGmtPayment() {
+        return gmtPayment;
+    }
+
+    public void setGmtPayment(Date gmtPayment) {
+        this.gmtPayment = gmtPayment;
+    }
+
+    public Date getGmtRefund() {
+        return gmtRefund;
+    }
+
+    public void setGmtRefund(Date gmtRefund) {
+        this.gmtRefund = gmtRefund;
+    }
+
+    public Date getGmtClose() {
+        return gmtClose;
+    }
+
+    public void setGmtClose(Date gmtClose) {
+        this.gmtClose = gmtClose;
+    }
+
+    public String getFundBillList() {
+        return fundBillList;
+    }
+
+    public void setFundBillList(String fundBillList) {
+        this.fundBillList = fundBillList;
+    }
+
+    public String getPassbackParams() {
+        return passbackParams;
+    }
+
+    public void setPassbackParams(String passbackParams) {
+        this.passbackParams = passbackParams;
+    }
+
+    public String getVoucherDetailList() {
+        return voucherDetailList;
+    }
+
+    public void setVoucherDetailList(String voucherDetailList) {
+        this.voucherDetailList = voucherDetailList;
+    }
+
 }

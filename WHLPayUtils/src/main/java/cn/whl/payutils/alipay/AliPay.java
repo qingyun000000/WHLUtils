@@ -53,8 +53,10 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
     }
 
     @Override
-    public AliPayPayNotifyOutDto payNotify(AliPayPayNotifyInDto payNotifyParams) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AliPayPayNotifyOutDto payNotify(AliPayPayNotifyInDto aliPayPayNotifyInDto) throws Exception {
+        AliPayPayNotifyOutDto outDto = new AliPayPayNotifyOutDto();
+        outDto.setTradeNo(aliPayPayNotifyInDto.getTrade_no());
+        return outDto;
     }
 
     @Override

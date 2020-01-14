@@ -6,5 +6,4 @@ package cn.whl.payutils;
  */
 public interface NotifyResultDto {
     
-
 }

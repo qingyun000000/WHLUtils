@@ -1,10 +1,10 @@
 package cn.whl.payutils.alipay.dto;
 
 /**
- * alipay异步回调参数 公共参数部分
+ * alipay异步回调处理结果 公共参数部分
  * @author wuhailong
  */
-public class AliPayNotifyDto {
+public class AliPayNotifyResultDto {
     
     private String notify_time;
     
