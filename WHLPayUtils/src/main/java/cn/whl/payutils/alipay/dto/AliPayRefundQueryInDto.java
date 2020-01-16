@@ -3,15 +3,6 @@ package cn.whl.payutils.alipay.dto;
 import cn.whl.payutils.PayInDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
-import com.alipay.api.domain.AgreementSignParams;
-import com.alipay.api.domain.ExtUserInfo;
-import com.alipay.api.domain.ExtendParams;
-import com.alipay.api.domain.GoodsDetail;
-import com.alipay.api.domain.InvoiceInfo;
-import com.alipay.api.domain.RoyaltyInfo;
-import com.alipay.api.domain.SettleInfo;
-import com.alipay.api.domain.SubMerchant;
-import java.util.List;
 
 
 /**

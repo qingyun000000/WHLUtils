@@ -1,10 +1,6 @@
 package cn.whl.payutils.alipay.dto;
 
-import cn.whl.payutils.NotifyDto;
 import cn.whl.payutils.NotifyResultDto;
-import cn.whl.payutils.PayOutDto;
-import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.enums.Platform;
 
 /**
  * 阿里支付下单传入参数封装

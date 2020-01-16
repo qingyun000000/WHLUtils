@@ -1,9 +1,6 @@
 package cn.whl.payutils.alipay.dto;
 
 import cn.whl.payutils.NotifyDto;
-import cn.whl.payutils.PayInDto;
-import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.enums.Platform;
 import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;

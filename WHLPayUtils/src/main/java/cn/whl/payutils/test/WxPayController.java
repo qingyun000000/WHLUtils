@@ -1,10 +1,5 @@
 package cn.whl.payutils.test;
 
-import cn.whl.payutils.Pay;
-import cn.whl.payutils.wx.dto.WeChatInDto;
-import cn.whl.payutils.wx.WeChatPay;
-import cn.whl.payutils.wx.dto.WeChatOutDto;
-
 /**
  *
  * @author Administrator

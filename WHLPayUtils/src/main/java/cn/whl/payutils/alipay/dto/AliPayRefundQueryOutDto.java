@@ -5,7 +5,6 @@ import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.domain.RefundRoyaltyResult;
 import com.alipay.api.domain.TradeFundBill;
-import com.alipay.api.domain.TradeSettleInfo;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
