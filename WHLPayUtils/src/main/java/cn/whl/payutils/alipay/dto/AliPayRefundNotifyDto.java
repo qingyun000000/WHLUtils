@@ -13,10 +13,10 @@ import java.util.List;
 
 
 /**
- * 阿里支付下单传入参数封装
+ * 阿里支付退款回调参数封装
  * @author wuhailong
  */
-public class AliPayRefundNotifyInDto extends AliPayInDto implements NotifyDto{
+public class AliPayRefundNotifyDto extends AliPayNotifyDto implements NotifyDto{
     
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号

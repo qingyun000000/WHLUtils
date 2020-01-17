@@ -3,10 +3,10 @@ package cn.whl.payutils.alipay.dto;
 import cn.whl.payutils.NotifyResultDto;
 
 /**
- * 阿里支付下单传入参数封装
+ * 阿里支付订单关闭回调结果参数封装
  * @author wuhailong
  */
-public class AliPayRefundNotifyOutDto extends AliPayOutDto implements NotifyResultDto{
+public class AliPayCloseNotifyResultDto extends AliPayNotifyResultDto implements NotifyResultDto{
     
     //通用部分 
     private String outTradeNo;   //商户网站唯一订单号                    

@@ -4,10 +4,10 @@ import cn.whl.payutils.NotifyDto;
 
 
 /**
- * 阿里支付异步回调传入参数封装
+ * 阿里支付异步回调参数封装
  * @author wuhailong
  */
-public class AliPayPayNotifyInDto extends AliPayNotifyDto implements NotifyDto{
+public class AliPayPayNotifyDto extends AliPayNotifyDto implements NotifyDto{
     
     private String trade_no;
     

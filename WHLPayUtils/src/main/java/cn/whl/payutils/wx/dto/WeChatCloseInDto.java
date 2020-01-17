@@ -5,10 +5,10 @@ import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
 
 /**
- * 微信支付下单传入参数封装
+ * 微信支付订单关闭传入参数封装
  * @author wuhailong
  */
-public class WeChatPayInDto extends WeChatInDto implements PayInDto{
+public class WeChatCloseInDto extends WeChatInDto implements PayInDto{
     //接口部分
     private Platform platform;
     

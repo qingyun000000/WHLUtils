@@ -5,10 +5,10 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * 阿里支付下单回调参数封装
+ * 阿里支付下单回调结果参数封装
  * @author wuhailong
  */
-public class AliPayPayNotifyOutDto extends AliPayNotifyResultDto implements NotifyResultDto{
+public class AliPayPayNotifyResultDto extends AliPayNotifyResultDto implements NotifyResultDto{
     
     private String tradeNo;
     
