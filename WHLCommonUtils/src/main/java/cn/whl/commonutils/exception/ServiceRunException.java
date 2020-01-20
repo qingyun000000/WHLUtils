@@ -6,7 +6,7 @@ package cn.whl.commonutils.exception;
  * @updateTime 2019-11-29
  * @author wuhailong
  */
-public class ServiceRunException extends Exception{
+public class ServiceRunException extends CommonException{
     
     private static final String CODE = "RUN";
 
