@@ -105,7 +105,7 @@ public class ServiceResultTool {
         if (!verResult) {
             //校验未通过
             result.setSuccess(false);
-            result.setMessage("不具备权限进行此操作");
+            result.setMessage("访问的方法不存在");
 
             return result;
         }
