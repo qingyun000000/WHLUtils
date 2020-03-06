@@ -1,15 +1,17 @@
-package cn.whl.commonutils.security;
+package cn.whl.commonutils.security.strategy;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 /**
- * 工具类：MD5
+ * 工具类：MD5Cypher
  * @author wuhailong
  */
-public class MD5 {
-    public static String MD5Encrypt(String input){
+public class MD5Cypher implements CypherStrategory{
+
+    @Override
+    public String encrypt(String input){
         StringBuilder hexValue = new StringBuilder();
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
@@ -27,5 +29,10 @@ public class MD5 {
            
         }
         return hexValue.toString();
+    }
+
+    @Override
+    public String decrypt(String content) {
+        throw new UnsupportedOperationException("MD5不支持解密");
     }
 }

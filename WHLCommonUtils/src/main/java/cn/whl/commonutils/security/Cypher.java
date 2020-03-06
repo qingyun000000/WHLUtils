@@ -5,5 +5,5 @@ package cn.whl.commonutils.security;
  * @author wuhailong
  */
 public enum Cypher {
-    MD5
+    MD5,
 }
