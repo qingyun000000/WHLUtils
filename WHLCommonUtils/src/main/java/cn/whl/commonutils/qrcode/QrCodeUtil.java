@@ -10,6 +10,8 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -65,21 +67,15 @@ public class QrCodeUtil {
      */
     public static Result getQrCode(String content, int width, int height, String path, String name){
         Result result = new Result();
-        String str = "";
+        getQrCodeImage(content, width, height, path, name);
+        byte[] bytes = null;
         try {
             QRCodeWriter qRCodeWriter = new QRCodeWriter();
             BitMatrix bitMatrix = qRCodeWriter.encode(content, BarcodeFormat.QR_CODE, width, height);
-            //ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            //MatrixToImageWriter.writeToStream(bitMatrix, "PNG",outputStream);
-            //str = outputStream.toString();
-            File filePath = new File(path + "/");
-            if (!filePath.exists()) {
-                filePath.mkdirs();
+            try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+                MatrixToImageWriter.writeToStream(bitMatrix, "PNG",outputStream);
+                bytes = outputStream.toByteArray();
             }
-
-            FileOutputStream out = new FileOutputStream(path + "/" + name);
-            MatrixToImageWriter.writeToStream(bitMatrix, "PNG",out);
-            str = out.toString();
         }catch (IOException | WriterException ex) {
             Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
@@ -87,9 +83,44 @@ public class QrCodeUtil {
         }
         
         result.setSuccess(true);
-        result.setMessage(str);
+        result.setData(bytes);
         
         return result;
     }
+    
+    /**
+     * 获取二维码
+     * @param content
+     * @param width
+     * @param height
+     * @return 字节数组
+     */
+    public static Result getQrCode(String content, int width, int height){
+        Result result = new Result();
+        byte[] bytes = null;
+        try {
+            QRCodeWriter qRCodeWriter = new QRCodeWriter();
+            BitMatrix bitMatrix = qRCodeWriter.encode(content, BarcodeFormat.QR_CODE, width, height);
+            try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
+                MatrixToImageWriter.writeToStream(bitMatrix, "PNG",outputStream);
+                bytes = outputStream.toByteArray();
+            }
+        }catch (IOException | WriterException ex) {
+            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            result.setSuccess(false);
+            result.setMessage(ex.getMessage());
+        }
+        
+        result.setSuccess(true);
+        result.setData(bytes);
+        
+        return result;
+    }
+    
+    public static void main(String[] args){
+        Result qrCode = getQrCode("11111", 600, 600, "/usr/zy/qr", "测试" + new Date().getTime());
+        byte[] qr = (byte[])(qrCode.getData());
+        System.out.println(Arrays.toString(qr));
+    } 
     
 }

@@ -23,9 +23,6 @@ public class ServiceResult extends Result{
     //int类型参数，用于返回int型数据
     private int intValue;
     
-    //返回对象数据
-    private Object data;
-    
     private String exceptionCode;
 
     public ServiceResult() {
@@ -63,14 +60,6 @@ public class ServiceResult extends Result{
 
     public void setIntValue(int intValue) {
         this.intValue = intValue;
-    }
-
-    public Object getData() {
-        return data;
-    }
-
-    public void setData(Object data) {
-        this.data = data;
     }
 
     public Boolean getBeTrue() {
