@@ -20,6 +20,15 @@ public class JPATool {
     
     /**
      * 获取Spring Data的分页
+     * @param page
+     * @return Pageable
+     */
+    public static Pageable getPageable(Page page){
+        return getPageable(page.getCountOfOnePage(), page.getShowPage(), page.getOrderByParamName(), page.isDesc());
+    }
+    
+    /**
+     * 获取Spring Data的分页
      * @param countOfOnePage  每页条数
      * @param showPage  当前页
      * @param orderByParamName  排序属性名
@@ -97,5 +106,25 @@ public class JPATool {
     public static <T, S> DataPageResponse<S> queryByPageable(Class<T> listClass, Class<S> responseClass, Page page,
             QueryStrategy<T> qs, ConstructStrategy<T, S> cs){
         return queryByPageable(DataPageResponse.class, listClass, responseClass, page, qs, cs, (pg, responses)-> new DataPageResponse<>(pg, responses));
+    }
+    
+    /**
+     * list封装为分页列表对象
+     * @param <T>
+     * @param list
+     * @param page
+     * @param total
+     * @return
+     */
+    public static <T> DataPageResponse<T> constructByList(List<T> list, Page page, int total){
+        page = PageTool.getPage(page, total);
+
+        List<T> responses = new ArrayList<>();
+
+        for (T t : list) {
+            responses.add(t);
+        }
+        
+        return new DataPageResponse<>(page, responses);
     }
 }
