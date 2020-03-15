@@ -2,18 +2,31 @@ package cn.whl.commonutils.qrcode;
 
 import cn.whl.commonutils.Result;
 import com.google.zxing.BarcodeFormat;
+import com.google.zxing.BinaryBitmap;
+import com.google.zxing.ChecksumException;
+import com.google.zxing.FormatException;
+import com.google.zxing.LuminanceSource;
+import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
+import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
+import com.google.zxing.client.j2se.ImageReader;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
+import com.google.zxing.common.HybridBinarizer;
+import com.google.zxing.multi.qrcode.QRCodeMultiReader;
+import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URI;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.imageio.ImageIO;
 
 /**
  * 二维码工具
@@ -117,10 +130,26 @@ public class QrCodeUtil {
         return result;
     }
     
-    public static void main(String[] args){
-        Result qrCode = getQrCode("11111", 600, 600, "/usr/zy/qr", "测试" + new Date().getTime());
-        byte[] qr = (byte[])(qrCode.getData());
-        System.out.println(Arrays.toString(qr));
-    } 
+    public static Result encode(String path) {
+        Result result = new Result();
+        try{
+            File file = new File(path);
+            BufferedImage image = ImageIO.read(file);
+            LuminanceSource source = new BufferedImageLuminanceSource(image);
+            BinaryBitmap bitmap = new BinaryBitmap(new HybridBinarizer(source));
+            QRCodeReader codeReader = new QRCodeReader();
+            com.google.zxing.Result decode = codeReader.decode(bitmap);
+            
+            result.setSuccess(true);
+            result.setData(decode.getText());
+        }catch(ChecksumException | FormatException | IOException | NotFoundException ex){
+            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            result.setSuccess(false);
+            result.setMessage(ex.getMessage());
+        }
+        
+        return result;
+    }
+    
     
 }
