@@ -39,30 +39,6 @@ public class AliPayCloseOutDto extends AliPayOutDto implements PayOutDto{
      
     private String tradeNo;      //支付宝系统交易流水号
     
-    private double totalAmount;     //订单总金额，0.01-100000000
-    
-    private String sellerId;        //收款方支付宝用户ID
-    
-    private String merchantOrderNo;          //商户原始订单号， <32位
-    
-    //wap+app
-    
-    
-    
-    
-    //page+app
-    
-    
-    
-    
-    //wap
-    private String form;                      //form创建字符串   
-    
-    //page
-
-    
-    
-    
     public String getOutTradeNo() {
         return outTradeNo;
     }
@@ -79,37 +55,4 @@ public class AliPayCloseOutDto extends AliPayOutDto implements PayOutDto{
         this.tradeNo = tradeNo;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public String getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(String sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public String getMerchantOrderNo() {
-        return merchantOrderNo;
-    }
-
-    public void setMerchantOrderNo(String merchantOrderNo) {
-        this.merchantOrderNo = merchantOrderNo;
-    }
-
-    public String getForm() {
-        return form;
-    }
-
-    public void setForm(String form) {
-        this.form = form;
-    }
-   
-    
 }

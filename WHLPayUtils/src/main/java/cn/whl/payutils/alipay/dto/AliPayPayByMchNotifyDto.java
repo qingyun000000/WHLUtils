@@ -16,7 +16,7 @@ import java.util.List;
  * 阿里支付订单关闭回调参数封装
  * @author wuhailong
  */
-public class AliPayCloseNotifyDto extends AliPayNotifyDto implements NotifyDto{
+public class AliPayPayByMchNotifyDto extends AliPayNotifyDto implements NotifyDto{
     
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号

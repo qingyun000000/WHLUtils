@@ -1,6 +1,8 @@
 package cn.whl.payutils.alipay.dto;
 
-import cn.whl.payutils.NotifyDto;
+import cn.whl.payutils.PayInDto;
+import cn.whl.payutils.enums.PayType;
+import cn.whl.payutils.enums.Platform;
 import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;
@@ -13,10 +15,34 @@ import java.util.List;
 
 
 /**
- * 阿里支付订单关闭回调参数封装
+ * 阿里支付下单传入参数封装
  * @author wuhailong
  */
-public class AliPayCloseNotifyDto extends AliPayNotifyDto implements NotifyDto{
+public class AliPayPayByMchQueryInDto extends AliPayInDto implements PayInDto{
+    //接口部分
+    private Platform platform;
+    
+    private PayType payType;
+
+    @Override
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    @Override
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
+    @Override
+    public PayType getPayType() {
+        return payType;
+    }
+
+    @Override
+    public void setPayType(PayType payType) {
+        this.payType = payType;
+    }
     
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号

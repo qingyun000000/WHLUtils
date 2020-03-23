@@ -21,6 +21,12 @@ package cn.whl.payutils;
  * @param <K8>
  * @param <T9>
  * @param <K9>
+ * @param <T10>
+ * @param <K10>
+ * @param <T11>
+ * @param <K11>
+ * @param <T12>
+ * @param <K12>
  */
 public interface Pay <T1 extends PayInDto, K1 extends PayOutDto,
                       T2 extends NotifyDto, K2 extends NotifyResultDto,
@@ -30,7 +36,10 @@ public interface Pay <T1 extends PayInDto, K1 extends PayOutDto,
                       T6 extends PayInDto, K6 extends PayOutDto,
                       T7 extends NotifyDto, K7 extends NotifyResultDto,
                       T8 extends PayInDto, K8 extends PayOutDto,
-                      T9 extends PayInDto, K9 extends PayOutDto>{
+                      T9 extends PayInDto, K9 extends PayOutDto,
+                      T10 extends PayInDto, K10 extends PayOutDto,
+                      T11 extends PayInDto, K11 extends PayOutDto,
+                      T12 extends NotifyDto, K12 extends NotifyResultDto>{
     
     /**
      * 支付下单
@@ -82,11 +91,11 @@ public interface Pay <T1 extends PayInDto, K1 extends PayOutDto,
     
     /**
      * 商户退款回调
-     * @param refundParams
+     * @param refundNotifyParams
      * @return
      * @throws java.lang.Exception
      */
-    public K7 refundNotify(T7 refundParams) throws Exception;
+    public K7 refundNotify(T7 refundNotifyParams) throws Exception;
     
     /**
      * 商户退款查询
@@ -104,7 +113,28 @@ public interface Pay <T1 extends PayInDto, K1 extends PayOutDto,
      */
     public K9 payByMch(T9 payByMchParams) throws Exception;
     
+    /**
+     * 商家支付结果查询
+     * @param payByMchQueryParams
+     * @return
+     * @throws java.lang.Exception
+     */
+    public K10 payByMchQuery(T10 payByMchQueryParams) throws Exception;
     
+    /**
+     * 账户余额查询
+     * @param accountQueryParams
+     * @return
+     * @throws java.lang.Exception
+     */
+    public K11 accountQuery(T11 accountQueryParams) throws Exception;
     
+    /**
+     * 商家支付回调
+     * @param payByMchNotifyParams
+     * @return
+     * @throws java.lang.Exception
+     */
+    public K12 payByMchNotify(T12 payByMchNotifyParams) throws Exception;
     
 }

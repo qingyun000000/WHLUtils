@@ -41,7 +41,7 @@ public class AliPayQueryTool {
         
         if("10000".equals(response.getCode())){
             AliPayQueryOutDto out = new AliPayQueryOutDto();
-            //wap支付方式，返回的生成表单的字符串
+            
             out.setPlatform(Platform.alipay);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

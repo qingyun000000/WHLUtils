@@ -1,6 +1,8 @@
 package cn.whl.payutils.alipay;
 
 import cn.whl.payutils.Pay;
+import cn.whl.payutils.alipay.dto.AliPayAccountQueryInDto;
+import cn.whl.payutils.alipay.dto.AliPayAccountQueryOutDto;
 import cn.whl.payutils.alipay.dto.AliPayCloseInDto;
 import cn.whl.payutils.alipay.dto.AliPayCloseNotifyDto;
 import cn.whl.payutils.alipay.dto.AliPayCloseNotifyResultDto;
@@ -8,7 +10,11 @@ import cn.whl.payutils.alipay.dto.AliPayCloseOutDto;
 import cn.whl.payutils.alipay.dto.AliPayQueryInDto;
 import cn.whl.payutils.alipay.dto.AliPayQueryOutDto;
 import cn.whl.payutils.alipay.dto.AliPayPayByMchInDto;
+import cn.whl.payutils.alipay.dto.AliPayPayByMchNotifyDto;
+import cn.whl.payutils.alipay.dto.AliPayPayByMchNotifyResultDto;
 import cn.whl.payutils.alipay.dto.AliPayPayByMchOutDto;
+import cn.whl.payutils.alipay.dto.AliPayPayByMchQueryInDto;
+import cn.whl.payutils.alipay.dto.AliPayPayByMchQueryOutDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.alipay.dto.AliPayPayInDto;
 import cn.whl.payutils.alipay.dto.AliPayPayNotifyDto;
@@ -33,7 +39,10 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
         AliPayRefundInDto, AliPayRefundOutDto,
         AliPayRefundNotifyDto, AliPayRefundNotifyResultDto,
         AliPayRefundQueryInDto, AliPayRefundQueryOutDto,
-        AliPayPayByMchInDto, AliPayPayByMchOutDto>{
+        AliPayPayByMchInDto, AliPayPayByMchOutDto,
+        AliPayPayByMchQueryInDto, AliPayPayByMchQueryOutDto,
+        AliPayAccountQueryInDto, AliPayAccountQueryOutDto,
+        AliPayPayByMchNotifyDto, AliPayPayByMchNotifyResultDto>{
 
     @Override
     public AliPayPayOutDto pay(AliPayPayInDto payParams) throws Exception{
@@ -75,7 +84,8 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayCloseNotifyResultDto closeNotify(AliPayCloseNotifyDto closeNotifyParams) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AliPayCloseNotifyResultDto outDto = new AliPayCloseNotifyResultDto();
+        return outDto;
     }
 
     @Override
@@ -86,8 +96,9 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
     }
 
     @Override
-    public AliPayRefundNotifyResultDto refundNotify(AliPayRefundNotifyDto refundParams) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public AliPayRefundNotifyResultDto refundNotify(AliPayRefundNotifyDto refundNotifyParams) throws Exception {
+        AliPayRefundNotifyResultDto outDto = new AliPayRefundNotifyResultDto();
+        return outDto;
     }
 
     @Override
@@ -99,7 +110,29 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayPayByMchOutDto payByMch(AliPayPayByMchInDto payByMchParams) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        AliPayPayByMchOutDto out = AliPayPayByMchTool.payByMch(payByMchParams);
+        
+        return out;
+    }
+
+    @Override
+    public AliPayPayByMchQueryOutDto payByMchQuery(AliPayPayByMchQueryInDto payByMchQueryParams) throws Exception {
+        AliPayPayByMchQueryOutDto out = AliPayPayByMchTool.query(payByMchQueryParams);
+        
+        return out;
+    }
+
+    @Override
+    public AliPayAccountQueryOutDto accountQuery(AliPayAccountQueryInDto accountQueryParams) throws Exception {
+        AliPayAccountQueryOutDto out = AliPayPayByMchTool.accountQuery(accountQueryParams);
+        
+        return out;
+    }
+
+    @Override
+    public AliPayPayByMchNotifyResultDto payByMchNotify(AliPayPayByMchNotifyDto payByMchNotifyParams) throws Exception {
+        AliPayPayByMchNotifyResultDto outDto = new AliPayPayByMchNotifyResultDto();
+        return outDto;
     }
 
  

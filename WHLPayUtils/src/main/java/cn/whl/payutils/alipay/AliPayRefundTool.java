@@ -108,7 +108,7 @@ public class AliPayRefundTool {
         
     }
 
-    static AliPayRefundQueryOutDto query(AliPayRefundQueryInDto in) throws AlipayApiException, Exception{
+    public static AliPayRefundQueryOutDto query(AliPayRefundQueryInDto in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradeFastpayRefundQueryRequest request = new AlipayTradeFastpayRefundQueryRequest();
         
