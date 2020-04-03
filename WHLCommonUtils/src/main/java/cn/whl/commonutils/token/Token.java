@@ -6,8 +6,8 @@ package cn.whl.commonutils.token;
  */
 public interface Token {
     
-    public String createToken(Long id);
+    public String createToken(String str) throws Exception;
     
-    public long decodeToken(String code);
+    public String decodeToken(String token) throws Exception;
     
 }

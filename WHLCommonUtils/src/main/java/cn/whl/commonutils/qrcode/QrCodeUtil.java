@@ -9,11 +9,9 @@ import com.google.zxing.LuminanceSource;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
-import com.google.zxing.client.j2se.ImageReader;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.multi.qrcode.QRCodeMultiReader;
 import com.google.zxing.qrcode.QRCodeReader;
 import com.google.zxing.qrcode.QRCodeWriter;
 import java.awt.image.BufferedImage;
@@ -21,9 +19,6 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.net.URI;
-import java.util.Arrays;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
@@ -45,19 +40,25 @@ public class QrCodeUtil {
      */
     public static Result getQrCodeImage(String content, int width, int height, String path, String name){
         Result result = new Result();
-        try {
+        
+        BitMatrix bitMatrix = null;
+        try{
             QRCodeWriter qRCodeWriter = new QRCodeWriter();
-            BitMatrix bitMatrix = qRCodeWriter.encode(content, BarcodeFormat.QR_CODE, width, height);
+            bitMatrix = qRCodeWriter.encode(content, BarcodeFormat.QR_CODE, width, height);
             File filePath = new File(path + "/");
             if (!filePath.exists()) {
                 filePath.mkdirs();
             }
-
-            FileOutputStream out = new FileOutputStream(path + "/" + name);
+        }catch(WriterException ex){
+            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            result.setSuccess(false);
+            result.setMessage(ex.getMessage());
+        }
+        
+        try(FileOutputStream out = new FileOutputStream(path + "/" + name)) {
             MatrixToImageWriter.writeToStream(bitMatrix, "PNG", out);
             out.flush();
-            out.close();
-        } catch (IOException | WriterException ex) {
+        } catch (IOException ex) {
             Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());

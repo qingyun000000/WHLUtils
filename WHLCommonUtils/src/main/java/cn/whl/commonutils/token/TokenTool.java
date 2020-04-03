@@ -6,19 +6,19 @@ package cn.whl.commonutils.token;
  */
 public class TokenTool {
     
-    public static String createToken(Long id){
+    public static String createToken(String id) throws Exception{
         return createToken(id, new SimpleToken());
     }
     
-    public static long decodeToken(String code){
+    public static String decodeToken(String code) throws Exception{
         return decodeToken(code, new SimpleToken());
     }
     
-    public static String createToken(Long id, Token token){
+    public static String createToken(String id, Token token) throws Exception{
         return token.createToken(id);
     }
     
-    public static long decodeToken(String code, Token token){
+    public static String decodeToken(String code, Token token) throws Exception{
         return token.decodeToken(code);
     }
     

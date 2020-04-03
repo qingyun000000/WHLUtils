@@ -29,12 +29,10 @@ public class FileSaveTool {
         }
         
         //二进制流写入
-        FileOutputStream out;
-        try {
-            out = new FileOutputStream(path + "/" + name);
+        
+        try (FileOutputStream out = new FileOutputStream(path + "/" + name)){
             out.write(file);
             out.flush();
-            out.close();
         } catch (IOException ex) {
             Logger.getLogger(FileSaveTool.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
