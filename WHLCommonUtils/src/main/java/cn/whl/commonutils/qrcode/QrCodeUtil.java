@@ -131,6 +131,11 @@ public class QrCodeUtil {
         return result;
     }
     
+    /**
+     * 二维码解码
+     * @param path
+     * @return 
+     */
     public static Result encode(String path) {
         Result result = new Result();
         try{
