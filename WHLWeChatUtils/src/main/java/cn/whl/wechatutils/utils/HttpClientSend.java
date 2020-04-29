@@ -7,11 +7,11 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class HttpClinetSend {
+public class HttpClientSend {
 
-	private static HttpClinetSend httpSend;
+	private static HttpClientSend httpSend;
 
-	private HttpClinetSend(){
+	private HttpClientSend(){
 		
 	}
 	/**
@@ -19,9 +19,9 @@ public class HttpClinetSend {
 	 * 
 	 * @return
 	 */
-	public static synchronized HttpClinetSend getInstance() {
+	public static synchronized HttpClientSend getInstance() {
 		if (httpSend == null) {
-			httpSend = new HttpClinetSend();
+			httpSend = new HttpClientSend();
 		}
 		return httpSend;
 	}

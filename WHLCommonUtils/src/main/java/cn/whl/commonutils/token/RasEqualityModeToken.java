@@ -12,7 +12,7 @@ public class RasEqualityModeToken implements Token{
 
     @Override
     public String createToken(String str) throws Exception{
-        return START + str + "_" + new Date();
+        return START + str + "_" + new Date().getTime();
     }
 
     @Override

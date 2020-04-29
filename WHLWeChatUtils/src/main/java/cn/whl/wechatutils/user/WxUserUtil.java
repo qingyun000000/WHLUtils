@@ -3,7 +3,7 @@ package cn.whl.wechatutils.user;
 import com.alibaba.fastjson.JSONObject;
 import cn.whl.wechatutils.domain.WxUser;
 import cn.whl.wechatutils.utils.AES;
-import cn.whl.wechatutils.utils.HttpClinetSend;
+import cn.whl.wechatutils.utils.HttpClientSend;
 import cn.whl.wechatutils.utils.WxPKCS7Encoder;
 import org.apache.commons.codec.binary.Base64;
 
@@ -28,7 +28,7 @@ public class WxUserUtil {
                 "&js_code=" + jsCode +
                 "&grant_type=authorization_code";
 
-        String rStr = HttpClinetSend.getInstance().doAccessHTTPGet(url);
+        String rStr = HttpClientSend.getInstance().doAccessHTTPGet(url);
         return rStr;
     }
     
