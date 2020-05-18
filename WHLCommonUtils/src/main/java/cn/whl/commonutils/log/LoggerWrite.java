@@ -16,6 +16,10 @@ public interface LoggerWrite{
     
     public void error(Exception e);
     
+    public void error(String message);
+    
     public void error(Class clazz, Exception e);
+    
+    public void error(Class clazz, String message);
     
 }

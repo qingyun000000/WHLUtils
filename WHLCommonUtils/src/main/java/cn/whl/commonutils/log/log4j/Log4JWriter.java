@@ -33,5 +33,16 @@ public class Log4JWriter implements LoggerWrite{
         Logger logger = LoggerFactory.getLogger(clazz);
         logger.error(e.getMessage());
     }
+
+    @Override
+    public void error(String message) {
+        LOGGER.error(message);
+    }
+
+    @Override
+    public void error(Class clazz, String message) {
+        Logger logger = LoggerFactory.getLogger(clazz);
+        logger.error(message);
+    }
     
 }

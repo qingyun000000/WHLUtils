@@ -29,4 +29,14 @@ public class SystemOutWriter implements LoggerWrite {
         System.out.println(new Date() + " 类" + clazz.getName() + " [*]错误信息：" + e.getMessage());
     }
 
+    @Override
+    public void error(String message) {
+        System.out.println(new Date() + " [*]错误信息：" + message);
+    }
+
+    @Override
+    public void error(Class clazz, String message) {
+        System.out.println(new Date() + " 类" + clazz.getName() + " [*]错误信息：" + message);
+    }
+
 }
