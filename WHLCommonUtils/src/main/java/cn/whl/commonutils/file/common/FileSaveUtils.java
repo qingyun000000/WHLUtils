@@ -11,7 +11,7 @@ import java.util.logging.Logger;
  * 文件保存工具
  * @author wuhailong
  */
-public class FileSaveTool {
+public class FileSaveUtils {
     
     /**
      * 保存文件
@@ -34,7 +34,7 @@ public class FileSaveTool {
             out.write(file);
             out.flush();
         } catch (IOException ex) {
-            Logger.getLogger(FileSaveTool.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(FileSaveUtils.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
         }

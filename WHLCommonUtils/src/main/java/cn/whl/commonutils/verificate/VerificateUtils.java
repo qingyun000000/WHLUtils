@@ -4,7 +4,7 @@ package cn.whl.commonutils.verificate;
  * 格式校验工具
  * @author wuhailong
  */
-public class VerificateTool {
+public class VerificateUtils {
     
     /**
      * 手机号码校验

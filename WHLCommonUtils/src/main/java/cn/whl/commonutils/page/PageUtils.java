@@ -4,7 +4,7 @@ package cn.whl.commonutils.page;
  * 工具类：分页信息
  * @author wuhailong
  */
-public class PageTool {
+public class PageUtils {
     
     /**
      * 查询分页信息模板方法

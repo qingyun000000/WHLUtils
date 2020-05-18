@@ -4,7 +4,7 @@ package cn.whl.commonutils.token;
  * Token工具
  * @author wuhailong
  */
-public class TokenTool {
+public class TokenUtils {
     
     public static String createToken(String id) throws Exception{
         return createToken(id, new SimpleToken());

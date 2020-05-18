@@ -7,7 +7,7 @@ import cn.whl.commonutils.security.strategy.CypherStrategory;
  * 密码工具
  * @author wuhailong
  */
-public class CypherTool {
+public class CypherUtils {
     
     /**
      * 加密

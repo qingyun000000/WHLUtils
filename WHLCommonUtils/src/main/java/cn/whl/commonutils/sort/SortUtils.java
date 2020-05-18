@@ -11,7 +11,7 @@ import cn.whl.commonutils.sort.strategy.impl.NumDescStrategy;
  * 排序工具
  * @author wuhailong
  */
-public class SortUtil {
+public class SortUtils {
 
     /**
      * int数组升序排序

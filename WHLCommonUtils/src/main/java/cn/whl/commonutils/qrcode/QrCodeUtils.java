@@ -27,7 +27,7 @@ import javax.imageio.ImageIO;
  * 二维码工具
  * @author wuhailong
  */
-public class QrCodeUtil {
+public class QrCodeUtils {
     
     /**
      * 获取二维码图片
@@ -50,7 +50,7 @@ public class QrCodeUtil {
                 filePath.mkdirs();
             }
         }catch(WriterException ex){
-            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QrCodeUtils.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
         }
@@ -59,7 +59,7 @@ public class QrCodeUtil {
             MatrixToImageWriter.writeToStream(bitMatrix, "PNG", out);
             out.flush();
         } catch (IOException ex) {
-            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QrCodeUtils.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
         }
@@ -91,7 +91,7 @@ public class QrCodeUtil {
                 bytes = outputStream.toByteArray();
             }
         }catch (IOException | WriterException ex) {
-            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QrCodeUtils.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
         }
@@ -120,7 +120,7 @@ public class QrCodeUtil {
                 bytes = outputStream.toByteArray();
             }
         }catch (IOException | WriterException ex) {
-            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QrCodeUtils.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
         }
@@ -149,7 +149,7 @@ public class QrCodeUtil {
             result.setSuccess(true);
             result.setData(decode.getText());
         }catch(ChecksumException | FormatException | IOException | NotFoundException ex){
-            Logger.getLogger(QrCodeUtil.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(QrCodeUtils.class.getName()).log(Level.SEVERE, null, ex);
             result.setSuccess(false);
             result.setMessage(ex.getMessage());
         }

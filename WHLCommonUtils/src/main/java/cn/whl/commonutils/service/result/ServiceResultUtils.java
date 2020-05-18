@@ -11,7 +11,7 @@ import cn.whl.commonutils.service.result.strategy.VerificationStrategy;
  *
  * @author wuhailong
  */
-public class ServiceResultTool {
+public class ServiceResultUtils {
 
     /**
      * 带返回值的动作

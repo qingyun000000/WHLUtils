@@ -1,14 +1,14 @@
 package cn.whl.commonutils.image;
 
 import cn.whl.commonutils.Result;
-import cn.whl.commonutils.file.common.FileSaveTool;
+import cn.whl.commonutils.file.common.FileSaveUtils;
 import java.io.File;
 
 /**
  * 图片保存工具
  * @author wuhailong
  */
-public class ImageSaveTool {
+public class ImageSaveUtils {
     
     /**
      * 保存图片
@@ -18,7 +18,7 @@ public class ImageSaveTool {
      * @return
      */
     public static Result saveImage(byte[] file, String path, String name){
-        return FileSaveTool.saveFile(file, path, name);
+        return FileSaveUtils.saveFile(file, path, name);
     }
     
     /**
@@ -29,7 +29,7 @@ public class ImageSaveTool {
      * @return
      */
     public static Result uploadFileToFastDFS(byte[] file, String path, String name){
-        return FileSaveTool.uploadFileToFastDFS(file, path, name);
+        return FileSaveUtils.uploadFileToFastDFS(file, path, name);
     }
     
 }

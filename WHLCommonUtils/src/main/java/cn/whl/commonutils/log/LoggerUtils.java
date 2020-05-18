@@ -7,7 +7,7 @@ import cn.whl.commonutils.log.system.SystemOutWriter;
  * 工具类：日志
  * @author wuhailong
  */
-public class LoggerTools {
+public class LoggerUtils {
     
     public static LoggerWrite log4j_write = new Log4JWriter();
     

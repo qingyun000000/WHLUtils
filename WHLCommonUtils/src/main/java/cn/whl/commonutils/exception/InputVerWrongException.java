@@ -1,6 +1,6 @@
 package cn.whl.commonutils.exception;
 
-import cn.whl.commonutils.verificate.VerificateTool;
+import cn.whl.commonutils.verificate.VerificateUtils;
 
 /**
  * 输入格式校验错误异常
@@ -42,7 +42,7 @@ public class InputVerWrongException extends CommonException{
     
     @Override
     public String exceptionOut(){
-        if(VerificateTool.notEmpty(param)){
+        if(VerificateUtils.notEmpty(param)){
             return "输入 [" + this.getParam() + ":" + this.getInput() + "] 格式校验错误, 正确格式为 [" + this.getMsg() + "]";
         }else{
             return "输入格式校验错误 [" + this.getMessage() + "] ";

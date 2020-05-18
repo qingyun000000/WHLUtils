@@ -6,18 +6,18 @@ package cn.whl.commonutils.exception;
  * @updateTime 2019-12-05
  * @author wuhailong
  */
-public class InputWrongException extends CommonException{
+public class InputNullException extends CommonException{
     
-    private static final String CODE = "INPUTWRONG";
+    private static final String CODE = "INPUTNULL";
 
-    public InputWrongException() {
+    public InputNullException() {
     }
 
-    public InputWrongException(String message) {
+    public InputNullException(String message) {
         super(message);
     }
 
-    public InputWrongException(Throwable cause) {
+    public InputNullException(Throwable cause) {
         super(cause);
     }
     
@@ -28,7 +28,7 @@ public class InputWrongException extends CommonException{
     
     @Override
     public String exceptionOut(){
-        return "输入 [" + this.getMessage() + "] 错误";
+        return "输入 [" + this.getMessage() + "] 为空值";
     }
     
     

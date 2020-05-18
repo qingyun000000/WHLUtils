@@ -12,7 +12,7 @@ import java.util.TreeMap;
  * 工具类：字符串
  * @author wuhailong
  */
-public class StringTool {
+public class StringUtils {
     
     /**
      * 判断两个字符串有多少个字符相同
