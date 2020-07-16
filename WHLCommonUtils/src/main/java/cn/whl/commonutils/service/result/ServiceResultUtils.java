@@ -27,36 +27,15 @@ public class ServiceResultUtils {
         try {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
-                result.setSuccess(false);
-                result.setExceptionCode("<NULL>");
-                result.setMessage("运行结果为空");
+                setNull(result);
             } else {
-                result.setSuccess(true);
-                result.setMessage("操作成功");
-                if (ResultParam.Bool.equals(resultParam)) {
-                    result.setBeTrue((Boolean) actionResult);
-                }else if (ResultParam.ResultId.equals(resultParam)) {
-                    result.setResultId((Long) actionResult);
-                }else if (ResultParam.Name.equals(resultParam)) {
-                    result.setName((String) actionResult);
-                }else if (ResultParam.Message.equals(resultParam)) {
-                    result.setMessage((String) actionResult);
-                }else if (ResultParam.IntValue.equals(resultParam)) {
-                    result.setIntValue((Integer) actionResult);
-                }else if (ResultParam.Url.equals(resultParam)) {
-                    result.setUrl((String) actionResult);
-                }else if (ResultParam.Data.equals(resultParam)) {
-                    result.setData(actionResult);
-                }
+                setSuccess(result);
+                setServiceResult(resultParam, result, actionResult);
             }
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         return result;
     }
@@ -72,16 +51,11 @@ public class ServiceResultUtils {
 
         try {
             ar.action();
-            result.setSuccess(true);
-            result.setMessage("操作成功");
+            setSuccess(result);
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         return result;
 
@@ -104,8 +78,7 @@ public class ServiceResultUtils {
 
         if (!verResult) {
             //校验未通过
-            result.setSuccess(false);
-            result.setMessage("访问的方法不存在");
+            setNoPower(result);
 
             return result;
         }
@@ -113,36 +86,15 @@ public class ServiceResultUtils {
         try {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
-                result.setSuccess(false);
-                result.setExceptionCode("<NULL>");
-                result.setMessage("运行结果为空");
+                setNull(result);
             } else {
-                result.setSuccess(true);
-                result.setMessage("操作成功");
-                if (ResultParam.Bool.equals(resultParam)) {
-                    result.setBeTrue((Boolean) actionResult);
-                }else if (ResultParam.ResultId.equals(resultParam)) {
-                    result.setResultId((Long) actionResult);
-                }else if (ResultParam.Name.equals(resultParam)) {
-                    result.setName((String) actionResult);
-                }else if (ResultParam.Message.equals(resultParam)) {
-                    result.setMessage((String) actionResult);
-                }else if (ResultParam.IntValue.equals(resultParam)) {
-                    result.setIntValue((Integer) actionResult);
-                }else if (ResultParam.Url.equals(resultParam)) {
-                    result.setUrl((String) actionResult);
-                }else if (ResultParam.Data.equals(resultParam)) {
-                    result.setData(actionResult);
-                }
+                setSuccess(result);
+                setServiceResult(resultParam, result, actionResult);
             }
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         return result;
     }
@@ -163,24 +115,17 @@ public class ServiceResultUtils {
         //校验通过
         if (!verResult) {
             //校验未通过
-            result.setSuccess(false);
-            result.setMessage("不具备权限进行此操作");
-
+            setNoPower(result);
             return result;
         }
 
         try {
             ar.action();
-            result.setSuccess(true);
-            result.setMessage("操作成功");
+            setSuccess(result);
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         return result;
 
@@ -202,49 +147,25 @@ public class ServiceResultUtils {
         try {
             vs.verification();
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
             return result;
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
             return result;
         }
 
         try {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
-                result.setSuccess(false);
-                result.setExceptionCode("<NULL>");
-                result.setMessage("运行结果为空");
+                setNull(result);
             } else {
-                result.setSuccess(true);
-                result.setMessage("操作成功");
-                if (ResultParam.Bool.equals(resultParam)) {
-                    result.setBeTrue((Boolean) actionResult);
-                }else if (ResultParam.ResultId.equals(resultParam)) {
-                    result.setResultId((Long) actionResult);
-                }else if (ResultParam.Name.equals(resultParam)) {
-                    result.setName((String) actionResult);
-                }else if (ResultParam.Message.equals(resultParam)) {
-                    result.setMessage((String) actionResult);
-                }else if (ResultParam.IntValue.equals(resultParam)) {
-                    result.setIntValue((Integer) actionResult);
-                }else if (ResultParam.Url.equals(resultParam)) {
-                    result.setUrl((String) actionResult);
-                }else if (ResultParam.Data.equals(resultParam)) {
-                    result.setData(actionResult);
-                }
+                setSuccess(result);
+                setServiceResult(resultParam, result, actionResult);
             }
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         return result;
     }
@@ -263,28 +184,20 @@ public class ServiceResultUtils {
         try {
             vs.verification();
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
             return result;
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
             return result;
         }
 
         try {
             ar.action();
-            result.setSuccess(true);
-            result.setMessage("操作成功");
+            setSuccess(result);
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         return result;
     }
@@ -306,14 +219,10 @@ public class ServiceResultUtils {
         try {
             vs.verification();
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
             return result;
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
             return result;
         }
 
@@ -321,10 +230,7 @@ public class ServiceResultUtils {
         Boolean verResult = pcs.verification();
 
         if (!verResult) {
-            //权限校验未通过
-            result.setSuccess(false);
-            result.setExceptionCode("<NOPOWER>");
-            result.setMessage("不具备权限进行此操作");
+            setNoPower(result);
 
             return result;
         }
@@ -332,36 +238,15 @@ public class ServiceResultUtils {
         try {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
-                result.setSuccess(false);
-                result.setExceptionCode("<NULL>");
-                result.setMessage("运行结果为空");
+                setNull(result);
             } else {
-                result.setSuccess(true);
-                result.setMessage("操作成功");
-                if (ResultParam.Bool.equals(resultParam)) {
-                    result.setBeTrue((Boolean) actionResult);
-                }else if (ResultParam.ResultId.equals(resultParam)) {
-                    result.setResultId((Long) actionResult);
-                }else if (ResultParam.Name.equals(resultParam)) {
-                    result.setName((String) actionResult);
-                }else if (ResultParam.Message.equals(resultParam)) {
-                    result.setMessage((String) actionResult);
-                }else if (ResultParam.IntValue.equals(resultParam)) {
-                    result.setIntValue((Integer) actionResult);
-                }else if (ResultParam.Url.equals(resultParam)) {
-                    result.setUrl((String) actionResult);
-                }else if (ResultParam.Data.equals(resultParam)) {
-                    result.setData(actionResult);
-                }
+                setSuccess(result);
+                setServiceResult(resultParam, result, actionResult);
             }
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         
         return result;
@@ -382,14 +267,10 @@ public class ServiceResultUtils {
         try {
             vs.verification();
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
             return result;
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
             return result;
         }
 
@@ -399,28 +280,68 @@ public class ServiceResultUtils {
         //校验通过
         if (!verResult) {
             //校验未通过
-            result.setSuccess(false);
-            result.setExceptionCode("<NOPOWER>");
-            result.setMessage("不具备权限进行此操作");
-
+            setNoPower(result);
             return result;
         }
 
         try {
             ar.action();
-            result.setSuccess(true);
-            result.setMessage("操作成功");
+            setSuccess(result);
         } catch (CommonException ex) {
-            result.setSuccess(false);
-            result.setExceptionCode(ex.getCODE());
-            result.setMessage(ex.exceptionOut());
+            setCommonException(result, ex);
         } catch (Exception ex) {
-            result.setSuccess(false);
-            result.setExceptionCode("COMMONEXP");
-            result.setMessage(ex.getMessage());
+            setException(result, ex);
         }
         
         return result;
     }
+    
+    private static void setSuccess(ServiceResult result) {
+        result.setSuccess(true);
+        result.setMessage("操作成功");
+    }
 
+    private static void setNull(ServiceResult result) {
+        result.setSuccess(false);
+        result.setExceptionCode("<NULL>");
+        result.setMessage("运行结果为空");
+    }
+
+    private static void setException(ServiceResult result, Exception ex) {
+        result.setSuccess(false);
+        result.setExceptionCode("COMMONEXP");
+        result.setMessage(ex.getMessage());
+    }
+
+    private static void setCommonException(ServiceResult result, CommonException ex) {
+        result.setSuccess(false);
+        result.setExceptionCode(ex.getCODE());
+        result.setMessage(ex.exceptionOut());
+    }
+
+    private static <T> void setServiceResult(ResultParam resultParam, ServiceResult result, T actionResult) {
+        if (ResultParam.Bool.equals(resultParam)) {
+            result.setBeTrue((Boolean) actionResult);
+        }else if (ResultParam.ResultId.equals(resultParam)) {
+            result.setResultId((Long) actionResult);
+        }else if (ResultParam.Name.equals(resultParam)) {
+            result.setName((String) actionResult);
+        }else if (ResultParam.Message.equals(resultParam)) {
+            result.setMessage((String) actionResult);
+        }else if (ResultParam.IntValue.equals(resultParam)) {
+            result.setIntValue((Integer) actionResult);
+        }else if (ResultParam.Url.equals(resultParam)) {
+            result.setUrl((String) actionResult);
+        }else if (ResultParam.Data.equals(resultParam)) {
+            result.setData(actionResult);
+        }
+    }
+
+    
+    private static void setNoPower(ServiceResult result) {
+        //权限校验未通过
+        result.setSuccess(false);
+        result.setExceptionCode("<NOPOWER>");
+        result.setMessage("不具备权限进行此操作");
+    }
 }
