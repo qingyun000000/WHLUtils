@@ -37,10 +37,7 @@ public class VerificateUtils {
      * @return
      */
     public static boolean notEmpty(String str){
-        if(str == null || str.trim().length() == 0){
-            return false;
-        }
-        return true;
+        return !isEmpty(str);
     }
     
     /**
@@ -49,7 +46,10 @@ public class VerificateUtils {
      * @return
      */
     public static boolean isEmpty(String str){
-        return !notEmpty(str);
+        if(str == null || str.trim().length() == 0){
+            return true;
+        }
+        return false;
     }
     
     /**

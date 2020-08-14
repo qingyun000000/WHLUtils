@@ -130,4 +130,41 @@ public class StringUtils {
         
         return sb.toString();
     }
+    
+    /**
+     * 比较两个字符串是否相等
+     * @param str1
+     * @param str2
+     * @return
+     */
+    public static boolean equals(String str1, String str2){
+        if(str1 == null && str2 == null){
+            return false;
+        }else if(str1 == null){
+            return str2.equals(str1);
+        }else{
+            return str1.equals(str2);
+        }
+    }
+    
+    /**
+     * 非空判断
+     * @param str
+     * @return
+     */
+    public static boolean notEmpty(String str){
+        return !isEmpty(str);
+    }
+    
+    /**
+     * 空判断
+     * @param str
+     * @return
+     */
+    public static boolean isEmpty(String str){
+        if(str == null || str.trim().length() == 0){
+            return true;
+        }
+        return false;
+    }
 }
