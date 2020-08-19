@@ -15,7 +15,7 @@ import java.math.BigDecimal;
  * 阿里支付订单查询方法
  * @author wuhailong
  */
-public class AliPayQueryTool {
+public class AliPayQueryUtils {
     
     public static AliPayQueryOutDto query(AliPayQueryInDto in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());

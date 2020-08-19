@@ -49,11 +49,11 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
         AliPayPayOutDto out = null;
         
         if(payParams.getPayType() == PayType.wap){
-            out = AliPayPayTool.wapPay(payParams);
+            out = AliPayPayUtils.wapPay(payParams);
         }else if(payParams.getPayType() == PayType.app){
-            out = AliPayPayTool.appPay(payParams);
+            out = AliPayPayUtils.appPay(payParams);
         }else if(payParams.getPayType() == PayType.page){
-            out = AliPayPayTool.pagePay(payParams);
+            out = AliPayPayUtils.pagePay(payParams);
         }else{
             System.out.println("暂不支持此支付方式");
         }
@@ -70,14 +70,14 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayQueryOutDto query(AliPayQueryInDto oderParams) throws Exception {
-        AliPayQueryOutDto out = AliPayQueryTool.query(oderParams);
+        AliPayQueryOutDto out = AliPayQueryUtils.query(oderParams);
         
         return out;
     }
 
     @Override
     public AliPayCloseOutDto close(AliPayCloseInDto closeParams) throws Exception {
-        AliPayCloseOutDto out = AliPayCloseTool.close(closeParams);
+        AliPayCloseOutDto out = AliPayCloseUtils.close(closeParams);
         
         return out;
     }
@@ -90,7 +90,7 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayRefundOutDto refund(AliPayRefundInDto refundParams) throws Exception {
-        AliPayRefundOutDto out = AliPayRefundTool.refund(refundParams);
+        AliPayRefundOutDto out = AliPayRefundUtils.refund(refundParams);
         
         return out;
     }
@@ -103,28 +103,28 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
 
     @Override
     public AliPayRefundQueryOutDto refundQuery(AliPayRefundQueryInDto refundQueryParams) throws Exception {
-        AliPayRefundQueryOutDto out = AliPayRefundTool.query(refundQueryParams);
+        AliPayRefundQueryOutDto out = AliPayRefundUtils.query(refundQueryParams);
         
         return out;
     }
 
     @Override
     public AliPayPayByMchOutDto payByMch(AliPayPayByMchInDto payByMchParams) throws Exception {
-        AliPayPayByMchOutDto out = AliPayPayByMchTool.payByMch(payByMchParams);
+        AliPayPayByMchOutDto out = AliPayPayByMchUtils.payByMch(payByMchParams);
         
         return out;
     }
 
     @Override
     public AliPayPayByMchQueryOutDto payByMchQuery(AliPayPayByMchQueryInDto payByMchQueryParams) throws Exception {
-        AliPayPayByMchQueryOutDto out = AliPayPayByMchTool.query(payByMchQueryParams);
+        AliPayPayByMchQueryOutDto out = AliPayPayByMchUtils.query(payByMchQueryParams);
         
         return out;
     }
 
     @Override
     public AliPayAccountQueryOutDto accountQuery(AliPayAccountQueryInDto accountQueryParams) throws Exception {
-        AliPayAccountQueryOutDto out = AliPayPayByMchTool.accountQuery(accountQueryParams);
+        AliPayAccountQueryOutDto out = AliPayPayByMchUtils.accountQuery(accountQueryParams);
         
         return out;
     }

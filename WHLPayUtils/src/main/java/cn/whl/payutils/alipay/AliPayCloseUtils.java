@@ -14,7 +14,7 @@ import com.alipay.api.response.AlipayTradeCloseResponse;
  * 阿里支付订单关闭方法
  * @author wuhailong
  */
-public class AliPayCloseTool {
+public class AliPayCloseUtils {
     
     public static AliPayCloseOutDto close(AliPayCloseInDto in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());

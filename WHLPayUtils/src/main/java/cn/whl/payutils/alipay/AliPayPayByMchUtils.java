@@ -15,7 +15,7 @@ import com.alipay.api.request.AlipayFundTransUniTransferRequest;
  * 阿里支付订单退款方法
  * @author wuhailong
  */
-public class AliPayPayByMchTool {
+public class AliPayPayByMchUtils {
 
     static AliPayPayByMchOutDto payByMch(AliPayPayByMchInDto in) {
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());

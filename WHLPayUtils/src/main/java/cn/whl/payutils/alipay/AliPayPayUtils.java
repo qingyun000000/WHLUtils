@@ -19,7 +19,7 @@ import java.math.BigDecimal;
  * 阿里支付支付方法
  * @author wuhailong
  */
-public class AliPayPayTool {
+public class AliPayPayUtils {
     
     public static AliPayPayOutDto wapPay(AliPayPayInDto in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());

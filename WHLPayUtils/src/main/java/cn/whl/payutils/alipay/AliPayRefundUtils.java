@@ -20,7 +20,7 @@ import java.math.BigDecimal;
  * 阿里支付订单退款方法
  * @author wuhailong
  */
-public class AliPayRefundTool {
+public class AliPayRefundUtils {
     
     public static AliPayRefundOutDto refund(AliPayRefundInDto in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
