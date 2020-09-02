@@ -21,7 +21,7 @@ public class WxUserUtil {
      * @return
      * @throws Exception
      */
-    public String getJscode2session(String appId, String appSecret, String jsCode) throws Exception{
+    public static String getJscode2session(String appId, String appSecret, String jsCode) throws Exception{
         String url = "https://api.weixin.qq.com/sns/jscode2session?" +
                 "appid=" + appId +
                 "&secret=" + appSecret +
@@ -40,7 +40,7 @@ public class WxUserUtil {
      * @return
      * @throws Exception
      */
-    public WxUser getUserByJscode2session(String appId, String appSecret, String jsCode) throws Exception{
+    public static WxUser getUserByJscode2session(String appId, String appSecret, String jsCode) throws Exception{
 
         String rStr = getJscode2session(appId, appSecret, jsCode);
         
@@ -59,7 +59,7 @@ public class WxUserUtil {
      * @return
      * @throws Exception
      */
-    public WxUser getUnionIdByncryptedData(String appId, String appSecret, String jsCode, String encryptedData, String iv) throws Exception{
+    public static WxUser getUnionIdByncryptedData(String appId, String appSecret, String jsCode, String encryptedData, String iv) throws Exception{
         WxUser user = getUserByJscode2session(appId, appSecret, jsCode);
         AES aes = new AES();
         byte[] resultByte = aes.decrypt(Base64.decodeBase64(encryptedData), Base64.decodeBase64(user.getSession_key()), Base64.decodeBase64(iv));
@@ -82,7 +82,7 @@ public class WxUserUtil {
      * @return
      * @throws Exception
      */
-    public WxUser getUnionId(String appId, String appSecret, String jsCode, String encryptedData, String iv) throws Exception{
+    public static WxUser getUnionId(String appId, String appSecret, String jsCode, String encryptedData, String iv) throws Exception{
         WxUser user = getUserByJscode2session(appId, appSecret, jsCode);
         if(user.getUnionid() != null && "".equals(user.getUnionid())){
             return user;
