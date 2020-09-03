@@ -6,5 +6,5 @@ package cn.whl.payutils.enums;
  */
 public enum Platform {
     
-    alipay, wechat,
+    ALIPAY, WECHAT,
 }

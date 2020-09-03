@@ -1,0 +1,80 @@
+package cn.whl.payutils.alipay.dto.refundQuery;
+
+import cn.whl.payutils.alipay.dto.AliPayIn;
+import cn.whl.payutils.enums.PayType;
+import cn.whl.payutils.enums.Platform;
+import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
+
+
+/**
+ * 阿里支付下单传入参数封装
+ * @author wuhailong
+ */
+public class AliPayRefundQueryInDto extends AliPayIn implements RefundQueryIn{
+    //接口部分
+    private Platform platform;
+    
+    private PayType payType;
+
+    @Override
+    public Platform getPlatform() {
+        return platform;
+    }
+
+    @Override
+    public void setPlatform(Platform platform) {
+        this.platform = platform;
+    }
+
+    @Override
+    public PayType getPayType() {
+        return payType;
+    }
+
+    @Override
+    public void setPayType(PayType payType) {
+        this.payType = payType;
+    }
+    
+    //通用部分
+    private String tradeNo;   //与outTradeNo二选一， 支付宝交易流水号
+    
+    private String outTradeNo;   //与outTradeNo二选一， 商户网站唯一订单号
+    
+    private String outRequestNo;   //退款请求试传入的退款请求号，如果未填则为创建交易时的外部交易号outTradeNo
+    
+    private String orgPid;       //仅银行间联模式，收单机构pid\
+
+    public String getTradeNo() {
+        return tradeNo;
+    }
+
+    public void setTradeNo(String tradeNo) {
+        this.tradeNo = tradeNo;
+    }
+
+    public String getOutTradeNo() {
+        return outTradeNo;
+    }
+
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public String getOutRequestNo() {
+        return outRequestNo;
+    }
+
+    public void setOutRequestNo(String outRequestNo) {
+        this.outRequestNo = outRequestNo;
+    }
+
+    public String getOrgPid() {
+        return orgPid;
+    }
+
+    public void setOrgPid(String orgPid) {
+        this.orgPid = orgPid;
+    }
+}

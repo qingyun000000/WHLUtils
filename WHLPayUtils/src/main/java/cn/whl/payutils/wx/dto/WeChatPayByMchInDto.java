@@ -1,14 +1,15 @@
 package cn.whl.payutils.wx.dto;
 
-import cn.whl.payutils.PayInDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
+import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
 
 /**
  * 微信支付商户支付传入参数封装
  * @author wuhailong
  */
-public class WeChatPayByMchInDto extends WeChatInDto implements PayInDto{
+public class WeChatPayByMchInDto extends WeChatInDto implements PayByMchIn{
     //接口部分
     private Platform platform;
     

@@ -1,31 +1,31 @@
 package cn.whl.payutils.alipay;
 
 import cn.whl.payutils.Pay;
-import cn.whl.payutils.alipay.dto.AliPayAccountQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayAccountQueryOutDto;
-import cn.whl.payutils.alipay.dto.AliPayCloseInDto;
-import cn.whl.payutils.alipay.dto.AliPayCloseNotifyDto;
-import cn.whl.payutils.alipay.dto.AliPayCloseNotifyResultDto;
-import cn.whl.payutils.alipay.dto.AliPayCloseOutDto;
-import cn.whl.payutils.alipay.dto.AliPayQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayQueryOutDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchInDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchNotifyDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchNotifyResultDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchOutDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchQueryOutDto;
+import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryInDto;
+import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryOutDto;
+import cn.whl.payutils.alipay.dto.close.AliPayCloseInDto;
+import cn.whl.payutils.alipay.dto.closeNotify.AliPayCloseNotifyDto;
+import cn.whl.payutils.alipay.dto.closeNotify.AliPayCloseNotifyResultDto;
+import cn.whl.payutils.alipay.dto.close.AliPayCloseOutDto;
+import cn.whl.payutils.alipay.dto.query.AliPayQueryInDto;
+import cn.whl.payutils.alipay.dto.query.AliPayQueryOutDto;
+import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchInDto;
+import cn.whl.payutils.alipay.dto.payByMchNotify.AliPayPayByMchNotifyDto;
+import cn.whl.payutils.alipay.dto.payByMchNotify.AliPayPayByMchNotifyResultDto;
+import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchOutDto;
+import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryInDto;
+import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryOutDto;
 import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.alipay.dto.AliPayPayInDto;
-import cn.whl.payutils.alipay.dto.AliPayPayNotifyDto;
-import cn.whl.payutils.alipay.dto.AliPayPayNotifyResultDto;
-import cn.whl.payutils.alipay.dto.AliPayPayOutDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundInDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundNotifyDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundNotifyResultDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundOutDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundQueryOutDto;
+import cn.whl.payutils.alipay.dto.pay.AliPayPayInDto;
+import cn.whl.payutils.alipay.dto.payNotify.AliPayPayNotifyDto;
+import cn.whl.payutils.alipay.dto.payNotify.AliPayPayNotifyResultDto;
+import cn.whl.payutils.alipay.dto.pay.AliPayPayOutDto;
+import cn.whl.payutils.alipay.dto.refund.AliPayRefundInDto;
+import cn.whl.payutils.alipay.dto.refundNotify.AliPayRefundNotifyDto;
+import cn.whl.payutils.alipay.dto.refundNotify.AliPayRefundNotifyResultDto;
+import cn.whl.payutils.alipay.dto.refund.AliPayRefundOutDto;
+import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryInDto;
+import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryOutDto;
 
 /**
  * 阿里支付
@@ -48,11 +48,11 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
     public AliPayPayOutDto pay(AliPayPayInDto payParams) throws Exception{
         AliPayPayOutDto out = null;
         
-        if(payParams.getPayType() == PayType.wap){
+        if(payParams.getPayType() == PayType.WAP){
             out = AliPayPayUtils.wapPay(payParams);
-        }else if(payParams.getPayType() == PayType.app){
+        }else if(payParams.getPayType() == PayType.APP){
             out = AliPayPayUtils.appPay(payParams);
-        }else if(payParams.getPayType() == PayType.page){
+        }else if(payParams.getPayType() == PayType.PAGE){
             out = AliPayPayUtils.pagePay(payParams);
         }else{
             System.out.println("暂不支持此支付方式");

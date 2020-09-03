@@ -1,14 +1,15 @@
 package cn.whl.payutils.wx.dto;
 
-import cn.whl.payutils.PayInDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
+import cn.whl.payutils.interfaces.close.CloseIn;
+import cn.whl.payutils.interfaces.pay.PayIn;
 
 /**
  * 微信支付订单关闭传入参数封装
  * @author wuhailong
  */
-public class WeChatCloseInDto extends WeChatInDto implements PayInDto{
+public class WeChatCloseInDto extends WeChatInDto implements CloseIn{
     //接口部分
     private Platform platform;
     

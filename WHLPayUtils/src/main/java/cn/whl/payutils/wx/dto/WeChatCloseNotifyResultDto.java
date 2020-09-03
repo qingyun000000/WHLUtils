@@ -1,12 +1,13 @@
 package cn.whl.payutils.wx.dto;
 
-import cn.whl.payutils.NotifyResultDto;
+import cn.whl.payutils.interfaces.closeNotify.CloseNotifyResult;
+import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
 
 /**
  * 微信支付订单关闭回调结果参数封装
  * @author wuhailong
  */
-public class WeChatCloseNotifyResultDto extends WeChatNotifyResultDto implements NotifyResultDto{
+public class WeChatCloseNotifyResultDto extends WeChatNotifyResultDto implements CloseNotifyResult{
     
     
 }

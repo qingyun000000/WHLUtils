@@ -1,9 +1,9 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.AliPayRefundInDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundOutDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayRefundQueryOutDto;
+import cn.whl.payutils.alipay.dto.refund.AliPayRefundInDto;
+import cn.whl.payutils.alipay.dto.refund.AliPayRefundOutDto;
+import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryInDto;
+import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryOutDto;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -69,7 +69,7 @@ public class AliPayRefundUtils {
         if("10000".equals(response.getCode())){
             AliPayRefundOutDto out = new AliPayRefundOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.alipay);
+            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());
@@ -132,7 +132,7 @@ public class AliPayRefundUtils {
         if("10000".equals(response.getCode())){
             AliPayRefundQueryOutDto out = new AliPayRefundQueryOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.alipay);
+            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

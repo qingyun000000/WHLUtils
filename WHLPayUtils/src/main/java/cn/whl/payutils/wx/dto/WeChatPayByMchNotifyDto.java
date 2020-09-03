@@ -1,7 +1,8 @@
 package cn.whl.payutils.wx.dto;
 
+import cn.whl.payutils.alipay.dto.AliPayNotifyDto;
 import cn.whl.payutils.alipay.dto.*;
-import cn.whl.payutils.NotifyDto;
+import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyIn;
 import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;
@@ -11,13 +12,14 @@ import com.alipay.api.domain.RoyaltyInfo;
 import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.util.List;
+import cn.whl.payutils.interfaces.payNotify.PayNotifyIn;
 
 
 /**
  * 微信订单关闭回调参数封装
  * @author wuhailong
  */
-public class WeChatPayByMchNotifyDto extends AliPayNotifyDto implements NotifyDto{
+public class WeChatPayByMchNotifyDto extends AliPayNotifyDto implements PayByMchNotifyIn{
     
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号

@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.AliPayPayInDto;
-import cn.whl.payutils.alipay.dto.AliPayPayOutDto;
+import cn.whl.payutils.alipay.dto.pay.AliPayPayInDto;
+import cn.whl.payutils.alipay.dto.pay.AliPayPayOutDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
@@ -87,8 +87,8 @@ public class AliPayPayUtils {
         if("10000".equals(response.getCode())){
             AliPayPayOutDto out = new AliPayPayOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.alipay);
-            out.setPayType(PayType.wap);
+            out.setPlatform(Platform.ALIPAY);
+            out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());
@@ -205,8 +205,8 @@ public class AliPayPayUtils {
         if("10000".equals(response.getCode())){
             AliPayPayOutDto out = new AliPayPayOutDto();
             //page支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.alipay);
-            out.setPayType(PayType.page);
+            out.setPlatform(Platform.ALIPAY);
+            out.setPayType(PayType.PAGE);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());
@@ -324,8 +324,8 @@ public class AliPayPayUtils {
         if("10000".equals(response.getCode())){
             AliPayPayOutDto out = new AliPayPayOutDto();
             //page支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.alipay);
-            out.setPayType(PayType.wap);
+            out.setPlatform(Platform.ALIPAY);
+            out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

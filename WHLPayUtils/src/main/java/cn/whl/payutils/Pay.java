@@ -1,5 +1,30 @@
 package cn.whl.payutils;
 
+import cn.whl.payutils.interfaces.accountQuery.AccountQueryIn;
+import cn.whl.payutils.interfaces.accountQuery.AccountQueryOut;
+import cn.whl.payutils.interfaces.close.CloseIn;
+import cn.whl.payutils.interfaces.close.CloseOut;
+import cn.whl.payutils.interfaces.closeNotify.CloseNotifyIn;
+import cn.whl.payutils.interfaces.closeNotify.CloseNotifyResult;
+import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.pay.PayOut;
+import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
+import cn.whl.payutils.interfaces.payByMch.PayByMchOut;
+import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyIn;
+import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyResult;
+import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryIn;
+import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryOut;
+import cn.whl.payutils.interfaces.query.QueryIn;
+import cn.whl.payutils.interfaces.query.QueryOut;
+import cn.whl.payutils.interfaces.payNotify.PayNotifyIn;
+import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
+import cn.whl.payutils.interfaces.refund.RefundIn;
+import cn.whl.payutils.interfaces.refund.RefundOut;
+import cn.whl.payutils.interfaces.refundNotify.RefundNotifyIn;
+import cn.whl.payutils.interfaces.refundNotify.RefundNotifyResult;
+import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
+import cn.whl.payutils.interfaces.refundQuery.RefundQueryOut;
+
 /**
  * 支付接口
  * @author wuhailong
@@ -28,18 +53,18 @@ package cn.whl.payutils;
  * @param <T12>
  * @param <K12>
  */
-public interface Pay <T1 extends PayInDto, K1 extends PayOutDto,
-                      T2 extends NotifyDto, K2 extends NotifyResultDto,
-                      T3 extends PayInDto, K3 extends PayOutDto,
-                      T4 extends PayInDto, K4 extends PayOutDto,
-                      T5 extends NotifyDto, K5 extends NotifyResultDto,
-                      T6 extends PayInDto, K6 extends PayOutDto,
-                      T7 extends NotifyDto, K7 extends NotifyResultDto,
-                      T8 extends PayInDto, K8 extends PayOutDto,
-                      T9 extends PayInDto, K9 extends PayOutDto,
-                      T10 extends PayInDto, K10 extends PayOutDto,
-                      T11 extends PayInDto, K11 extends PayOutDto,
-                      T12 extends NotifyDto, K12 extends NotifyResultDto>{
+public interface Pay <T1 extends PayIn, K1 extends PayOut,
+                      T2 extends PayNotifyIn, K2 extends PayNotifyResult,
+                      T3 extends QueryIn, K3 extends QueryOut,
+                      T4 extends CloseIn, K4 extends CloseOut,
+                      T5 extends CloseNotifyIn, K5 extends CloseNotifyResult,
+                      T6 extends RefundIn, K6 extends RefundOut,
+                      T7 extends RefundNotifyIn, K7 extends RefundNotifyResult,
+                      T8 extends RefundQueryIn, K8 extends RefundQueryOut,
+                      T9 extends PayByMchIn, K9 extends PayByMchOut,
+                      T10 extends PayByMchQueryIn, K10 extends PayByMchQueryOut,
+                      T11 extends AccountQueryIn, K11 extends AccountQueryOut,
+                      T12 extends PayByMchNotifyIn, K12 extends PayByMchNotifyResult>{
     
     /**
      * 支付下单

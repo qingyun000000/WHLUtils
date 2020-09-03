@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.AliPayQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayQueryOutDto;
+import cn.whl.payutils.alipay.dto.query.AliPayQueryInDto;
+import cn.whl.payutils.alipay.dto.query.AliPayQueryOutDto;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -42,7 +42,7 @@ public class AliPayQueryUtils {
         if("10000".equals(response.getCode())){
             AliPayQueryOutDto out = new AliPayQueryOutDto();
             
-            out.setPlatform(Platform.alipay);
+            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

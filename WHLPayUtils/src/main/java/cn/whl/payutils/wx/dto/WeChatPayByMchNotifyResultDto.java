@@ -1,13 +1,15 @@
 package cn.whl.payutils.wx.dto;
 
+import cn.whl.payutils.alipay.dto.AliPayNotifyResultDto;
 import cn.whl.payutils.alipay.dto.*;
-import cn.whl.payutils.NotifyResultDto;
+import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyResult;
+import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
 
 /**
  * 微信订单关闭回调结果参数封装
  * @author wuhailong
  */
-public class WeChatPayByMchNotifyResultDto extends AliPayNotifyResultDto implements NotifyResultDto{
+public class WeChatPayByMchNotifyResultDto extends AliPayNotifyResultDto implements PayByMchNotifyResult{
     
     //通用部分 
     private String outTradeNo;   //商户网站唯一订单号                    

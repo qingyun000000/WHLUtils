@@ -1,14 +1,15 @@
 package cn.whl.payutils.wx.dto;
 
-import cn.whl.payutils.PayInDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
+import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
 
 /**
  * 微信支付退款查询传入参数封装
  * @author wuhailong
  */
-public class WeChatRefundQueryInDto extends WeChatInDto implements PayInDto{
+public class WeChatRefundQueryInDto extends WeChatInDto implements RefundQueryIn{
     //接口部分
     private Platform platform;
     

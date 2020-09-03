@@ -1,15 +1,16 @@
 package cn.whl.payutils.wx.dto;
 
 import cn.whl.payutils.alipay.dto.*;
-import cn.whl.payutils.PayOutDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
+import cn.whl.payutils.interfaces.pay.PayOut;
+import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryOut;
 
 /**
  * 微信下单传入参数封装
  * @author wuhailong
  */
-public class WeChatPayByMchQueryOutDto extends AliPayOutDto implements PayOutDto{
+public class WeChatPayByMchQueryOutDto extends AliPayOut implements PayByMchQueryOut{
     //接口部分
     private Platform platform;
     

@@ -1,11 +1,11 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.AliPayAccountQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayAccountQueryOutDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchInDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchOutDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchQueryInDto;
-import cn.whl.payutils.alipay.dto.AliPayPayByMchQueryOutDto;
+import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryInDto;
+import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryOutDto;
+import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchInDto;
+import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchOutDto;
+import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryInDto;
+import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryOutDto;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.domain.AlipayFundTransUniTransferModel;

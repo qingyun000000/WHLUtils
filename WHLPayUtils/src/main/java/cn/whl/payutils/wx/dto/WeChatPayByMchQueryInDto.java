@@ -1,7 +1,6 @@
 package cn.whl.payutils.wx.dto;
 
 import cn.whl.payutils.alipay.dto.*;
-import cn.whl.payutils.PayInDto;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.domain.AgreementSignParams;
@@ -13,13 +12,15 @@ import com.alipay.api.domain.RoyaltyInfo;
 import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.util.List;
+import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryIn;
 
 
 /**
  * 微信下单传入参数封装
  * @author wuhailong
  */
-public class WeChatPayByMchQueryInDto extends AliPayInDto implements PayInDto{
+public class WeChatPayByMchQueryInDto extends AliPayIn implements PayByMchQueryIn{
     //接口部分
     private Platform platform;
     

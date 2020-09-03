@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.AliPayCloseInDto;
-import cn.whl.payutils.alipay.dto.AliPayCloseOutDto;
+import cn.whl.payutils.alipay.dto.close.AliPayCloseInDto;
+import cn.whl.payutils.alipay.dto.close.AliPayCloseOutDto;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -39,7 +39,7 @@ public class AliPayCloseUtils {
         if("10000".equals(response.getCode())){
             AliPayCloseOutDto out = new AliPayCloseOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.alipay);
+            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

@@ -6,5 +6,6 @@ package cn.whl.payutils.enums;
  */
 public enum PayType {
     
-    wap, page, app
+    WAP, PAGE, APP
+    
 }
