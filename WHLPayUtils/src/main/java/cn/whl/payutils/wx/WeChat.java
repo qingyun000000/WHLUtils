@@ -1,7 +1,6 @@
 package cn.whl.payutils.wx;
 
 import cn.whl.payutils.Pay;
-import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.utils.HttpUtil;
 import cn.whl.payutils.wx.dto.WeChatAccountQueryInDto;
 import cn.whl.payutils.wx.dto.WeChatAccountQueryOutDto;
@@ -49,6 +48,7 @@ public class WeChat implements Pay<WeChatPayInDto, WeChatPayOutDto,
         WeChatAccountQueryInDto, WeChatAccountQueryOutDto,
         WeChatPayByMchNotifyDto, WeChatPayByMchNotifyResultDto> {
     
+    @Override
     public WeChatPayOutDto pay(WeChatPayInDto payParams) {
        
         String url = payParams.getUnifiedOrderUrl();
