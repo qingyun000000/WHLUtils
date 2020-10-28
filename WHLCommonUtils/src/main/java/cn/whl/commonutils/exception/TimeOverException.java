@@ -1,7 +1,7 @@
 package cn.whl.commonutils.exception;
 
 /**
- * 余额不足异常
+ * 超时异常
  * @createTime 2019-12-05
  * @updateTime 2019-12-05
  * @author wuhailong
