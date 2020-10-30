@@ -69,7 +69,6 @@ public class AliPayRefundUtils {
         if("10000".equals(response.getCode())){
             AliPayRefundOutDto out = new AliPayRefundOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());
@@ -132,7 +131,6 @@ public class AliPayRefundUtils {
         if("10000".equals(response.getCode())){
             AliPayRefundQueryOutDto out = new AliPayRefundQueryOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

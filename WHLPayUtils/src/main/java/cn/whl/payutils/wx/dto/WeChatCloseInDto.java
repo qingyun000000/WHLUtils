@@ -10,30 +10,6 @@ import cn.whl.payutils.interfaces.pay.PayIn;
  * @author wuhailong
  */
 public class WeChatCloseInDto extends WeChatInDto implements CloseIn{
-    //接口部分
-    private Platform platform;
-    
-    private PayType payType;
-
-    @Override
-    public Platform getPlatform() {
-        return platform;
-    }
-
-    @Override
-    public void setPlatform(Platform platform) {
-        this.platform = platform;
-    }
-
-    @Override
-    public PayType getPayType() {
-        return payType;
-    }
-
-    @Override
-    public void setPayType(PayType payType) {
-        this.payType = payType;
-    }
     
     private String unifiedOrderUrl;
     

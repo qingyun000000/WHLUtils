@@ -10,31 +10,7 @@ import cn.whl.payutils.interfaces.refund.RefundIn;
  * @author wuhailong
  */
 public class WeChatRefundInDto extends WeChatInDto implements RefundIn{
-    //接口部分
-    private Platform platform;
-    
-    private PayType payType;
 
-    @Override
-    public Platform getPlatform() {
-        return platform;
-    }
-
-    @Override
-    public void setPlatform(Platform platform) {
-        this.platform = platform;
-    }
-
-    @Override
-    public PayType getPayType() {
-        return payType;
-    }
-
-    @Override
-    public void setPayType(PayType payType) {
-        this.payType = payType;
-    }
-    
     private String unifiedOrderUrl;
     
     private String deviceInfo;

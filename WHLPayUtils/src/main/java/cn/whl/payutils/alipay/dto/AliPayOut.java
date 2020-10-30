@@ -4,7 +4,7 @@ package cn.whl.payutils.alipay.dto;
  * 阿里支付返回结果封装
  * @author wuhailong
  */
-public class AliPayOut{
+public class AliPayOut extends AliPay {
     
     private String code;         //必填， 网关返回码
     

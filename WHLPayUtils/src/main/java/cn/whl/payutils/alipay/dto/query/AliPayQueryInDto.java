@@ -12,31 +12,6 @@ import cn.whl.payutils.interfaces.query.QueryIn;
  * @author wuhailong
  */
 public class AliPayQueryInDto extends AliPayIn implements QueryIn{
-    //接口部分
-    private Platform platform;
-    
-    private PayType payType;
-
-    @Override
-    public Platform getPlatform() {
-        return platform;
-    }
-
-    @Override
-    public void setPlatform(Platform platform) {
-        this.platform = platform;
-    }
-
-    @Override
-    public PayType getPayType() {
-        return payType;
-    }
-
-    @Override
-    public void setPayType(PayType payType) {
-        this.payType = payType;
-    }
-    
     //通用部分
     private String tradeNo;   //与outTradeNo二选一， 支付宝交易流水号
     

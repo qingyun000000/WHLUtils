@@ -4,7 +4,7 @@ package cn.whl.payutils.wx.dto;
  * 微信支付传入参数封装
  * @author wuhailong
  */
-public class WeChatInDto {
+public class WeChatInDto extends WeChat{
     
     private String appId;
     

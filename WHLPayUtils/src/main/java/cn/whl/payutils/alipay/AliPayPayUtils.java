@@ -87,7 +87,6 @@ public class AliPayPayUtils {
         if("10000".equals(response.getCode())){
             AliPayPayOutDto out = new AliPayPayOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.ALIPAY);
             out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
@@ -205,7 +204,6 @@ public class AliPayPayUtils {
         if("10000".equals(response.getCode())){
             AliPayPayOutDto out = new AliPayPayOutDto();
             //page支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.ALIPAY);
             out.setPayType(PayType.PAGE);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
@@ -324,7 +322,6 @@ public class AliPayPayUtils {
         if("10000".equals(response.getCode())){
             AliPayPayOutDto out = new AliPayPayOutDto();
             //page支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.ALIPAY);
             out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

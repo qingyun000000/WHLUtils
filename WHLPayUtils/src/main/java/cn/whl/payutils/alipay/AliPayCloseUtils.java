@@ -39,7 +39,6 @@ public class AliPayCloseUtils {
         if("10000".equals(response.getCode())){
             AliPayCloseOutDto out = new AliPayCloseOutDto();
             //wap支付方式，返回的生成表单的字符串
-            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

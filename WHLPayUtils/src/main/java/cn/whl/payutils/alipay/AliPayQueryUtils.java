@@ -42,7 +42,6 @@ public class AliPayQueryUtils {
         if("10000".equals(response.getCode())){
             AliPayQueryOutDto out = new AliPayQueryOutDto();
             
-            out.setPlatform(Platform.ALIPAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

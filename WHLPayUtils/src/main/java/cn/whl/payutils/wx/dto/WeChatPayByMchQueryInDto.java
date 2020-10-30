@@ -21,32 +21,7 @@ import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryIn;
  * @author wuhailong
  */
 public class WeChatPayByMchQueryInDto extends AliPayIn implements PayByMchQueryIn{
-    //接口部分
-    private Platform platform;
-    
-    private PayType payType;
-
-    @Override
-    public Platform getPlatform() {
-        return platform;
-    }
-
-    @Override
-    public void setPlatform(Platform platform) {
-        this.platform = platform;
-    }
-
-    @Override
-    public PayType getPayType() {
-        return payType;
-    }
-
-    @Override
-    public void setPayType(PayType payType) {
-        this.payType = payType;
-    }
-    
-    //通用部分 
+   //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号
 
     private String productCode;      //必选，销售商品码，商家和支付宝签约的产品码， <64位   

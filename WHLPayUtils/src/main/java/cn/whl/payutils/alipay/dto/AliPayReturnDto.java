@@ -4,7 +4,7 @@ package cn.whl.payutils.alipay.dto;
  * alipay前台回跳参数（支付完成后，返回商家页面带的参数，页面地址为pay的returnUrl)公共参数部分
  * @author wuhailong
  */
-public class AliPayReturnDto{
+public class AliPayReturnDto extends AliPay {
     
     private String appId;
     

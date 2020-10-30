@@ -11,32 +11,7 @@ import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryOut;
  * @author wuhailong
  */
 public class WeChatPayByMchQueryOutDto extends AliPayOut implements PayByMchQueryOut{
-    //接口部分
-    private Platform platform;
-    
-    private PayType payType;
-
-    @Override
-    public Platform getPlatform() {
-        return platform;
-    }
-
-    @Override
-    public void setPlatform(Platform platform) {
-        this.platform = platform;
-    }
-
-    @Override
-    public PayType getPayType() {
-        return payType;
-    }
-
-    @Override
-    public void setPayType(PayType payType) {
-        this.payType = payType;
-    }
-    
-    //通用部分 
+   //通用部分 
     private String outTradeNo;   //商户网站唯一订单号                    
      
     private String tradeNo;      //支付宝系统交易流水号

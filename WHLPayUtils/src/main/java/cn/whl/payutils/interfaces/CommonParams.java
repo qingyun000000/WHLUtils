@@ -11,8 +11,6 @@ public interface CommonParams {
     
     public Platform getPlatform();
 
-    public void setPlatform(Platform platform);
-
     public PayType getPayType();
 
     public void setPayType(PayType payType);

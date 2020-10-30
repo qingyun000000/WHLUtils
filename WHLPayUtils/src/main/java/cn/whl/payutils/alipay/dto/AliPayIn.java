@@ -1,10 +1,14 @@
 package cn.whl.payutils.alipay.dto;
 
+import cn.whl.payutils.enums.PayType;
+import cn.whl.payutils.enums.Platform;
+import cn.whl.payutils.interfaces.CommonParams;
+
 /**
  * 阿里支付传入参数封装
  * @author wuhailong
  */
-public class AliPayIn{
+public class AliPayIn extends AliPay {
     
     private String serverUrl;
     

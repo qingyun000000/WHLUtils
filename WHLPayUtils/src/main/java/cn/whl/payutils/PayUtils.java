@@ -33,6 +33,7 @@ import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
 import cn.whl.payutils.interfaces.refundQuery.RefundQueryOut;
 import cn.whl.payutils.wx.dto.WeChatCloseInDto;
 import cn.whl.payutils.wx.dto.WeChatPayInDto;
+import cn.whl.payutils.wx.dto.WeChatPayNotifyDto;
 import cn.whl.payutils.wx.dto.WeChatQueryInDto;
 
 /**
@@ -70,13 +71,13 @@ public class PayUtils {
      * @throws java.lang.Exception
      */
     public static PayNotifyResult payNotify(PayNotifyIn in) throws Exception{
-//        if(in.getPlatform() == Platform.ALIPAY){
-//            AliPayPayNotifyDto payParams = (AliPayPayNotifyDto)in;
-//            return alipay.payNotify(payParams);
-//        }else if(in.getPlatform() == Platform.WECHAT){
-//            WeChatPayInDto payParams = (WeChatPayInDto)in;
-//            return wechat.pay(payParams);
-//        }
+        if(in.getPlatform() == Platform.ALIPAY){
+            AliPayPayNotifyDto payParams = (AliPayPayNotifyDto)in;
+            return alipay.payNotify(payParams);
+        }else if(in.getPlatform() == Platform.WECHAT){
+            WeChatPayNotifyDto payParams = (WeChatPayNotifyDto)in;
+            return wechat.payNotify(payParams);
+        }
         
         return null;
     }

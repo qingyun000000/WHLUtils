@@ -1,4 +1,6 @@
-package cn.whl.payutils.alipay.dto;
+package cn.whl.payutils.alipay.dto.pay;
+
+import cn.whl.payutils.alipay.dto.AliPayReturnDto;
 
 /**
  * alipay支付完前台回跳参数（支付完成后，返回商家页面带的参数，页面地址为pay的returnUrl)业务参数部分

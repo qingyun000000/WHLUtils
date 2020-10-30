@@ -26,6 +26,7 @@ import cn.whl.payutils.alipay.dto.refundNotify.AliPayRefundNotifyResultDto;
 import cn.whl.payutils.alipay.dto.refund.AliPayRefundOutDto;
 import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryInDto;
 import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryOutDto;
+import java.math.BigDecimal;
 
 /**
  * 阿里支付
@@ -62,9 +63,11 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
     }
 
     @Override
-    public AliPayPayNotifyResultDto payNotify(AliPayPayNotifyDto aliPayPayNotifyInDto) throws Exception {
+    public AliPayPayNotifyResultDto payNotify(AliPayPayNotifyDto aliPayPayNotifyDto) throws Exception {
         AliPayPayNotifyResultDto outDto = new AliPayPayNotifyResultDto();
-        outDto.setTradeNo(aliPayPayNotifyInDto.getTrade_no());
+        outDto.setTradeNo(aliPayPayNotifyDto.getTrade_no());
+        outDto.setOutTradeNo(aliPayPayNotifyDto.getOut_trade_no());
+        outDto.setPayAmt(new BigDecimal(aliPayPayNotifyDto.getTotal_amount()));
         return outDto;
     }
 
