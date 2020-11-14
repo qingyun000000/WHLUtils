@@ -24,10 +24,12 @@ public class RemoteServiceRunException extends CommonException{
         super(cause);
     }
 
+    @Override
     public String getCODE() {
         return code;
     }
     
+    @Override
     public String exceptionOut(){
         return message;
     }
