@@ -308,12 +308,14 @@ public class ServiceResultUtils {
     }
 
     private static void setException(ServiceResult result, Exception ex) {
+        ex.printStackTrace();
         result.setSuccess(false);
         result.setExceptionCode("COMMONEXP");
         result.setMessage(ex.getMessage());
     }
 
     private static void setCommonException(ServiceResult result, CommonException ex) {
+        ex.printStackTrace();
         result.setSuccess(false);
         result.setExceptionCode(ex.getCODE());
         result.setMessage(ex.exceptionOut());
