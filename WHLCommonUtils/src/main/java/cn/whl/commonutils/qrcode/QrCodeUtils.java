@@ -136,7 +136,7 @@ public class QrCodeUtils {
      * @param path
      * @return 
      */
-    public static Result encode(String path) {
+    public static Result decode(String path) {
         Result result = new Result();
         try{
             File file = new File(path);
