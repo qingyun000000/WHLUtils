@@ -130,13 +130,7 @@ public class JPAUtils {
      */
     public static <T> DataPageResponse<T> constructByList(List<T> list, Page page, int total){
         page = PageUtils.getPage(page, total);
-
-        List<T> responses = new ArrayList<>();
-
-        for (T t : list) {
-            responses.add(t);
-        }
         
-        return new DataPageResponse<>(page, responses);
+        return new DataPageResponse<>(page, list);
     }
 }
