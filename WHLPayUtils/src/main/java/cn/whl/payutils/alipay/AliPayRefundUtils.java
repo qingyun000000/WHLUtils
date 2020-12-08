@@ -1,9 +1,9 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.refund.AliPayRefundInDto;
-import cn.whl.payutils.alipay.dto.refund.AliPayRefundOutDto;
-import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryInDto;
-import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryOutDto;
+import cn.whl.payutils.alipay.vo.refund.AliPayRefundIn;
+import cn.whl.payutils.alipay.vo.refund.AliPayRefundOut;
+import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryIn;
+import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryOut;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -22,7 +22,7 @@ import java.math.BigDecimal;
  */
 public class AliPayRefundUtils {
     
-    public static AliPayRefundOutDto refund(AliPayRefundInDto in) throws AlipayApiException, Exception{
+    public static AliPayRefundOut refund(AliPayRefundIn in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
         
@@ -67,7 +67,7 @@ public class AliPayRefundUtils {
         AlipayTradeRefundResponse response = alipayClient.execute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayRefundOutDto out = new AliPayRefundOutDto();
+            AliPayRefundOut out = new AliPayRefundOut();
             //wap支付方式，返回的生成表单的字符串
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
@@ -107,7 +107,7 @@ public class AliPayRefundUtils {
         
     }
 
-    public static AliPayRefundQueryOutDto query(AliPayRefundQueryInDto in) throws AlipayApiException, Exception{
+    public static AliPayRefundQueryOut query(AliPayRefundQueryIn in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradeFastpayRefundQueryRequest request = new AlipayTradeFastpayRefundQueryRequest();
         
@@ -129,7 +129,7 @@ public class AliPayRefundUtils {
         AlipayTradeFastpayRefundQueryResponse response = alipayClient.execute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayRefundQueryOutDto out = new AliPayRefundQueryOutDto();
+            AliPayRefundQueryOut out = new AliPayRefundQueryOut();
             //wap支付方式，返回的生成表单的字符串
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

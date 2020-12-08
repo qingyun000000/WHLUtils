@@ -2,30 +2,30 @@ package cn.whl.payutils.wx;
 
 import cn.whl.payutils.Pay;
 import cn.whl.payutils.utils.HttpUtil;
-import cn.whl.payutils.wx.dto.WeChatAccountQueryInDto;
-import cn.whl.payutils.wx.dto.WeChatAccountQueryOutDto;
-import cn.whl.payutils.wx.dto.WeChatCloseInDto;
-import cn.whl.payutils.wx.dto.WeChatCloseNotifyDto;
-import cn.whl.payutils.wx.dto.WeChatCloseNotifyResultDto;
-import cn.whl.payutils.wx.dto.WeChatCloseOutDto;
-import cn.whl.payutils.wx.dto.WeChatPayByMchInDto;
-import cn.whl.payutils.wx.dto.WeChatPayByMchNotifyDto;
-import cn.whl.payutils.wx.dto.WeChatPayByMchNotifyResultDto;
-import cn.whl.payutils.wx.dto.WeChatPayByMchOutDto;
-import cn.whl.payutils.wx.dto.WeChatPayByMchQueryInDto;
-import cn.whl.payutils.wx.dto.WeChatPayByMchQueryOutDto;
-import cn.whl.payutils.wx.dto.WeChatPayInDto;
-import cn.whl.payutils.wx.dto.WeChatPayNotifyDto;
-import cn.whl.payutils.wx.dto.WeChatPayNotifyResultDto;
-import cn.whl.payutils.wx.dto.WeChatPayOutDto;
-import cn.whl.payutils.wx.dto.WeChatQueryInDto;
-import cn.whl.payutils.wx.dto.WeChatQueryOutDto;
-import cn.whl.payutils.wx.dto.WeChatRefundInDto;
-import cn.whl.payutils.wx.dto.WeChatRefundNotifyDto;
-import cn.whl.payutils.wx.dto.WeChatRefundNotifyResultDto;
-import cn.whl.payutils.wx.dto.WeChatRefundOutDto;
-import cn.whl.payutils.wx.dto.WeChatRefundQueryInDto;
-import cn.whl.payutils.wx.dto.WeChatRefundQueryOutDto;
+import cn.whl.payutils.wx.vo.WeChatAccountQueryIn;
+import cn.whl.payutils.wx.vo.WeChatAccountQueryOut;
+import cn.whl.payutils.wx.vo.WeChatCloseIn;
+import cn.whl.payutils.wx.vo.WeChatCloseNotify;
+import cn.whl.payutils.wx.vo.WeChatCloseNotifyResult;
+import cn.whl.payutils.wx.vo.WeChatCloseOut;
+import cn.whl.payutils.wx.vo.WeChatPayByMchIn;
+import cn.whl.payutils.wx.vo.WeChatPayByMchNotify;
+import cn.whl.payutils.wx.vo.WeChatPayByMchNotifyResult;
+import cn.whl.payutils.wx.vo.WeChatPayByMchOut;
+import cn.whl.payutils.wx.vo.WeChatPayByMchQueryIn;
+import cn.whl.payutils.wx.vo.WeChatPayByMchQueryOut;
+import cn.whl.payutils.wx.vo.WeChatPayIn;
+import cn.whl.payutils.wx.vo.WeChatPayNotify;
+import cn.whl.payutils.wx.vo.WeChatPayNotifyResult;
+import cn.whl.payutils.wx.vo.WeChatPayOut;
+import cn.whl.payutils.wx.vo.WeChatQueryIn;
+import cn.whl.payutils.wx.vo.WeChatQueryOut;
+import cn.whl.payutils.wx.vo.WeChatRefundIn;
+import cn.whl.payutils.wx.vo.WeChatRefundNotify;
+import cn.whl.payutils.wx.vo.WeChatRefundNotifyResult;
+import cn.whl.payutils.wx.vo.WeChatRefundOut;
+import cn.whl.payutils.wx.vo.WeChatRefundQueryIn;
+import cn.whl.payutils.wx.vo.WeChatRefundQueryOut;
 import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
@@ -35,21 +35,21 @@ import java.util.UUID;
  * 微信支付类
  * @author wuhailong
  */
-public class WeChat implements Pay<WeChatPayInDto, WeChatPayOutDto,
-        WeChatPayNotifyDto, WeChatPayNotifyResultDto,
-        WeChatQueryInDto, WeChatQueryOutDto,
-        WeChatCloseInDto, WeChatCloseOutDto,
-        WeChatCloseNotifyDto, WeChatCloseNotifyResultDto,
-        WeChatRefundInDto, WeChatRefundOutDto,
-        WeChatRefundNotifyDto, WeChatRefundNotifyResultDto,
-        WeChatRefundQueryInDto, WeChatRefundQueryOutDto,
-        WeChatPayByMchInDto, WeChatPayByMchOutDto,
-        WeChatPayByMchQueryInDto, WeChatPayByMchQueryOutDto,
-        WeChatAccountQueryInDto, WeChatAccountQueryOutDto,
-        WeChatPayByMchNotifyDto, WeChatPayByMchNotifyResultDto> {
+public class WeChat implements Pay<WeChatPayIn, WeChatPayOut,
+        WeChatPayNotify, WeChatPayNotifyResult,
+        WeChatQueryIn, WeChatQueryOut,
+        WeChatCloseIn, WeChatCloseOut,
+        WeChatCloseNotify, WeChatCloseNotifyResult,
+        WeChatRefundIn, WeChatRefundOut,
+        WeChatRefundNotify, WeChatRefundNotifyResult,
+        WeChatRefundQueryIn, WeChatRefundQueryOut,
+        WeChatPayByMchIn, WeChatPayByMchOut,
+        WeChatPayByMchQueryIn, WeChatPayByMchQueryOut,
+        WeChatAccountQueryIn, WeChatAccountQueryOut,
+        WeChatPayByMchNotify, WeChatPayByMchNotifyResult> {
     
     @Override
-    public WeChatPayOutDto pay(WeChatPayInDto payParams) {
+    public WeChatPayOut pay(WeChatPayIn payParams) {
        
         String url = payParams.getUnifiedOrderUrl();
 
@@ -79,7 +79,7 @@ public class WeChat implements Pay<WeChatPayInDto, WeChatPayOutDto,
             Map<String, String> resultMap = WxUtil.xmlToMap(result);
 
             
-            return new WeChatPayOutDto();
+            return new WeChatPayOut();
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,57 +89,57 @@ public class WeChat implements Pay<WeChatPayInDto, WeChatPayOutDto,
     }
 
     @Override
-    public WeChatPayNotifyResultDto payNotify(WeChatPayNotifyDto payNotifyParams) throws Exception {
+    public WeChatPayNotifyResult payNotify(WeChatPayNotify payNotifyParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatQueryOutDto query(WeChatQueryInDto oderParams) throws Exception {
+    public WeChatQueryOut query(WeChatQueryIn oderParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatCloseOutDto close(WeChatCloseInDto closeParams) throws Exception {
+    public WeChatCloseOut close(WeChatCloseIn closeParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatCloseNotifyResultDto closeNotify(WeChatCloseNotifyDto closeNotifyParams) throws Exception {
+    public WeChatCloseNotifyResult closeNotify(WeChatCloseNotify closeNotifyParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatRefundOutDto refund(WeChatRefundInDto refundParams) throws Exception {
+    public WeChatRefundOut refund(WeChatRefundIn refundParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatRefundNotifyResultDto refundNotify(WeChatRefundNotifyDto refundParams) throws Exception {
+    public WeChatRefundNotifyResult refundNotify(WeChatRefundNotify refundParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatRefundQueryOutDto refundQuery(WeChatRefundQueryInDto refundQueryParams) throws Exception {
+    public WeChatRefundQueryOut refundQuery(WeChatRefundQueryIn refundQueryParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatPayByMchOutDto payByMch(WeChatPayByMchInDto payByMchParams) throws Exception {
+    public WeChatPayByMchOut payByMch(WeChatPayByMchIn payByMchParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatPayByMchQueryOutDto payByMchQuery(WeChatPayByMchQueryInDto payByMchQueryParams) throws Exception {
+    public WeChatPayByMchQueryOut payByMchQuery(WeChatPayByMchQueryIn payByMchQueryParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatAccountQueryOutDto accountQuery(WeChatAccountQueryInDto accountQueryParams) throws Exception {
+    public WeChatAccountQueryOut accountQuery(WeChatAccountQueryIn accountQueryParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public WeChatPayByMchNotifyResultDto payByMchNotify(WeChatPayByMchNotifyDto payByMchNotifyParams) throws Exception {
+    public WeChatPayByMchNotifyResult payByMchNotify(WeChatPayByMchNotify payByMchNotifyParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

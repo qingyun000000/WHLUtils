@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.query.AliPayQueryInDto;
-import cn.whl.payutils.alipay.dto.query.AliPayQueryOutDto;
+import cn.whl.payutils.alipay.vo.query.AliPayQueryIn;
+import cn.whl.payutils.alipay.vo.query.AliPayQueryOut;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -17,7 +17,7 @@ import java.math.BigDecimal;
  */
 public class AliPayQueryUtils {
     
-    public static AliPayQueryOutDto query(AliPayQueryInDto in) throws AlipayApiException, Exception{
+    public static AliPayQueryOut query(AliPayQueryIn in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradeQueryRequest request = new AlipayTradeQueryRequest();
         
@@ -40,7 +40,7 @@ public class AliPayQueryUtils {
         AlipayTradeQueryResponse response = alipayClient.execute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayQueryOutDto out = new AliPayQueryOutDto();
+            AliPayQueryOut out = new AliPayQueryOut();
             
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

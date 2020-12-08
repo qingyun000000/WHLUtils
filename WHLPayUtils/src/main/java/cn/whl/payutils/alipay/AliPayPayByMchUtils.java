@@ -1,11 +1,11 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryInDto;
-import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryOutDto;
-import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchInDto;
-import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchOutDto;
-import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryInDto;
-import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryOutDto;
+import cn.whl.payutils.alipay.vo.accountQuery.AliPayAccountQueryIn;
+import cn.whl.payutils.alipay.vo.accountQuery.AliPayAccountQueryOut;
+import cn.whl.payutils.alipay.vo.payByMch.AliPayPayByMchIn;
+import cn.whl.payutils.alipay.vo.payByMch.AliPayPayByMchOut;
+import cn.whl.payutils.alipay.vo.payByMchQuery.AliPayPayByMchQueryIn;
+import cn.whl.payutils.alipay.vo.payByMchQuery.AliPayPayByMchQueryOut;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
 import com.alipay.api.domain.AlipayFundTransUniTransferModel;
@@ -17,7 +17,7 @@ import com.alipay.api.request.AlipayFundTransUniTransferRequest;
  */
 public class AliPayPayByMchUtils {
 
-    static AliPayPayByMchOutDto payByMch(AliPayPayByMchInDto in) {
+    static AliPayPayByMchOut payByMch(AliPayPayByMchIn in) {
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayFundTransUniTransferRequest request = new AlipayFundTransUniTransferRequest();
         
@@ -32,15 +32,15 @@ public class AliPayPayByMchUtils {
             model.setPayeeInfo(in.getPayeeInfo());
         }
         
-        AliPayPayByMchOutDto out = new AliPayPayByMchOutDto();
+        AliPayPayByMchOut out = new AliPayPayByMchOut();
         return out;
     }
 
-    static AliPayPayByMchQueryOutDto query(AliPayPayByMchQueryInDto payByMchQueryParams) {
+    static AliPayPayByMchQueryOut query(AliPayPayByMchQueryIn payByMchQueryParams) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    static AliPayAccountQueryOutDto accountQuery(AliPayAccountQueryInDto accountQueryParams) {
+    static AliPayAccountQueryOut accountQuery(AliPayAccountQueryIn accountQueryParams) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     

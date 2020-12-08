@@ -1,10 +1,10 @@
 package cn.whl.payutils;
 
 import cn.whl.payutils.alipay.AliPay;
-import cn.whl.payutils.alipay.dto.close.AliPayCloseInDto;
-import cn.whl.payutils.alipay.dto.pay.AliPayPayInDto;
-import cn.whl.payutils.alipay.dto.payNotify.AliPayPayNotifyDto;
-import cn.whl.payutils.alipay.dto.query.AliPayQueryInDto;
+import cn.whl.payutils.alipay.vo.close.AliPayCloseIn;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayIn;
+import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotify;
+import cn.whl.payutils.alipay.vo.query.AliPayQueryIn;
 import cn.whl.payutils.enums.Platform;
 import cn.whl.payutils.interfaces.accountQuery.AccountQueryIn;
 import cn.whl.payutils.interfaces.accountQuery.AccountQueryOut;
@@ -31,10 +31,10 @@ import cn.whl.payutils.interfaces.refundNotify.RefundNotifyIn;
 import cn.whl.payutils.interfaces.refundNotify.RefundNotifyResult;
 import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
 import cn.whl.payutils.interfaces.refundQuery.RefundQueryOut;
-import cn.whl.payutils.wx.dto.WeChatCloseInDto;
-import cn.whl.payutils.wx.dto.WeChatPayInDto;
-import cn.whl.payutils.wx.dto.WeChatPayNotifyDto;
-import cn.whl.payutils.wx.dto.WeChatQueryInDto;
+import cn.whl.payutils.wx.vo.WeChatCloseIn;
+import cn.whl.payutils.wx.vo.WeChatPayIn;
+import cn.whl.payutils.wx.vo.WeChatPayNotify;
+import cn.whl.payutils.wx.vo.WeChatQueryIn;
 
 /**
  * 订单工具类
@@ -54,10 +54,10 @@ public class PayUtils {
      */
     public static PayOut pay(PayIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
-            AliPayPayInDto payParams = (AliPayPayInDto)in;
+            AliPayPayIn payParams = (AliPayPayIn)in;
             return alipay.pay(payParams);
         }else if(in.getPlatform() == Platform.WECHAT){
-            WeChatPayInDto payParams = (WeChatPayInDto)in;
+            WeChatPayIn payParams = (WeChatPayIn)in;
             return wechat.pay(payParams);
         }
         
@@ -72,10 +72,10 @@ public class PayUtils {
      */
     public static PayNotifyResult payNotify(PayNotifyIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
-            AliPayPayNotifyDto payParams = (AliPayPayNotifyDto)in;
+            AliPayPayNotify payParams = (AliPayPayNotify)in;
             return alipay.payNotify(payParams);
         }else if(in.getPlatform() == Platform.WECHAT){
-            WeChatPayNotifyDto payParams = (WeChatPayNotifyDto)in;
+            WeChatPayNotify payParams = (WeChatPayNotify)in;
             return wechat.payNotify(payParams);
         }
         
@@ -90,10 +90,10 @@ public class PayUtils {
      */
     public static QueryOut query(QueryIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
-            AliPayQueryInDto payParams = (AliPayQueryInDto)in;
+            AliPayQueryIn payParams = (AliPayQueryIn)in;
             return alipay.query(payParams);
         }else if(in.getPlatform() == Platform.WECHAT){
-            WeChatQueryInDto payParams = (WeChatQueryInDto)in;
+            WeChatQueryIn payParams = (WeChatQueryIn)in;
             return wechat.query(payParams);
         }
         
@@ -108,10 +108,10 @@ public class PayUtils {
      */
     public static CloseOut close(CloseIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
-            AliPayCloseInDto payParams = (AliPayCloseInDto)in;
+            AliPayCloseIn payParams = (AliPayCloseIn)in;
             return alipay.close(payParams);
         }else if(in.getPlatform() == Platform.WECHAT){
-            WeChatCloseInDto payParams = (WeChatCloseInDto)in;
+            WeChatCloseIn payParams = (WeChatCloseIn)in;
             return wechat.close(payParams);
         }
         

@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.close.AliPayCloseInDto;
-import cn.whl.payutils.alipay.dto.close.AliPayCloseOutDto;
+import cn.whl.payutils.alipay.vo.close.AliPayCloseIn;
+import cn.whl.payutils.alipay.vo.close.AliPayCloseOut;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -16,7 +16,7 @@ import com.alipay.api.response.AlipayTradeCloseResponse;
  */
 public class AliPayCloseUtils {
     
-    public static AliPayCloseOutDto close(AliPayCloseInDto in) throws AlipayApiException, Exception{
+    public static AliPayCloseOut close(AliPayCloseIn in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradeCloseRequest request = new AlipayTradeCloseRequest();
         request.setNotifyUrl(in.getNotifyUrl());
@@ -37,7 +37,7 @@ public class AliPayCloseUtils {
         AlipayTradeCloseResponse response = alipayClient.execute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayCloseOutDto out = new AliPayCloseOutDto();
+            AliPayCloseOut out = new AliPayCloseOut();
             //wap支付方式，返回的生成表单的字符串
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

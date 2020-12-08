@@ -1,53 +1,53 @@
 package cn.whl.payutils.alipay;
 
 import cn.whl.payutils.Pay;
-import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryInDto;
-import cn.whl.payutils.alipay.dto.accountQuery.AliPayAccountQueryOutDto;
-import cn.whl.payutils.alipay.dto.close.AliPayCloseInDto;
-import cn.whl.payutils.alipay.dto.closeNotify.AliPayCloseNotifyDto;
-import cn.whl.payutils.alipay.dto.closeNotify.AliPayCloseNotifyResultDto;
-import cn.whl.payutils.alipay.dto.close.AliPayCloseOutDto;
-import cn.whl.payutils.alipay.dto.query.AliPayQueryInDto;
-import cn.whl.payutils.alipay.dto.query.AliPayQueryOutDto;
-import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchInDto;
-import cn.whl.payutils.alipay.dto.payByMchNotify.AliPayPayByMchNotifyDto;
-import cn.whl.payutils.alipay.dto.payByMchNotify.AliPayPayByMchNotifyResultDto;
-import cn.whl.payutils.alipay.dto.payByMch.AliPayPayByMchOutDto;
-import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryInDto;
-import cn.whl.payutils.alipay.dto.payByMchQuery.AliPayPayByMchQueryOutDto;
+import cn.whl.payutils.alipay.vo.accountQuery.AliPayAccountQueryIn;
+import cn.whl.payutils.alipay.vo.accountQuery.AliPayAccountQueryOut;
+import cn.whl.payutils.alipay.vo.close.AliPayCloseIn;
+import cn.whl.payutils.alipay.vo.closeNotify.AliPayCloseNotify;
+import cn.whl.payutils.alipay.vo.closeNotify.AliPayCloseNotifyResult;
+import cn.whl.payutils.alipay.vo.close.AliPayCloseOut;
+import cn.whl.payutils.alipay.vo.query.AliPayQueryIn;
+import cn.whl.payutils.alipay.vo.query.AliPayQueryOut;
+import cn.whl.payutils.alipay.vo.payByMch.AliPayPayByMchIn;
+import cn.whl.payutils.alipay.vo.payByMchNotify.AliPayPayByMchNotify;
+import cn.whl.payutils.alipay.vo.payByMchNotify.AliPayPayByMchNotifyResult;
+import cn.whl.payutils.alipay.vo.payByMch.AliPayPayByMchOut;
+import cn.whl.payutils.alipay.vo.payByMchQuery.AliPayPayByMchQueryIn;
+import cn.whl.payutils.alipay.vo.payByMchQuery.AliPayPayByMchQueryOut;
 import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.alipay.dto.pay.AliPayPayInDto;
-import cn.whl.payutils.alipay.dto.payNotify.AliPayPayNotifyDto;
-import cn.whl.payutils.alipay.dto.payNotify.AliPayPayNotifyResultDto;
-import cn.whl.payutils.alipay.dto.pay.AliPayPayOutDto;
-import cn.whl.payutils.alipay.dto.refund.AliPayRefundInDto;
-import cn.whl.payutils.alipay.dto.refundNotify.AliPayRefundNotifyDto;
-import cn.whl.payutils.alipay.dto.refundNotify.AliPayRefundNotifyResultDto;
-import cn.whl.payutils.alipay.dto.refund.AliPayRefundOutDto;
-import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryInDto;
-import cn.whl.payutils.alipay.dto.refundQuery.AliPayRefundQueryOutDto;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayIn;
+import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotify;
+import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotifyResult;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayOut;
+import cn.whl.payutils.alipay.vo.refund.AliPayRefundIn;
+import cn.whl.payutils.alipay.vo.refundNotify.AliPayRefundNotify;
+import cn.whl.payutils.alipay.vo.refundNotify.AliPayRefundNotifyResult;
+import cn.whl.payutils.alipay.vo.refund.AliPayRefundOut;
+import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryIn;
+import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryOut;
 import java.math.BigDecimal;
 
 /**
  * 阿里支付
  * @author wuhailong
  */
-public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
-        AliPayPayNotifyDto, AliPayPayNotifyResultDto,
-        AliPayQueryInDto, AliPayQueryOutDto,
-        AliPayCloseInDto, AliPayCloseOutDto,
-        AliPayCloseNotifyDto, AliPayCloseNotifyResultDto,
-        AliPayRefundInDto, AliPayRefundOutDto,
-        AliPayRefundNotifyDto, AliPayRefundNotifyResultDto,
-        AliPayRefundQueryInDto, AliPayRefundQueryOutDto,
-        AliPayPayByMchInDto, AliPayPayByMchOutDto,
-        AliPayPayByMchQueryInDto, AliPayPayByMchQueryOutDto,
-        AliPayAccountQueryInDto, AliPayAccountQueryOutDto,
-        AliPayPayByMchNotifyDto, AliPayPayByMchNotifyResultDto>{
+public class AliPay implements Pay<AliPayPayIn, AliPayPayOut,
+        AliPayPayNotify, AliPayPayNotifyResult,
+        AliPayQueryIn, AliPayQueryOut,
+        AliPayCloseIn, AliPayCloseOut,
+        AliPayCloseNotify, AliPayCloseNotifyResult,
+        AliPayRefundIn, AliPayRefundOut,
+        AliPayRefundNotify, AliPayRefundNotifyResult,
+        AliPayRefundQueryIn, AliPayRefundQueryOut,
+        AliPayPayByMchIn, AliPayPayByMchOut,
+        AliPayPayByMchQueryIn, AliPayPayByMchQueryOut,
+        AliPayAccountQueryIn, AliPayAccountQueryOut,
+        AliPayPayByMchNotify, AliPayPayByMchNotifyResult>{
 
     @Override
-    public AliPayPayOutDto pay(AliPayPayInDto payParams) throws Exception{
-        AliPayPayOutDto out = null;
+    public AliPayPayOut pay(AliPayPayIn payParams) throws Exception{
+        AliPayPayOut out = null;
         
         if(payParams.getPayType() == PayType.WAP){
             out = AliPayPayUtils.wapPay(payParams);
@@ -63,8 +63,8 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
     }
 
     @Override
-    public AliPayPayNotifyResultDto payNotify(AliPayPayNotifyDto aliPayPayNotifyDto) throws Exception {
-        AliPayPayNotifyResultDto outDto = new AliPayPayNotifyResultDto();
+    public AliPayPayNotifyResult payNotify(AliPayPayNotify aliPayPayNotifyDto) throws Exception {
+        AliPayPayNotifyResult outDto = new AliPayPayNotifyResult();
         outDto.setTradeNo(aliPayPayNotifyDto.getTrade_no());
         outDto.setOutTradeNo(aliPayPayNotifyDto.getOut_trade_no());
         outDto.setPayAmt(new BigDecimal(aliPayPayNotifyDto.getTotal_amount()));
@@ -72,69 +72,69 @@ public class AliPay implements Pay<AliPayPayInDto, AliPayPayOutDto,
     }
 
     @Override
-    public AliPayQueryOutDto query(AliPayQueryInDto oderParams) throws Exception {
-        AliPayQueryOutDto out = AliPayQueryUtils.query(oderParams);
+    public AliPayQueryOut query(AliPayQueryIn oderParams) throws Exception {
+        AliPayQueryOut out = AliPayQueryUtils.query(oderParams);
         
         return out;
     }
 
     @Override
-    public AliPayCloseOutDto close(AliPayCloseInDto closeParams) throws Exception {
-        AliPayCloseOutDto out = AliPayCloseUtils.close(closeParams);
+    public AliPayCloseOut close(AliPayCloseIn closeParams) throws Exception {
+        AliPayCloseOut out = AliPayCloseUtils.close(closeParams);
         
         return out;
     }
 
     @Override
-    public AliPayCloseNotifyResultDto closeNotify(AliPayCloseNotifyDto closeNotifyParams) throws Exception {
-        AliPayCloseNotifyResultDto outDto = new AliPayCloseNotifyResultDto();
+    public AliPayCloseNotifyResult closeNotify(AliPayCloseNotify closeNotifyParams) throws Exception {
+        AliPayCloseNotifyResult outDto = new AliPayCloseNotifyResult();
         return outDto;
     }
 
     @Override
-    public AliPayRefundOutDto refund(AliPayRefundInDto refundParams) throws Exception {
-        AliPayRefundOutDto out = AliPayRefundUtils.refund(refundParams);
+    public AliPayRefundOut refund(AliPayRefundIn refundParams) throws Exception {
+        AliPayRefundOut out = AliPayRefundUtils.refund(refundParams);
         
         return out;
     }
 
     @Override
-    public AliPayRefundNotifyResultDto refundNotify(AliPayRefundNotifyDto refundNotifyParams) throws Exception {
-        AliPayRefundNotifyResultDto outDto = new AliPayRefundNotifyResultDto();
+    public AliPayRefundNotifyResult refundNotify(AliPayRefundNotify refundNotifyParams) throws Exception {
+        AliPayRefundNotifyResult outDto = new AliPayRefundNotifyResult();
         return outDto;
     }
 
     @Override
-    public AliPayRefundQueryOutDto refundQuery(AliPayRefundQueryInDto refundQueryParams) throws Exception {
-        AliPayRefundQueryOutDto out = AliPayRefundUtils.query(refundQueryParams);
+    public AliPayRefundQueryOut refundQuery(AliPayRefundQueryIn refundQueryParams) throws Exception {
+        AliPayRefundQueryOut out = AliPayRefundUtils.query(refundQueryParams);
         
         return out;
     }
 
     @Override
-    public AliPayPayByMchOutDto payByMch(AliPayPayByMchInDto payByMchParams) throws Exception {
-        AliPayPayByMchOutDto out = AliPayPayByMchUtils.payByMch(payByMchParams);
+    public AliPayPayByMchOut payByMch(AliPayPayByMchIn payByMchParams) throws Exception {
+        AliPayPayByMchOut out = AliPayPayByMchUtils.payByMch(payByMchParams);
         
         return out;
     }
 
     @Override
-    public AliPayPayByMchQueryOutDto payByMchQuery(AliPayPayByMchQueryInDto payByMchQueryParams) throws Exception {
-        AliPayPayByMchQueryOutDto out = AliPayPayByMchUtils.query(payByMchQueryParams);
+    public AliPayPayByMchQueryOut payByMchQuery(AliPayPayByMchQueryIn payByMchQueryParams) throws Exception {
+        AliPayPayByMchQueryOut out = AliPayPayByMchUtils.query(payByMchQueryParams);
         
         return out;
     }
 
     @Override
-    public AliPayAccountQueryOutDto accountQuery(AliPayAccountQueryInDto accountQueryParams) throws Exception {
-        AliPayAccountQueryOutDto out = AliPayPayByMchUtils.accountQuery(accountQueryParams);
+    public AliPayAccountQueryOut accountQuery(AliPayAccountQueryIn accountQueryParams) throws Exception {
+        AliPayAccountQueryOut out = AliPayPayByMchUtils.accountQuery(accountQueryParams);
         
         return out;
     }
 
     @Override
-    public AliPayPayByMchNotifyResultDto payByMchNotify(AliPayPayByMchNotifyDto payByMchNotifyParams) throws Exception {
-        AliPayPayByMchNotifyResultDto outDto = new AliPayPayByMchNotifyResultDto();
+    public AliPayPayByMchNotifyResult payByMchNotify(AliPayPayByMchNotify payByMchNotifyParams) throws Exception {
+        AliPayPayByMchNotifyResult outDto = new AliPayPayByMchNotifyResult();
         return outDto;
     }
 

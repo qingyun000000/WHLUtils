@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay;
 
-import cn.whl.payutils.alipay.dto.pay.AliPayPayInDto;
-import cn.whl.payutils.alipay.dto.pay.AliPayPayOutDto;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayIn;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayOut;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
@@ -21,7 +21,7 @@ import java.math.BigDecimal;
  */
 public class AliPayPayUtils {
     
-    public static AliPayPayOutDto wapPay(AliPayPayInDto in) throws AlipayApiException, Exception{
+    public static AliPayPayOut wapPay(AliPayPayIn in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
         request.setNotifyUrl(in.getNotifyUrl());
@@ -85,7 +85,7 @@ public class AliPayPayUtils {
         AlipayTradeWapPayResponse response = alipayClient.pageExecute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayPayOutDto out = new AliPayPayOutDto();
+            AliPayPayOut out = new AliPayPayOut();
             //wap支付方式，返回的生成表单的字符串
             out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
@@ -117,7 +117,7 @@ public class AliPayPayUtils {
         
     }
     
-    public static AliPayPayOutDto pagePay(AliPayPayInDto in) throws AlipayApiException, Exception{
+    public static AliPayPayOut pagePay(AliPayPayIn in) throws AlipayApiException, Exception{
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
         request.setNotifyUrl(in.getNotifyUrl());
@@ -202,7 +202,7 @@ public class AliPayPayUtils {
         AlipayTradePagePayResponse response = alipayClient.pageExecute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayPayOutDto out = new AliPayPayOutDto();
+            AliPayPayOut out = new AliPayPayOut();
             //page支付方式，返回的生成表单的字符串
             out.setPayType(PayType.PAGE);
             out.setCode(response.getCode());
@@ -234,7 +234,7 @@ public class AliPayPayUtils {
         
     }
     
-    public static AliPayPayOutDto appPay(AliPayPayInDto in) throws AlipayApiException, Exception{
+    public static AliPayPayOut appPay(AliPayPayIn in) throws AlipayApiException, Exception{
         
         AlipayClient alipayClient = new DefaultAlipayClient(in.getServerUrl(),in.getAppId(), in.getPrivateKey(), in.getFormat(), in.getCharSet(), in.getAlipayPublicKey(), in.getSignType());
         AlipayTradePagePayRequest request = new AlipayTradePagePayRequest();
@@ -320,7 +320,7 @@ public class AliPayPayUtils {
         AlipayTradePagePayResponse response = alipayClient.pageExecute(request);
         
         if("10000".equals(response.getCode())){
-            AliPayPayOutDto out = new AliPayPayOutDto();
+            AliPayPayOut out = new AliPayPayOut();
             //page支付方式，返回的生成表单的字符串
             out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
