@@ -1,8 +1,8 @@
-package cn.whl.payutils;
+package cn.whl.payutils.common;
 
 import cn.whl.payutils.alipay.AliPay;
 import cn.whl.payutils.alipay.vo.close.AliPayCloseIn;
-import cn.whl.payutils.alipay.vo.pay.AliPayPayIn;
+import cn.whl.payutils.alipay.vo.create.AliPayCreateIn;
 import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotify;
 import cn.whl.payutils.alipay.vo.query.AliPayQueryIn;
 import cn.whl.payutils.enums.Platform;
@@ -13,8 +13,6 @@ import cn.whl.payutils.interfaces.close.CloseOut;
 import cn.whl.payutils.interfaces.closeNotify.CloseNotifyIn;
 import cn.whl.payutils.interfaces.closeNotify.CloseNotifyResult;
 import cn.whl.payutils.wx.WeChat;
-import cn.whl.payutils.interfaces.pay.PayIn;
-import cn.whl.payutils.interfaces.pay.PayOut;
 import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
 import cn.whl.payutils.interfaces.payByMch.PayByMchOut;
 import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyIn;
@@ -32,9 +30,12 @@ import cn.whl.payutils.interfaces.refundNotify.RefundNotifyResult;
 import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
 import cn.whl.payutils.interfaces.refundQuery.RefundQueryOut;
 import cn.whl.payutils.wx.vo.WeChatCloseIn;
-import cn.whl.payutils.wx.vo.WeChatPayIn;
+import cn.whl.payutils.wx.vo.WeChatCreateIn;
 import cn.whl.payutils.wx.vo.WeChatPayNotify;
 import cn.whl.payutils.wx.vo.WeChatQueryIn;
+import cn.whl.payutils.interfaces.create.CreateIn;
+import cn.whl.payutils.interfaces.create.CreateOut;
+import cn.whl.payutils.wx.WeChat;
 
 /**
  * 订单工具类
@@ -42,23 +43,23 @@ import cn.whl.payutils.wx.vo.WeChatQueryIn;
  */
 public class PayUtils {
     
-    private static AliPay alipay = new AliPay();
+    private static final AliPay alipay = new AliPay();
 
-    private static WeChat wechat = new WeChat();
+    private static final WeChat wechat = new WeChat();
     
     /**
-     * 支付
+     * 创建订单
      * @param in
      * @return
      * @throws Exception 
      */
-    public static PayOut pay(PayIn in) throws Exception{
+    public static CreateOut create(CreateIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
-            AliPayPayIn payParams = (AliPayPayIn)in;
-            return alipay.pay(payParams);
+            AliPayCreateIn payParams = (AliPayCreateIn)in;
+            return alipay.create(payParams);
         }else if(in.getPlatform() == Platform.WECHAT){
-            WeChatPayIn payParams = (WeChatPayIn)in;
-            return wechat.pay(payParams);
+            WeChatCreateIn payParams = (WeChatCreateIn)in;
+            return wechat.create(payParams);
         }
         
         return null;

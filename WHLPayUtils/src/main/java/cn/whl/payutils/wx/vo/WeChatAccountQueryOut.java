@@ -6,7 +6,7 @@ import cn.whl.payutils.interfaces.accountQuery.AccountQueryOut;
  * 微信下单传入参数封装
  * @author wuhailong
  */
-public class WeChatAccountQueryOut extends WeChatPayOut implements AccountQueryOut{
+public class WeChatAccountQueryOut extends WeChatCrateOut implements AccountQueryOut{
     //通用部分 
     private String outTradeNo;   //商户网站唯一订单号                    
      

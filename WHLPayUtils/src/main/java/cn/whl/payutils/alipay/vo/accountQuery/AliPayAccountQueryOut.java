@@ -4,7 +4,7 @@ import cn.whl.payutils.alipay.vo.AliPayOut;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
 import cn.whl.payutils.interfaces.accountQuery.AccountQueryOut;
-import cn.whl.payutils.interfaces.pay.PayOut;
+import cn.whl.payutils.interfaces.create.CreateOut;
 
 /**
  * 阿里支付下单传入参数封装

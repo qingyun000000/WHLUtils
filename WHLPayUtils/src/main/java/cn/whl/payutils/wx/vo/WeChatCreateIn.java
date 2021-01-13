@@ -1,12 +1,12 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.create.CreateIn;
 
 /**
  * 微信支付下单传入参数封装
  * @author wuhailong
  */
-public class WeChatPayIn extends WeChatIn implements PayIn{
+public class WeChatCreateIn extends WeChatIn implements CreateIn{
    
     private String unifiedOrderUrl;
     

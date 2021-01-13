@@ -1,17 +1,22 @@
-package cn.whl.payutils.alipay.vo.pay;
+package cn.whl.payutils.alipay.vo.create;
 
 import cn.whl.payutils.alipay.vo.AliPayOut;
 import java.math.BigDecimal;
-import cn.whl.payutils.interfaces.pay.PayOut;
+import cn.whl.payutils.interfaces.create.CreateOut;
 
 /**
  * 阿里支付下单返回参数封装
  * @author wuhailong
  */
-public class AliPayPayOut extends AliPayOut implements PayOut{
+public class AliPayCreateOut extends AliPayOut implements CreateOut{
     //通用部分 
-    private String outTradeNo;   //商户网站唯一订单号                    
-     
+    
+    //precreate/create部分 
+    private String outTradeNo;   //商户网站唯一订单号
+    
+    private String resultJson;         //response.body的Json串
+    
+    //create部分
     private String tradeNo;      //支付宝系统交易流水号
     
     private BigDecimal totalAmount;     //订单总金额，0.01-100000000
@@ -20,23 +25,8 @@ public class AliPayPayOut extends AliPayOut implements PayOut{
     
     private String merchantOrderNo;          //商户原始订单号， <32位
     
-    //wap+app
-    
-    
-    
-    
-    //page+app
-    
-    
-    
-    
-    //wap
+    //wap + page
     private String form;                      //form创建字符串   
-    
-    //page
-
-    
-    
     
     public String getOutTradeNo() {
         return outTradeNo;
@@ -44,6 +34,14 @@ public class AliPayPayOut extends AliPayOut implements PayOut{
 
     public void setOutTradeNo(String outTradeNo) {
         this.outTradeNo = outTradeNo;
+    }
+
+    public String getResultJson() {
+        return resultJson;
+    }
+
+    public void setResultJson(String resultJson) {
+        this.resultJson = resultJson;
     }
 
     public String getTradeNo() {

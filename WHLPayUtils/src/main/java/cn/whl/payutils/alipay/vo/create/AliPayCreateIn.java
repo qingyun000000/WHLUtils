@@ -1,4 +1,4 @@
-package cn.whl.payutils.alipay.vo.pay;
+package cn.whl.payutils.alipay.vo.create;
 
 import cn.whl.payutils.alipay.vo.AliPayIn;
 import com.alipay.api.domain.AgreementSignParams;
@@ -11,14 +11,15 @@ import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.math.BigDecimal;
 import java.util.List;
-import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.create.CreateIn;
+import java.util.Date;
 
 
 /**
  * 阿里支付下单传入参数封装
  * @author wuhailong
  */
-public class AliPayPayIn extends AliPayIn implements PayIn{
+public class AliPayCreateIn extends AliPayIn implements CreateIn{
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号
 
@@ -30,7 +31,7 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
 
     private String body;         //可选， 交易描述，<128位
 
-    private String timeoutExpress;  //可选， 最晚付款时间 1m-15d  m, h, d, 1c-当天
+    private String timeoutExpress = "1h";  //可选， 最晚付款时间 1m-15d  m, h, d, 1c-当天
 
     private String timeExpire;      //可选， 绝对超时时间 yyyy-MM-dd HH:mm
 

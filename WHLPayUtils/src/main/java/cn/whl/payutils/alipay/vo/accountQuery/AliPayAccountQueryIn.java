@@ -13,7 +13,7 @@ import com.alipay.api.domain.RoyaltyInfo;
 import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.util.List;
-import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.create.CreateIn;
 
 
 /**

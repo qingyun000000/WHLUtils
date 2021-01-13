@@ -14,10 +14,10 @@ import cn.whl.payutils.wx.vo.WeChatPayByMchNotifyResult;
 import cn.whl.payutils.wx.vo.WeChatPayByMchOut;
 import cn.whl.payutils.wx.vo.WeChatPayByMchQueryIn;
 import cn.whl.payutils.wx.vo.WeChatPayByMchQueryOut;
-import cn.whl.payutils.wx.vo.WeChatPayIn;
+import cn.whl.payutils.wx.vo.WeChatCreateIn;
 import cn.whl.payutils.wx.vo.WeChatPayNotify;
 import cn.whl.payutils.wx.vo.WeChatPayNotifyResult;
-import cn.whl.payutils.wx.vo.WeChatPayOut;
+import cn.whl.payutils.wx.vo.WeChatCrateOut;
 import cn.whl.payutils.wx.vo.WeChatQueryIn;
 import cn.whl.payutils.wx.vo.WeChatQueryOut;
 import cn.whl.payutils.wx.vo.WeChatRefundIn;
@@ -35,7 +35,7 @@ import java.util.UUID;
  * 微信支付类
  * @author wuhailong
  */
-public class WeChat implements Pay<WeChatPayIn, WeChatPayOut,
+public class WeChat implements Pay<WeChatCreateIn, WeChatCrateOut,
         WeChatPayNotify, WeChatPayNotifyResult,
         WeChatQueryIn, WeChatQueryOut,
         WeChatCloseIn, WeChatCloseOut,
@@ -49,7 +49,7 @@ public class WeChat implements Pay<WeChatPayIn, WeChatPayOut,
         WeChatPayByMchNotify, WeChatPayByMchNotifyResult> {
     
     @Override
-    public WeChatPayOut pay(WeChatPayIn payParams) {
+    public WeChatCrateOut create(WeChatCreateIn payParams) {
        
         String url = payParams.getUnifiedOrderUrl();
 
@@ -79,7 +79,7 @@ public class WeChat implements Pay<WeChatPayIn, WeChatPayOut,
             Map<String, String> resultMap = WxUtil.xmlToMap(result);
 
             
-            return new WeChatPayOut();
+            return new WeChatCrateOut();
 
         } catch (Exception e) {
             e.printStackTrace();

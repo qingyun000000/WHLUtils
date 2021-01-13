@@ -1,4 +1,4 @@
-package cn.whl.payutils.alipay.vo.pay;
+package cn.whl.payutils.alipay.vo.create;
 
 import cn.whl.payutils.alipay.vo.AliPayReturn;
 
@@ -6,7 +6,7 @@ import cn.whl.payutils.alipay.vo.AliPayReturn;
  * alipay支付完前台回跳参数（支付完成后，返回商家页面带的参数，页面地址为pay的returnUrl)业务参数部分
  * @author wuhailong
  */
-public class AliPayPayReturn extends AliPayReturn{
+public class AliPayCreateReturn extends AliPayReturn{
     
     private String outTradeNo;   //商户网站唯一订单号                    
      

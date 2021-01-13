@@ -10,7 +10,7 @@ import cn.whl.payutils.interfaces.CommonParams;
  */
 public class AliPay implements CommonParams{
     //接口部分
-    private PayType payType;
+    private PayType payType = PayType.COMMON;
 
     @Override
     public Platform getPlatform() {

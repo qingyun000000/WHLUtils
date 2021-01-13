@@ -16,7 +16,7 @@ import java.util.List;
  * 微信下单传入参数封装
  * @author wuhailong
  */
-public class WeChatAccountQueryIn extends WeChatPayIn implements AccountQueryIn{
+public class WeChatAccountQueryIn extends WeChatCreateIn implements AccountQueryIn{
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号
 

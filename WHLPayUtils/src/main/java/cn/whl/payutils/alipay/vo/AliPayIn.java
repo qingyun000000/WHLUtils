@@ -18,7 +18,7 @@ public class AliPayIn extends AliPay {
     
     private String format = "json";
     
-    private String charSet = "utf-8";
+    private String charSet = "UTF-8";
     
     private String alipayPublicKey;
     

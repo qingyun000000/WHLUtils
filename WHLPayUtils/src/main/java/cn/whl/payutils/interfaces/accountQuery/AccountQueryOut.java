@@ -1,6 +1,5 @@
 package cn.whl.payutils.interfaces.accountQuery;
 
-import cn.whl.payutils.interfaces.pay.*;
 import cn.whl.payutils.interfaces.CommonParams;
 
 /**
