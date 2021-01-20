@@ -4,7 +4,6 @@ import cn.whl.payutils.alipay.vo.create.AliPayCreateIn;
 import cn.whl.payutils.alipay.vo.create.AliPayCreateOut;
 import cn.whl.payutils.common.PayUtils;
 import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.interfaces.create.CreateOut;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
@@ -13,6 +12,7 @@ import com.alipay.api.request.AlipayTradeCreateRequest;
 import com.alipay.api.response.AlipayTradeCreateResponse;
 import java.math.BigDecimal;
 import java.util.Random;
+import cn.whl.payutils.interfaces.create.CreateOut;
 
 /**
  *
@@ -22,9 +22,9 @@ public class AliPayController {
 
     public static void main(String[] args) throws AlipayApiException, Exception {
         //create();
-        precreate();
+        //precreate();
         //wapPay();
-        //pagePay();
+        pagePay();
     }
 
     public static void pagePay() throws AlipayApiException, Exception {
@@ -38,7 +38,7 @@ public class AliPayController {
 
         in.setOutTradeNo("CS_PAGE" + new Random().nextInt(1000000));
         in.setSubject("测试001");
-        in.setTotalAmount(BigDecimal.TEN);
+        in.setTotalAmount(new BigDecimal("63.25"));
         in.setBody("ceshi0001");
         in.setTimeoutExpress("1h");
         in.setProductCode("FAST_INSTANT_TRADE_PAY");

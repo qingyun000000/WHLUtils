@@ -24,10 +24,14 @@ import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
 import cn.whl.payutils.interfaces.refundQuery.RefundQueryOut;
 import cn.whl.payutils.interfaces.create.CreateIn;
 import cn.whl.payutils.interfaces.create.CreateOut;
+import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.interfaces.pay.PayOut;
 
 /**
  * 支付接口
  * @author wuhailong
+ * @param <T0>
+ * @param <K0>
  * @param <T1>
  * @param <K1>
  * @param <T2>
@@ -53,7 +57,8 @@ import cn.whl.payutils.interfaces.create.CreateOut;
  * @param <T12>
  * @param <K12>
  */
-public interface Pay <T1 extends CreateIn, K1 extends CreateOut,
+public interface Pay <T0 extends PayIn, K0 extends PayOut,
+                      T1 extends CreateIn, K1 extends CreateOut,
                       T2 extends PayNotifyIn, K2 extends PayNotifyResult,
                       T3 extends QueryIn, K3 extends QueryOut,
                       T4 extends CloseIn, K4 extends CloseOut,
@@ -72,7 +77,15 @@ public interface Pay <T1 extends CreateIn, K1 extends CreateOut,
      * @return
      * @throws java.lang.Exception
      */
-    public K1 create(T1 payParams) throws Exception;
+    public K0 pay(T0 payParams) throws Exception;
+    
+    /**
+     * 下单
+     * @param createParams
+     * @return
+     * @throws java.lang.Exception
+     */
+    public K1 create(T1 createParams) throws Exception;
     
     /**
      * 支付回调

@@ -14,4 +14,8 @@ public interface CommonParams {
     public PayType getPayType();
 
     public void setPayType(PayType payType);
+    
+    public boolean isWaitNotify();
+    
+    public void setWaitNotify(boolean waitNotify);
 }

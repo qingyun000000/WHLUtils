@@ -11,6 +11,8 @@ import cn.whl.payutils.interfaces.CommonParams;
 public class WeChat implements CommonParams{
     //接口部分
     private PayType payType;
+    
+    private boolean waitNotify = false;
 
     @Override
     public Platform getPlatform() {
@@ -25,6 +27,16 @@ public class WeChat implements CommonParams{
     @Override
     public void setPayType(PayType payType) {
         this.payType = payType;
+    }
+
+    @Override
+    public boolean isWaitNotify() {
+        return waitNotify;
+    }
+
+    @Override
+    public void setWaitNotify(boolean waitNotify) {
+        this.waitNotify = waitNotify;
     }
     
 }

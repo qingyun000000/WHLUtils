@@ -1,8 +1,5 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.enums.PayType;
-import cn.whl.payutils.enums.Platform;
-import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
 import cn.whl.payutils.interfaces.create.CreateOut;
 
 /**

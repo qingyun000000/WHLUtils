@@ -18,6 +18,8 @@ import cn.whl.payutils.wx.vo.WeChatCreateIn;
 import cn.whl.payutils.wx.vo.WeChatPayNotify;
 import cn.whl.payutils.wx.vo.WeChatPayNotifyResult;
 import cn.whl.payutils.wx.vo.WeChatCrateOut;
+import cn.whl.payutils.wx.vo.WeChatPayIn;
+import cn.whl.payutils.wx.vo.WeChatPayOut;
 import cn.whl.payutils.wx.vo.WeChatQueryIn;
 import cn.whl.payutils.wx.vo.WeChatQueryOut;
 import cn.whl.payutils.wx.vo.WeChatRefundIn;
@@ -35,7 +37,9 @@ import java.util.UUID;
  * 微信支付类
  * @author wuhailong
  */
-public class WeChat implements Pay<WeChatCreateIn, WeChatCrateOut,
+public class WeChat implements Pay<
+        WeChatPayIn, WeChatPayOut,
+        WeChatCreateIn, WeChatCrateOut,
         WeChatPayNotify, WeChatPayNotifyResult,
         WeChatQueryIn, WeChatQueryOut,
         WeChatCloseIn, WeChatCloseOut,
@@ -47,6 +51,11 @@ public class WeChat implements Pay<WeChatCreateIn, WeChatCrateOut,
         WeChatPayByMchQueryIn, WeChatPayByMchQueryOut,
         WeChatAccountQueryIn, WeChatAccountQueryOut,
         WeChatPayByMchNotify, WeChatPayByMchNotifyResult> {
+    
+    @Override
+    public WeChatPayOut pay(WeChatPayIn payParams) throws Exception {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     @Override
     public WeChatCrateOut create(WeChatCreateIn payParams) {
@@ -142,6 +151,8 @@ public class WeChat implements Pay<WeChatCreateIn, WeChatCrateOut,
     public WeChatPayByMchNotifyResult payByMchNotify(WeChatPayByMchNotify payByMchNotifyParams) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
     
     
 

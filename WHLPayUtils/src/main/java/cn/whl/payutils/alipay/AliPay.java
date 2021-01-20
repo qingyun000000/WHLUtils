@@ -20,19 +20,24 @@ import cn.whl.payutils.alipay.vo.create.AliPayCreateIn;
 import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotify;
 import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotifyResult;
 import cn.whl.payutils.alipay.vo.create.AliPayCreateOut;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayIn;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayOut;
 import cn.whl.payutils.alipay.vo.refund.AliPayRefundIn;
 import cn.whl.payutils.alipay.vo.refundNotify.AliPayRefundNotify;
 import cn.whl.payutils.alipay.vo.refundNotify.AliPayRefundNotifyResult;
 import cn.whl.payutils.alipay.vo.refund.AliPayRefundOut;
 import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryIn;
 import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryOut;
+import cn.whl.payutils.interfaces.pay.PayOut;
 import java.math.BigDecimal;
 
 /**
  * 阿里支付
  * @author wuhailong
  */
-public class AliPay implements Pay<AliPayCreateIn, AliPayCreateOut,
+public class AliPay implements Pay<
+        AliPayPayIn, AliPayPayOut,
+        AliPayCreateIn, AliPayCreateOut,
         AliPayPayNotify, AliPayPayNotifyResult,
         AliPayQueryIn, AliPayQueryOut,
         AliPayCloseIn, AliPayCloseOut,
@@ -46,19 +51,26 @@ public class AliPay implements Pay<AliPayCreateIn, AliPayCreateOut,
         AliPayPayByMchNotify, AliPayPayByMchNotifyResult>{
 
     @Override
-    public AliPayCreateOut create(AliPayCreateIn payParams) throws Exception{
+    public AliPayPayOut pay(AliPayPayIn payParams) throws Exception{
+        AliPayPayOut out = AliPayPayUtils.pay(payParams);
+        
+        return out;
+    }
+    
+    @Override
+    public AliPayCreateOut create(AliPayCreateIn createParams) throws Exception{
         AliPayCreateOut out = null;
         
-        if(payParams.getPayType() == PayType.COMMON){
-            out = AliPayCreateUtils.create(payParams);
-        }else if(payParams.getPayType() == PayType.PRE){
-            out = AliPayCreateUtils.preCreate(payParams);
-        }else if(payParams.getPayType() == PayType.WAP){
-            out = AliPayCreateUtils.wapPay(payParams);
-        }else if(payParams.getPayType() == PayType.APP){
-            out = AliPayCreateUtils.appPay(payParams);
-        }else if(payParams.getPayType() == PayType.PAGE){
-            out = AliPayCreateUtils.pagePay(payParams);
+        if(createParams.getPayType() == PayType.COMMON){
+            out = AliPayCreateUtils.create(createParams);
+        }else if(createParams.getPayType() == PayType.PRE){
+            out = AliPayCreateUtils.preCreate(createParams);
+        }else if(createParams.getPayType() == PayType.WAP){
+            out = AliPayCreateUtils.wapPay(createParams);
+        }else if(createParams.getPayType() == PayType.APP){
+            out = AliPayCreateUtils.appPay(createParams);
+        }else if(createParams.getPayType() == PayType.PAGE){
+            out = AliPayCreateUtils.pagePay(createParams);
         }else{
             System.out.println("暂不支持此支付方式");
         }
@@ -141,6 +153,8 @@ public class AliPay implements Pay<AliPayCreateIn, AliPayCreateOut,
         AliPayPayByMchNotifyResult outDto = new AliPayPayByMchNotifyResult();
         return outDto;
     }
+
+    
 
  
 
