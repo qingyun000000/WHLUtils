@@ -13,7 +13,6 @@ import cn.whl.payutils.interfaces.close.CloseIn;
 import cn.whl.payutils.interfaces.close.CloseOut;
 import cn.whl.payutils.interfaces.closeNotify.CloseNotifyIn;
 import cn.whl.payutils.interfaces.closeNotify.CloseNotifyResult;
-import cn.whl.payutils.wx.WeChat;
 import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
 import cn.whl.payutils.interfaces.payByMch.PayByMchOut;
 import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyIn;

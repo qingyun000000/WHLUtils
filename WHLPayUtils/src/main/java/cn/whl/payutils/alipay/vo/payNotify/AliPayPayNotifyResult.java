@@ -10,7 +10,7 @@ import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
  */
 public class AliPayPayNotifyResult extends AliPayNotifyResult implements PayNotifyResult{
     
-    private String tradeNo;
+    private String tradeNo; 
     
     private String outTradeNo;
     

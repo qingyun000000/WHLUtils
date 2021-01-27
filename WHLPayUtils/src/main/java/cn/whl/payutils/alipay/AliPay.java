@@ -28,7 +28,6 @@ import cn.whl.payutils.alipay.vo.refundNotify.AliPayRefundNotifyResult;
 import cn.whl.payutils.alipay.vo.refund.AliPayRefundOut;
 import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryIn;
 import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryOut;
-import cn.whl.payutils.interfaces.pay.PayOut;
 import java.math.BigDecimal;
 
 /**
@@ -56,7 +55,7 @@ public class AliPay implements Pay<
         
         return out;
     }
-    
+
     @Override
     public AliPayCreateOut create(AliPayCreateIn createParams) throws Exception{
         AliPayCreateOut out = null;
