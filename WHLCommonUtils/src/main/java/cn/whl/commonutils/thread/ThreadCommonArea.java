@@ -17,7 +17,7 @@ public class ThreadCommonArea {
     //日志对象
     private static ThreadLocal<Logger> logger = new ThreadLocal<>();
     
-    //全局流水号
+    //通用公共区
     private static ThreadLocal<Map<Object, Object>> commonArea = new InheritableThreadLocal<>();
 
     public static String getGlobalFlowId() {
