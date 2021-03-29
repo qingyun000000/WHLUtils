@@ -9,14 +9,14 @@ import cn.whl.commonutils.exception.CommonException;
  * 工厂接口：Map型缓存池工厂
  * @author wuhailong
  */
-public interface MapCachePoolFactory extends CachePoolFactory{
+public interface MapListCachePoolFactory extends CachePoolFactory{
     
     /**
-     * 获取Map型缓存池
+     * 获取Map<String, List>型缓存池
      * @return
      */
-    public MapCachePool getCachePool();
+    public MapListCachePool getListCachePool();
     
-    public <T> MapCachePool<T> getCachePool(Class<T> clazz) throws CommonException;
+    public <T> MapListCachePool<T> getListCachePool(Class<T> clazz) throws CommonException;
     
 }
