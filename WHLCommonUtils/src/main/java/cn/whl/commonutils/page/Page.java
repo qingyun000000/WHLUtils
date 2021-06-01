@@ -11,7 +11,7 @@ public class Page {
     
     private int totalCount;                //总条数
     private int totalPage;                 //总页数
-    private int showPage;                  //当前显示页
+    private int showPage = 1;              //当前显示页
     private int countOfOnePage = 5;        //每页显示条数
     private int countAllPage = 10;         //显示页码数
     private String orderByParamName = "tms";       //排序属性名

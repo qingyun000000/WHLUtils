@@ -1,5 +1,7 @@
 package cn.whl.commonutils.token;
 
+import cn.whl.commonutils.exception.CommonException;
+
 /**
  * Token工具
  * @author wuhailong
@@ -10,7 +12,7 @@ public class TokenUtils {
         return createToken(id, new SimpleToken());
     }
     
-    public static String decodeToken(String code) throws Exception{
+    public static String decodeToken(String code) throws CommonException{
         return decodeToken(code, new SimpleToken());
     }
     
@@ -18,7 +20,7 @@ public class TokenUtils {
         return token.createToken(id);
     }
     
-    public static String decodeToken(String code, Token token) throws Exception{
+    public static String decodeToken(String code, Token token) throws CommonException{
         return token.decodeToken(code);
     }
     

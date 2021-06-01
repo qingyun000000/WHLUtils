@@ -73,17 +73,17 @@ public class ServiceResultUtils {
     public static <T> ServiceResult action(ResultParam resultParam, PermissionCheckStrategy pcs, ActionResultStrategy<T> ar) {
         ServiceResult result = new ServiceResult();
 
-        //校验权限
-        Boolean verResult = pcs.verification();
-
-        if (!verResult) {
-            //校验未通过
-            setNoPower(result);
-
-            return result;
-        }
-
         try {
+            //校验权限
+            Boolean verResult = pcs.verification();
+
+            if (!verResult) {
+                //校验未通过
+                setNoPower(result);
+
+                return result;
+            }
+
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 setNull(result);
@@ -109,17 +109,17 @@ public class ServiceResultUtils {
     public static ServiceResult action(PermissionCheckStrategy pcs, ActionStrategy ar) {
         ServiceResult result = new ServiceResult();
 
-        //校验权限
-        Boolean verResult = pcs.verification();
-
-        //校验通过
-        if (!verResult) {
-            //校验未通过
-            setNoPower(result);
-            return result;
-        }
-
         try {
+            //校验权限
+            Boolean verResult = pcs.verification();
+
+            //校验通过
+            if (!verResult) {
+                //校验未通过
+                setNoPower(result);
+                return result;
+            }
+            
             ar.action();
             setSuccess(result);
         } catch (CommonException ex) {
@@ -146,15 +146,7 @@ public class ServiceResultUtils {
         //输入校验
         try {
             vs.verification();
-        } catch (CommonException ex) {
-            setCommonException(result, ex);
-            return result;
-        } catch (Exception ex) {
-            setException(result, ex);
-            return result;
-        }
-
-        try {
+            
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 setNull(result);
@@ -183,15 +175,7 @@ public class ServiceResultUtils {
         //输入校验
         try {
             vs.verification();
-        } catch (CommonException ex) {
-            setCommonException(result, ex);
-            return result;
-        } catch (Exception ex) {
-            setException(result, ex);
-            return result;
-        }
-
-        try {
+            
             ar.action();
             setSuccess(result);
         } catch (CommonException ex) {
@@ -218,24 +202,16 @@ public class ServiceResultUtils {
         //输入校验
         try {
             vs.verification();
-        } catch (CommonException ex) {
-            setCommonException(result, ex);
-            return result;
-        } catch (Exception ex) {
-            setException(result, ex);
-            return result;
-        }
 
-        //校验权限
-        Boolean verResult = pcs.verification();
+            //校验权限
+            Boolean verResult = pcs.verification();
 
-        if (!verResult) {
-            setNoPower(result);
+            if (!verResult) {
+                setNoPower(result);
 
-            return result;
-        }
+                return result;
+            }
 
-        try {
             T actionResult = ar.actionAndGetResult();
             if (actionResult == null) {
                 setNull(result);
@@ -266,25 +242,17 @@ public class ServiceResultUtils {
         //输入校验
         try {
             vs.verification();
-        } catch (CommonException ex) {
-            setCommonException(result, ex);
-            return result;
-        } catch (Exception ex) {
-            setException(result, ex);
-            return result;
-        }
 
-        //校验权限
-        Boolean verResult = pcs.verification();
+            //校验权限
+            Boolean verResult = pcs.verification();
 
-        //校验通过
-        if (!verResult) {
-            //校验未通过
-            setNoPower(result);
-            return result;
-        }
+            //校验通过
+            if (!verResult) {
+                //校验未通过
+                setNoPower(result);
+                return result;
+            }
 
-        try {
             ar.action();
             setSuccess(result);
         } catch (CommonException ex) {

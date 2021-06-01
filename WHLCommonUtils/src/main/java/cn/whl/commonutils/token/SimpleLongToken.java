@@ -1,5 +1,8 @@
 package cn.whl.commonutils.token;
 
+import cn.whl.commonutils.exception.CommonException;
+import cn.whl.commonutils.thread.ThreadCommonArea;
+
 /**
  * 简单token
  * @author wuhailong
@@ -12,6 +15,7 @@ public class SimpleLongToken implements Token{
 
     @Override
     public String createToken(String str) throws Exception{
+        ThreadCommonArea.info(str);
         Long id = new Long(str);
         id = id + (1L<<60) + ENTR;
         StringBuilder sb = new StringBuilder();
@@ -24,11 +28,12 @@ public class SimpleLongToken implements Token{
                 basic = 65;
             }
         }
+        ThreadCommonArea.info(sb.toString());
         return START + sb.toString();
     }
 
     @Override
-    public String decodeToken(String code) throws Exception{
+    public String decodeToken(String code) throws CommonException{
         code = code.substring(START.length(), code.length()); 
         int basic = 73;
         long id = 0;
