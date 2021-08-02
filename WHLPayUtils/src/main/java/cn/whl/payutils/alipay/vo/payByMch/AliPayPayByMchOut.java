@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay.vo.payByMch;
 
 import cn.whl.payutils.alipay.vo.AliPayOut;
-import cn.whl.payutils.interfaces.payByMch.PayByMchOut;
+import cn.whl.payutils.common.PayByMchOut;
 
 /**
  * 阿里支付下单传入参数封装

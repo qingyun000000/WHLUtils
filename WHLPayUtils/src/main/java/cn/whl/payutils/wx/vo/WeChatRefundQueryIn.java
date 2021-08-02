@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
+import cn.whl.payutils.common.RefundQueryIn;
 
 /**
  * 微信支付退款查询传入参数封装

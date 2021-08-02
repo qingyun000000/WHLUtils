@@ -2,7 +2,7 @@ package cn.whl.payutils.alipay.vo;
 
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
-import cn.whl.payutils.interfaces.CommonParams;
+import cn.whl.payutils.common.CommonParams;
 
 /**
  * 阿里支付传入参数封装

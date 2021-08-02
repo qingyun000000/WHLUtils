@@ -13,6 +13,8 @@ public class AliPayOut extends AliPay {
     private String subCode;      //选填， 业务返回码
     
     private String subMsg;       //选填， 业务返回码描述
+    
+    private String sign;         //必填， 签名
 
     public String getCode() {
         return code;
@@ -45,7 +47,13 @@ public class AliPayOut extends AliPay {
     public void setSubMsg(String subMsg) {
         this.subMsg = subMsg;
     }
-    
-    
+
+    public String getSign() {
+        return sign;
+    }
+
+    public void setSign(String sign) {
+        this.sign = sign;
+    }
     
 }

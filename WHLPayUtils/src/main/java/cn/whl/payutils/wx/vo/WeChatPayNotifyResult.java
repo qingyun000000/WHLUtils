@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
+import cn.whl.payutils.common.pay.PayNotifyResult;
 import java.math.BigDecimal;
 
 /**

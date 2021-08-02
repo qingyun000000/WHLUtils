@@ -1,43 +1,32 @@
 package cn.whl.payutils.common;
 
 import cn.whl.payutils.alipay.AliPay;
+import cn.whl.payutils.alipay.vo.agreement.AliPaySignIn;
 import cn.whl.payutils.alipay.vo.close.AliPayCloseIn;
 import cn.whl.payutils.alipay.vo.create.AliPayCreateIn;
 import cn.whl.payutils.alipay.vo.pay.AliPayPayIn;
-import cn.whl.payutils.alipay.vo.payNotify.AliPayPayNotify;
+import cn.whl.payutils.alipay.vo.pay.AliPayPayNotifyIn;
 import cn.whl.payutils.alipay.vo.query.AliPayQueryIn;
 import cn.whl.payutils.enums.Platform;
-import cn.whl.payutils.interfaces.accountQuery.AccountQueryIn;
-import cn.whl.payutils.interfaces.accountQuery.AccountQueryOut;
-import cn.whl.payutils.interfaces.close.CloseIn;
-import cn.whl.payutils.interfaces.close.CloseOut;
-import cn.whl.payutils.interfaces.closeNotify.CloseNotifyIn;
-import cn.whl.payutils.interfaces.closeNotify.CloseNotifyResult;
-import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
-import cn.whl.payutils.interfaces.payByMch.PayByMchOut;
-import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyIn;
-import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyResult;
-import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryIn;
-import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryOut;
-import cn.whl.payutils.interfaces.payNotify.PayNotifyIn;
-import cn.whl.payutils.interfaces.payNotify.PayNotifyResult;
-import cn.whl.payutils.interfaces.query.QueryIn;
-import cn.whl.payutils.interfaces.query.QueryOut;
-import cn.whl.payutils.interfaces.refund.RefundIn;
-import cn.whl.payutils.interfaces.refund.RefundOut;
-import cn.whl.payutils.interfaces.refundNotify.RefundNotifyIn;
-import cn.whl.payutils.interfaces.refundNotify.RefundNotifyResult;
-import cn.whl.payutils.interfaces.refundQuery.RefundQueryIn;
-import cn.whl.payutils.interfaces.refundQuery.RefundQueryOut;
+import cn.whl.payutils.common.accountQuery.AccountQueryIn;
+import cn.whl.payutils.common.accountQuery.AccountQueryOut;
+import cn.whl.payutils.common.agreement.SignIn;
+import cn.whl.payutils.common.agreement.SignOut;
+import cn.whl.payutils.common.close.CloseNotifyIn;
+import cn.whl.payutils.common.close.CloseNotifyResult;
+import cn.whl.payutils.common.pay.PayNotifyResult;
+import cn.whl.payutils.common.refund.RefundIn;
+import cn.whl.payutils.common.refund.RefundNotifyIn;
+import cn.whl.payutils.common.refund.RefundQueryOut;
 import cn.whl.payutils.wx.vo.WeChatCloseIn;
 import cn.whl.payutils.wx.vo.WeChatCreateIn;
 import cn.whl.payutils.wx.vo.WeChatPayNotify;
 import cn.whl.payutils.wx.vo.WeChatQueryIn;
-import cn.whl.payutils.interfaces.create.CreateIn;
+import cn.whl.payutils.common.create.CreateIn;
 import cn.whl.payutils.wx.WeChat;
-import cn.whl.payutils.interfaces.create.CreateOut;
-import cn.whl.payutils.interfaces.pay.PayIn;
-import cn.whl.payutils.interfaces.pay.PayOut;
+import cn.whl.payutils.common.create.CreateOut;
+import cn.whl.payutils.common.pay.PayIn;
+import cn.whl.payutils.wx.vo.agreement.WeChatSignIn;
 
 /**
  * 订单工具类
@@ -45,9 +34,9 @@ import cn.whl.payutils.interfaces.pay.PayOut;
  */
 public class PayUtils {
     
-    private static final AliPay alipay = new AliPay();
+    private static final Pay alipay = new AliPay();
 
-    private static final WeChat wechat = new WeChat();
+    private static final Pay wechat = new WeChat();
     
     /**
      * 支付
@@ -90,7 +79,7 @@ public class PayUtils {
      */
     public static PayNotifyResult payNotify(PayNotifyIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
-            AliPayPayNotify payParams = (AliPayPayNotify)in;
+            AliPayPayNotifyIn payParams = (AliPayPayNotifyIn)in;
             return alipay.payNotify(payParams);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatPayNotify payParams = (WeChatPayNotify)in;
@@ -216,5 +205,14 @@ public class PayUtils {
         return null;
     }
     
-    
+    public static SignOut sign(SignIn in) throws Exception{
+        if(in.getPlatform() == Platform.ALIPAY){
+            AliPaySignIn payParams = (AliPaySignIn)in;
+            return alipay.sign(payParams);
+        }else if(in.getPlatform() == Platform.WECHAT){
+            WeChatSignIn payParams = (WeChatSignIn)in;
+            return wechat.sign(payParams);
+        }
+        return null;
+    }
 }

@@ -2,7 +2,7 @@ package cn.whl.payutils.alipay.vo.query;
 
 import cn.whl.payutils.alipay.vo.AliPayIn;
 import java.util.List;
-import cn.whl.payutils.interfaces.query.QueryIn;
+import cn.whl.payutils.common.QueryIn;
 
 
 /**

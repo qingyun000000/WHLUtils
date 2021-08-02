@@ -2,8 +2,8 @@ package cn.whl.payutils.alipay;
 
 import cn.whl.payutils.alipay.vo.refund.AliPayRefundIn;
 import cn.whl.payutils.alipay.vo.refund.AliPayRefundOut;
-import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryIn;
-import cn.whl.payutils.alipay.vo.refundQuery.AliPayRefundQueryOut;
+import cn.whl.payutils.alipay.vo.refund.AliPayRefundQueryIn;
+import cn.whl.payutils.alipay.vo.refund.AliPayRefundQueryOut;
 import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;

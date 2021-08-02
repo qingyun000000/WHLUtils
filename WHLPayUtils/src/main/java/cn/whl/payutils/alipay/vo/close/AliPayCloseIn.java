@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay.vo.close;
 
 import cn.whl.payutils.alipay.vo.AliPayIn;
-import cn.whl.payutils.interfaces.close.CloseIn;
+import cn.whl.payutils.common.CloseIn;
 
 
 /**

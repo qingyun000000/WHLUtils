@@ -105,7 +105,7 @@ public class AliPayCreateUtils {
             System.out.println("调用成功");
             AliPayCreateOut out = new AliPayCreateOut();
             //wap支付方式，返回的生成表单的字符串
-            out.setPayType(PayType.COMMON);
+            out.setPayType(PayType.CREATE);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
             out.setSubCode(response.getSubMsg());

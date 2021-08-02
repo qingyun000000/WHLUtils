@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.refundNotify.RefundNotifyIn;
+import cn.whl.payutils.common.refund.RefundNotifyIn;
 
 /**
  * 微信支付退款回调参数封装

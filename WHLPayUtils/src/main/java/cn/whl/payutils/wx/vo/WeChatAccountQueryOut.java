@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.accountQuery.AccountQueryOut;
+import cn.whl.payutils.common.accountQuery.AccountQueryOut;
 
 /**
  * 微信下单传入参数封装

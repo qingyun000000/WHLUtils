@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.close.CloseOut;
+import cn.whl.payutils.common.CloseOut;
 
 /**
  * 微信支付订单关闭返回参数封装

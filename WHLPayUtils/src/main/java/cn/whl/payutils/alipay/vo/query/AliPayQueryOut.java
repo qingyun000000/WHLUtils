@@ -6,7 +6,7 @@ import com.alipay.api.domain.TradeSettleInfo;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import cn.whl.payutils.interfaces.query.QueryOut;
+import cn.whl.payutils.common.QueryOut;
 
 /**
  * 阿里支付订单查询返回参数封装

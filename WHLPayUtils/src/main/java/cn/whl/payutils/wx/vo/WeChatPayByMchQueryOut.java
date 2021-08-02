@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryOut;
+import cn.whl.payutils.common.PayByMchQueryOut;
 
 /**
  * 微信下单传入参数封装

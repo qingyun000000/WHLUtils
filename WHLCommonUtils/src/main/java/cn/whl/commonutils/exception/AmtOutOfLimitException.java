@@ -1,7 +1,7 @@
 package cn.whl.commonutils.exception;
 
 /**
- * 金额不为零异常
+ * 金额超限异常
  * @createTime 2020-8-14
  * @updateTime 2020-8-14
  * @author wuhailong

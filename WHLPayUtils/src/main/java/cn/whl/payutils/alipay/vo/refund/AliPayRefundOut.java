@@ -6,7 +6,7 @@ import com.alipay.api.domain.TradeFundBill;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
-import cn.whl.payutils.interfaces.refund.RefundOut;
+import cn.whl.payutils.common.RefundOut;
 
 /**
  * 阿里支付退款返回参数封装

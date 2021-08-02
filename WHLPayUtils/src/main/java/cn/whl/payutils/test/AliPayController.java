@@ -1,8 +1,11 @@
 package cn.whl.payutils.test;
 
+import cn.whl.payutils.alipay.vo.agreement.AliPaySignIn;
+import cn.whl.payutils.alipay.vo.agreement.AliPaySignOut;
 import cn.whl.payutils.alipay.vo.create.AliPayCreateIn;
 import cn.whl.payutils.alipay.vo.create.AliPayCreateOut;
 import cn.whl.payutils.common.PayUtils;
+import cn.whl.payutils.common.agreement.SignOut;
 import cn.whl.payutils.enums.PayType;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
@@ -12,7 +15,7 @@ import com.alipay.api.request.AlipayTradeCreateRequest;
 import com.alipay.api.response.AlipayTradeCreateResponse;
 import java.math.BigDecimal;
 import java.util.Random;
-import cn.whl.payutils.interfaces.create.CreateOut;
+import cn.whl.payutils.common.create.CreateOut;
 
 /**
  *
@@ -24,7 +27,29 @@ public class AliPayController {
         //create();
         //precreate();
         //wapPay();
-        pagePay();
+        //pagePay();
+        sign();
+    }
+    
+    public static void sign() throws AlipayApiException, Exception {
+        AliPaySignIn in = new AliPaySignIn();
+        in.setServerUrl("https://openapi.alipaydev.com/gateway.do");
+        in.setAppId("2021000116691007");
+        in.setPrivateKey("MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCKkiY71tCZcmqVcPMC6+69AOrNzDBJ56J9iAaiIONhbhBHG0uINgA2WUZcdkBKRYQ4JLSVwWeAj4r6m5wqBxqfSuSlHVAenpHc7NS3+SHYSvKYYRAJq21uF2mllbO8eDkF1Y48/h3WM+2Kmi4gr83YF739tm3rzOya3SnogzTJ1mxjxo1/69M7veUKlp+FDxkFr5t93YiVMRdIgK8rvlDCTFAeplKjmz///V7zqpKQKvja9i9CI5xi1imHc37/r2mLC1CJ/tT42X6mBKJrMfNiUjSsoRnHqHCr4zFbamZxoIhgxB755PxxB7FUlW3UdBuLGW48ISjh8r0tOhnFHChjAgMBAAECggEATMAUMzKRCVypEiqkPqsE6WR3qRL+cAC/LD5KRkRnDJDUrT2+ASy/w1qBMTdB9qE4UYxrBUNBG6DlvlawEUssAKyPpbBtrvfvHGmEjH2NtGoWojWol2J+0upe1prrGWmRU9zr0naBeiH64Ljy8aHOJnFIBx2jFmbDaiczThhWBbBH0kAucdgVj8GGsAaY9rYYULG2qRiXaqDvSp50j1BoVWW2EACFTOv94kub/HYZ56eE4skMIno0OUUwYjoM3MPEFtF8+Rd26+OAinqeD8dumIc6N/nglgNumikVj2J/+O9mbK2n3ToRtCq7jmEfSKvzQGzF2bAWUQyCsrYTPQnR8QKBgQD6pzyM+SY/aKdV39VInR7pllQkmVAhxwjBtVmVyUIzwY8OD0zmyhmZELuBODQbfkrCDHwE3qzVyuDrBFRNk5OTEZJ4OrDOFyFhtt4f8MSKbIIGa9X/M1ChpxeaHD9nNbxXhprMILG/jJUVTXjRW1839j9xtleqX2blKHFv1nzxyQKBgQCNhtrq/rB6/mPb5QvD1IsYFBcYOloKmVFGWf5kAlvmWNxDyjO+mArx9umxf47Sbhsc8VhtQ5dW5GXDRfO/scTuMCSMJwSC2xKdfOmOz3E1a6mOQ8+psLcZIv8XJCRoTLAZJ7Xl4zjmyxkJhIIUFBEEhzueqgmdpVvaZNHf8Iv+ywKBgBDGVHUSz4560IgcvMdpTIJRfzwbzpMUIO/l1SMDHx0bnRlRyNHBQMlPp1zUiBg28YXfFAW3aVW9iCPyXDn84Gl9SZImS2LfhWpmtKLqmByzelg3q1Cy/Hh1GE1GCrA7lmk9Jur2XS72l5ufXbCVLuAt6L0RePh7/gTkGgNkFWSRAoGAYAsjZ5RduaoHpIPEvynvFvETVyrKTiULxd1uyPnc2e511D9VbEOMMfZpUz6Icv+rwLF8W/IhsyMeeC1xpCaEyUu8kaws4IzBDkVlzreyURl2IIieVb8KErHwQQkS+AELBJcxVwgjZmRv4kidafjQL62CZUNpcSV1tzjyQLHin48CgYB8fqbpfVODmDdaIjJh7yAckFfpVSgrcjO6m9phJd3TnfLGyxRMKMw2Dl0Ty8CM+QuBxhT1zarYoMhVrvEK4giRY3Kzyc679rwxXtmDxNSBlCHFgI+4lp9/OahqH4Xa3t+R8gUHdD1f5hgM1q294F4gV/M3ibBwYLCaMar5dsml2g==");
+        in.setAlipayPublicKey("MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAlT8S5g6w2RHI1Vicyub5lNTOhH7WZgHWSLF1AZiXvwKowF2x1iYG+xxJqSEE9ogfGj9nHrOWM9YcVO8GFaQSShV/I9wF6gYvO3FJwfhcS6HhSGYy4dTykqUhYcKFLC5QF+g3O8PN/jDCs4d3ZrdUZX0lUyfzXvlvKIuqLJOqeOQc6BE1ZmZx0oQjB4uV61GeP8kBqjzK0ugL5vYtVsl6nb1dpGowGVT+sbmgZCxC7hzu5LMvr9bh16LRzONRO1u6VRvw+of+GItma9/3+ey9jGAPNIqv9Mtl2Dqnv0KkbJmvCDXfrsg4AJQwPkO/T0qi2ZI82lIUYcGuvUGpM6MEXQIDAQAB");
+        in.setNotifyUrl("");
+        in.setReturnUrl("https://localhost:8080/canteen/customer/invest.html");
+
+        in.setProductCode("GENERAL_WITHHOLDING");
+        in.setPersonalProductCode("TEST");
+
+        in.setPayType(PayType.SIGN);
+        SignOut create = PayUtils.sign(in);
+
+        System.out.println(create.getPlatform()); 
+        System.out.println(create.getPayType());
+        AliPaySignOut out = (AliPaySignOut) create;
+        System.out.println(out.getForm());
     }
 
     public static void pagePay() throws AlipayApiException, Exception {

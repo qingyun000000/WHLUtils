@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.accountQuery.AccountQueryIn;
+import cn.whl.payutils.common.accountQuery.AccountQueryIn;
 import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;

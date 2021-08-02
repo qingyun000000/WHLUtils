@@ -2,7 +2,7 @@ package cn.whl.payutils.alipay.vo;
 
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
-import cn.whl.payutils.interfaces.CommonParams;
+import cn.whl.payutils.common.CommonParams;
 
 /**
  * 阿里支付
@@ -10,7 +10,7 @@ import cn.whl.payutils.interfaces.CommonParams;
  */
 public class AliPay implements CommonParams{
     //接口部分
-    private PayType payType = PayType.COMMON;
+    private PayType payType = PayType.PAY;
     
     private boolean waitNotify = false;
 

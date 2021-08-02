@@ -5,7 +5,7 @@ import com.alipay.api.domain.GoodsDetail;
 import com.alipay.api.domain.OpenApiRoyaltyDetailInfoPojo;
 import java.math.BigDecimal;
 import java.util.List;
-import cn.whl.payutils.interfaces.refund.RefundIn;
+import cn.whl.payutils.common.refund.RefundIn;
 
 
 /**

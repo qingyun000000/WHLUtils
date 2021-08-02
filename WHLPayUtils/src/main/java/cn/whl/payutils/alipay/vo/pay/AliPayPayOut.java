@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay.vo.pay;
 
 import cn.whl.payutils.alipay.vo.AliPayOut;
-import cn.whl.payutils.interfaces.pay.PayOut;
+import cn.whl.payutils.common.PayOut;
 import java.math.BigDecimal;
 
 /**

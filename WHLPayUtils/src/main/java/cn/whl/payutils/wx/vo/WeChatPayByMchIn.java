@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
+import cn.whl.payutils.common.PayByMchIn;
 
 /**
  * 微信支付商户支付传入参数封装

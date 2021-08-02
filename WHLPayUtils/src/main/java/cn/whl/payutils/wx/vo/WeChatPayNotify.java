@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.payNotify.PayNotifyIn;
+import cn.whl.payutils.common.PayNotifyIn;
 
 /**
  * 微信支付支付回调参数封装

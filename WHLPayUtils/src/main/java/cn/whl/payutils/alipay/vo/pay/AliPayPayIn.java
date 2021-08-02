@@ -11,7 +11,7 @@ import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.math.BigDecimal;
 import java.util.List;
-import cn.whl.payutils.interfaces.pay.PayIn;
+import cn.whl.payutils.common.pay.PayIn;
 
 
 /**
@@ -21,8 +21,29 @@ import cn.whl.payutils.interfaces.pay.PayIn;
 public class AliPayPayIn extends AliPayIn implements PayIn{
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号
+    
+    private String scene;       //必选, 支付场景。枚举值：
+                                //bar_code：当面付条码支付场景；
+                                //security_code：当面付刷脸支付场景，对应的auth_code为fp开头的刷脸标识串；
+                                //周期扣款或代扣场景无需传入，协议号通过agreement_params参数传递；
+                                //支付宝预授权和新当面资金授权场景无需传入，授权订单号通过 auth_no字段传入。
+                                //默认值为bar_code。
+    
+    private String authCode;    //支付授权码。
+                                //当面付场景传买家的付款码（25~30开头的长度为16~24位的数字，实际字符串长度以开发者获取的付款码长度为准）或者刷脸标识串（fp开头的35位字符串）；
+                                //周期扣款或代扣场景无需传入，协议号通过agreement_params参数传递；
+                                //支付宝预授权和新当面资金授权场景无需传入，授权订单号通过 auth_no字段传入。
+                                //注：交易的买家与卖家不能相同。
 
-    private String productCode;      //必选，销售商品码，商家和支付宝签约的产品码， <64位   
+    private String productCode;     //可选，产品码。
+                                    //商家和支付宝签约的产品码。 枚举值（点击查看签约情况）：
+                                    //FACE_TO_FACE_PAYMENT：当面付产品；
+                                    //CYCLE_PAY_AUTH：周期扣款产品；
+                                    //GENERAL_WITHHOLDING：代扣产品；
+                                    //PRE_AUTH_ONLINE：支付宝预授权产品；
+                                    //PRE_AUTH：新当面资金授权产品；
+                                    //默认值为FACE_TO_FACE_PAYMENT。
+                                    //注意：非当面付产品使用本接口时，本参数必填。请传入对应产品码。
 
     private BigDecimal totalAmount;     //必选，订单总金额，0.01-100000000
 
@@ -66,46 +87,6 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
           //fix_buyer  8   是否强制校验付款人身份信息  T/F
           //need_check_info   1  是否强制校验身份信息  T/F
     
-    
-    
-    //wap+app
-    private String specifiedChannel;         //可选， 指定渠道，目前仅支持pcredit，不能与花呗分期参数同时传入
-    
-    
-    
-    //page+app
-    private List<GoodsDetail> goodsDetails;            //可选， 商品列表信息
-    
-    private AgreementSignParams agreementSignParams;   //签约信息，支付后签约场景使用
-    
-    
-    
-    //wap
-    private String sellerId;        //可选，收款方支付宝用户ID，为空则默认位商户签约账号对应的支付宝用户ID
-    
-    private String authToken;       //可选，用户授权接口，<40位
-    
-    private String quitUrl;          //必选，付款中途退出返回商户网站地址， <400位
-      
-        
-       
-    //page
-    private RoyaltyInfo royaltyInfo;               //可选， 分账信息
-    
-    private SubMerchant subMerchant;               //可选， 间接受理商户信息体
-    
-    private String qrPayMode;                     //前置模式（二维码潜入到商户页面iframe, 0-简约前置，w600h300px;1-前置，w300h600px;3-迷你前置w75h75px;4-自定义)
-                                                  //跳转模式（支付宝生成的扫码页面，2）
-    
-    private Long qrcodeWidth;                    //自定义二维码宽度，qrPayMode=4时有效
-    
-    private SettleInfo settleInfo;                //描述结算信息
-    
-    private InvoiceInfo invoiceInfo;              //开票信息
-    
-    private String integrationType;               //请求后页面集成方式，ALIAPP：支付宝钱包内，PCWEB（默认）：PC端访问
-    
-    private String requestFromUrl;               //请求来源地址，ALIAPP集成方式中途取消返回地址
     
     
 
@@ -157,21 +138,6 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
         this.totalAmount = totalAmount;
     }
 
-    public String getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(String sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public String getAuthToken() {
-        return authToken;
-    }
-
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
 
     public String getGoodsType() {
         return goodsType;
@@ -203,14 +169,6 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
 
     public void setPromoParams(String promoParams) {
         this.promoParams = promoParams;
-    }
-
-    public String getQuitUrl() {
-        return quitUrl;
-    }
-
-    public void setQuitUrl(String quitUrl) {
-        this.quitUrl = quitUrl;
     }
 
     public ExtendParams getExtendParams() {
@@ -253,14 +211,6 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
         this.storeId = storeId;
     }
 
-    public String getSpecifiedChannel() {
-        return specifiedChannel;
-    }
-
-    public void setSpecifiedChannel(String specifiedChannel) {
-        this.specifiedChannel = specifiedChannel;
-    }
-
     public String getBusinessParams() {
         return businessParams;
     }
@@ -277,84 +227,5 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
         this.extUserInfo = extUserInfo;
     }
 
-    public List<GoodsDetail> getGoodsDetails() {
-        return goodsDetails;
-    }
-
-    public void setGoodsDetails(List<GoodsDetail> goodsDetails) {
-        this.goodsDetails = goodsDetails;
-    }
-
-    public AgreementSignParams getAgreementSignParams() {
-        return agreementSignParams;
-    }
-
-    public void setAgreementSignParams(AgreementSignParams agreementSignParams) {
-        this.agreementSignParams = agreementSignParams;
-    }
-
-    public RoyaltyInfo getRoyaltyInfo() {
-        return royaltyInfo;
-    }
-
-    public void setRoyaltyInfo(RoyaltyInfo royaltyInfo) {
-        this.royaltyInfo = royaltyInfo;
-    }
-
-    public SubMerchant getSubMerchant() {
-        return subMerchant;
-    }
-
-    public void setSubMerchant(SubMerchant subMerchant) {
-        this.subMerchant = subMerchant;
-    }
-
-    public String getQrPayMode() {
-        return qrPayMode;
-    }
-
-    public void setQrPayMode(String qrPayMode) {
-        this.qrPayMode = qrPayMode;
-    }
-
-    public Long getQrcodeWidth() {
-        return qrcodeWidth;
-    }
-
-    public void setQrcodeWidth(Long qrcodeWidth) {
-        this.qrcodeWidth = qrcodeWidth;
-    }
-
-    public SettleInfo getSettleInfo() {
-        return settleInfo;
-    }
-
-    public void setSettleInfo(SettleInfo settleInfo) {
-        this.settleInfo = settleInfo;
-    }
-
-    public InvoiceInfo getInvoiceInfo() {
-        return invoiceInfo;
-    }
-
-    public void setInvoiceInfo(InvoiceInfo invoiceInfo) {
-        this.invoiceInfo = invoiceInfo;
-    }
-
-    public String getIntegrationType() {
-        return integrationType;
-    }
-
-    public void setIntegrationType(String integrationType) {
-        this.integrationType = integrationType;
-    }
-
-    public String getRequestFromUrl() {
-        return requestFromUrl;
-    }
-
-    public void setRequestFromUrl(String requestFromUrl) {
-        this.requestFromUrl = requestFromUrl;
-    }
     
 }

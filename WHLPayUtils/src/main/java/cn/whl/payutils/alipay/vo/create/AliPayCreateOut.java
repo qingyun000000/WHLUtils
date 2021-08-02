@@ -2,7 +2,7 @@ package cn.whl.payutils.alipay.vo.create;
 
 import cn.whl.payutils.alipay.vo.AliPayOut;
 import java.math.BigDecimal;
-import cn.whl.payutils.interfaces.create.CreateOut;
+import cn.whl.payutils.common.create.CreateOut;
 
 /**
  * 阿里支付下单返回参数封装

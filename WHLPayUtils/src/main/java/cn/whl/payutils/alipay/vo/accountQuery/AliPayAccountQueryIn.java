@@ -3,7 +3,7 @@ package cn.whl.payutils.alipay.vo.accountQuery;
 import cn.whl.payutils.alipay.vo.AliPayIn;
 import cn.whl.payutils.enums.PayType;
 import cn.whl.payutils.enums.Platform;
-import cn.whl.payutils.interfaces.accountQuery.AccountQueryIn;
+import cn.whl.payutils.common.accountQuery.AccountQueryIn;
 import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;
@@ -13,7 +13,7 @@ import com.alipay.api.domain.RoyaltyInfo;
 import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.util.List;
-import cn.whl.payutils.interfaces.create.CreateIn;
+import cn.whl.payutils.common.create.CreateIn;
 
 
 /**

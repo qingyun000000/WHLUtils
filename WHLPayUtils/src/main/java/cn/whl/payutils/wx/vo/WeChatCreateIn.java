@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.create.CreateIn;
+import cn.whl.payutils.common.create.CreateIn;
 
 /**
  * 微信支付下单传入参数封装

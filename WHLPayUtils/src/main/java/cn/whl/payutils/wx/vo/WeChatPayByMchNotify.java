@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.payByMchNotify.PayByMchNotifyIn;
+import cn.whl.payutils.common.PayByMchNotifyIn;
 import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;

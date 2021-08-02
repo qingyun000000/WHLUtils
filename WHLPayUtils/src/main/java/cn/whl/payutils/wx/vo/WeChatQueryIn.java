@@ -1,6 +1,6 @@
 package cn.whl.payutils.wx.vo;
 
-import cn.whl.payutils.interfaces.query.QueryIn;
+import cn.whl.payutils.common.QueryIn;
 
 /**
  * 微信支付查询传入参数封装

@@ -3,7 +3,7 @@ package cn.whl.payutils.alipay.vo.payByMch;
 import cn.whl.payutils.alipay.vo.AliPayIn;
 import com.alipay.api.domain.Participant;
 import java.math.BigDecimal;
-import cn.whl.payutils.interfaces.payByMch.PayByMchIn;
+import cn.whl.payutils.common.PayByMchIn;
 
 
 /**

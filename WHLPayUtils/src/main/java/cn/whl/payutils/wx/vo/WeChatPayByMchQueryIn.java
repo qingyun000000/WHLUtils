@@ -9,7 +9,7 @@ import com.alipay.api.domain.RoyaltyInfo;
 import com.alipay.api.domain.SettleInfo;
 import com.alipay.api.domain.SubMerchant;
 import java.util.List;
-import cn.whl.payutils.interfaces.payByMchQuery.PayByMchQueryIn;
+import cn.whl.payutils.common.PayByMchQueryIn;
 
 
 /**

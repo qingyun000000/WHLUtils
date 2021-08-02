@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay.vo.close;
 
 import cn.whl.payutils.alipay.vo.AliPayOut;
-import cn.whl.payutils.interfaces.close.CloseOut;
+import cn.whl.payutils.common.CloseOut;
 
 /**
  * 阿里支付订单关闭返回参数封装
