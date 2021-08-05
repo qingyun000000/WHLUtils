@@ -68,7 +68,6 @@ public class AliPayPayUtils {
         if (response.isSuccess()) {
             System.out.println("调用成功");
             AliPayPayOut out = new AliPayPayOut();
-            //wap支付方式，返回的生成表单的字符串
             out.setPayType(PayType.PAY);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

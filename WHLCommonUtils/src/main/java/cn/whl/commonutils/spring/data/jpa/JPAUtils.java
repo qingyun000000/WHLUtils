@@ -1,5 +1,6 @@
 package cn.whl.commonutils.spring.data.jpa;
 
+import cn.whl.commonutils.exception.NotExistException;
 import cn.whl.commonutils.page.Page;
 import cn.whl.commonutils.page.PageUtils;
 import cn.whl.commonutils.response.page.DataPageResponse;
@@ -18,6 +19,43 @@ import org.springframework.data.domain.Sort;
  */
 public class JPAUtils {
     
+//    /**
+//     * 封装的查询方法
+//     * @param <T>
+//     * @param <K>
+//     * @param resultClass
+//     * @param queryClass
+//     * @param qs
+//     * @param rs
+//     * @param poName
+//     * @return 
+//     * @throws cn.whl.commonutils.exception.NotExistException 
+//     */
+//    public static <T, K> K query(Class<K> resultClass, Class<T> queryClass,
+//            QueryStrategy<T> qs, ResultStrategy<T, K> rs, String poName) throws NotExistException{
+//        
+//        T ts = qs.query();
+//        if(ts == null){
+//            throw new NotExistException(poName);
+//        }
+//
+//        return rs.getResult(ts);
+//    }
+//    
+//    /**
+//     * 封装的查询方法, 查询值和返回值一直
+//     * @param <T>
+//     * @param queryClass
+//     * @param qs
+//     * @param poName
+//     * @return 
+//     * @throws cn.whl.commonutils.exception.NotExistException 
+//     */
+//    public static <T> T query(Class<T> queryClass, QueryStrategy<T> qs, String poName) throws NotExistException{
+//        
+//        return query(queryClass, queryClass, qs, (t) -> t, poName);
+//    }
+//    
     /**
      * 获取Spring Data的分页
      * @param page

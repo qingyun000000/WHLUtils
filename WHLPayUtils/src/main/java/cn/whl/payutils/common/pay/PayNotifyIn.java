@@ -1,4 +1,4 @@
-package cn.whl.payutils.common;
+package cn.whl.payutils.common.pay;
 
 import cn.whl.payutils.common.CommonParams;
 
@@ -7,6 +7,7 @@ import cn.whl.payutils.common.CommonParams;
  * @author wuhailong
  */
 public interface PayNotifyIn extends CommonParams{
+    
     
 
 }

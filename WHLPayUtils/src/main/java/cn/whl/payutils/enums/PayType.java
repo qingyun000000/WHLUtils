@@ -14,6 +14,8 @@ public enum PayType {
     
     PAY,         //【支付宝支付】
     
+    REFUND,      //退货
+    
     
     SIGN,       //代扣协议签署
     

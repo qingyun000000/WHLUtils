@@ -1,16 +1,9 @@
 package cn.whl.payutils.alipay.vo.pay;
 
 import cn.whl.payutils.alipay.vo.AliPayIn;
-import com.alipay.api.domain.AgreementSignParams;
 import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;
-import com.alipay.api.domain.GoodsDetail;
-import com.alipay.api.domain.InvoiceInfo;
-import com.alipay.api.domain.RoyaltyInfo;
-import com.alipay.api.domain.SettleInfo;
-import com.alipay.api.domain.SubMerchant;
 import java.math.BigDecimal;
-import java.util.List;
 import cn.whl.payutils.common.pay.PayIn;
 
 

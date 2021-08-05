@@ -14,6 +14,8 @@ public class WeChatPayNotifyResult extends WeChatNotifyResult implements PayNoti
     private String outTradeNo;
     
     private BigDecimal payAmt;
+    
+    private String payer;
 
     @Override
     public String getTradeNo() {
@@ -43,6 +45,14 @@ public class WeChatPayNotifyResult extends WeChatNotifyResult implements PayNoti
     @Override
     public void setPayAmt(BigDecimal payAmt) {
         this.payAmt = payAmt;
+    }
+
+    public String getPayer() {
+        return payer;
+    }
+
+    public void setPayer(String payer) {
+        this.payer = payer;
     }
     
 }

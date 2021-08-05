@@ -15,6 +15,7 @@ import cn.whl.payutils.common.refund.RefundQueryOut;
 import cn.whl.payutils.common.create.CreateIn;
 import cn.whl.payutils.common.create.CreateOut;
 import cn.whl.payutils.common.pay.PayIn;
+import cn.whl.payutils.common.pay.PayNotifyIn;
 
 /**
  * 支付接口
@@ -59,122 +60,122 @@ public interface Pay <
     
     /**
      * 下单
-     * @param createParams
+     * @param createIn
      * @return
      * @throws java.lang.Exception
      */
-    public K_Create create(T_Create createParams) throws Exception;
+    public K_Create create(T_Create createIn) throws Exception;
     
     /**
      * 支付
-     * @param payParams
+     * @param createIn
      * @return
      * @throws java.lang.Exception
      */
-    public K_Pay pay(T_Pay payParams) throws Exception;
+    public K_Pay pay(T_Pay payIn) throws Exception;
     
     /**
      * 支付回调
-     * @param payNotifyParams
+     * @param payNotifyIn
      * @return
      * @throws java.lang.Exception
      */
-    public K_PayN payNotify(T_PayN payNotifyParams) throws Exception;
+    public K_PayN payNotify(T_PayN payNotifyIn) throws Exception;
     
     /**
      * 订单支付状态查询
-     * @param oderParams
+     * @param oderIn
      * @return
      * @throws java.lang.Exception
      */
-    public K_Query query(T_Query oderParams) throws Exception;
+    public K_Query query(T_Query oderIn) throws Exception;
     
     /**
      * 关闭
-     * @param closeParams
+     * @param closeIn
      * @return
      * @throws java.lang.Exception
      */
-    public K_Close close(T_Close closeParams) throws Exception;
+    public K_Close close(T_Close closeIn) throws Exception;
     
     /**
      * 关闭回调
-     * @param closeNotifyParams
+     * @param closeNotifyIn
      * @return
      * @throws java.lang.Exception
      */
-    public K_CloseN closeNotify(T_CloseN closeNotifyParams) throws Exception;
+    public K_CloseN closeNotify(T_CloseN closeNotifyIn) throws Exception;
     
     /**
      * 商户退款
-     * @param refundParams
+     * @param refundIn
      * @return
      * @throws java.lang.Exception
      */
-    public K6 refund(T6 refundParams) throws Exception;
+    public K6 refund(T6 refundIn) throws Exception;
     
     /**
      * 商户退款回调
-     * @param refundNotifyParams
+     * @param refundNotifyIn
      * @return
      * @throws java.lang.Exception
      */
-    public K7 refundNotify(T7 refundNotifyParams) throws Exception;
+    public K7 refundNotify(T7 refundNotifyIn) throws Exception;
     
     /**
      * 商户退款查询
-     * @param refundQueryParams
+     * @param refundQueryIn
      * @return
      * @throws java.lang.Exception
      */
-    public K8 refundQuery(T8 refundQueryParams) throws Exception;
+    public K8 refundQuery(T8 refundQueryIn) throws Exception;
     
     /**
      * 商家支付
-     * @param payByMchParams
+     * @param payByMchIn
      * @return
      * @throws java.lang.Exception
      */
-    public K9 payByMch(T9 payByMchParams) throws Exception;
+    public K9 payByMch(T9 payByMchIn) throws Exception;
     
     /**
      * 商家支付结果查询
-     * @param payByMchQueryParams
+     * @param payByMchQueryIn
      * @return
      * @throws java.lang.Exception
      */
-    public K10 payByMchQuery(T10 payByMchQueryParams) throws Exception;
+    public K10 payByMchQuery(T10 payByMchQueryIn) throws Exception;
     
     /**
      * 账户余额查询
-     * @param accountQueryParams
+     * @param accountQueryIn
      * @return
      * @throws java.lang.Exception
      */
-    public K11 accountQuery(T11 accountQueryParams) throws Exception;
+    public K11 accountQuery(T11 accountQueryIn) throws Exception;
     
     /**
      * 商家支付回调
-     * @param payByMchNotifyParams
+     * @param payByMchNotifyIn
      * @return
      * @throws java.lang.Exception
      */
-    public K12 payByMchNotify(T12 payByMchNotifyParams) throws Exception;
+    public K12 payByMchNotify(T12 payByMchNotifyIn) throws Exception;
     
     /**
      * 签约
-     * @param signParams
+     * @param signIn
      * @return
      * @throws java.lang.Exception
      */
-    public K13 sign(T13 signParams) throws Exception;
+    public K13 sign(T13 signIn) throws Exception;
     
     /**
      * 签约回调
-     * @param signParams
+     * @param signIn
      * @return
      * @throws Exception
      */
-    public K_SignN signNotify(T_SingN signParams) throws Exception;
+    public K_SignN signNotify(T_SingN signNotifyIn) throws Exception;
     
 }

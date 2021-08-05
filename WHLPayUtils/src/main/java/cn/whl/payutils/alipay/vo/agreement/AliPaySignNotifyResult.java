@@ -9,82 +9,35 @@ import cn.whl.payutils.common.agreement.SignNotifyResult;
  */
 public class AliPaySignNotifyResult extends AliPayNotifyResult implements SignNotifyResult{
     
-    //通用部分 
-    private String outTradeNo;   //商户网站唯一订单号                    
-     
-    private String tradeNo;      //支付宝系统交易流水号
+    private String externalAgreementNo;       //代扣协议中标示用户的唯一签约号（确保在商户系统中唯一）。
     
-    private double totalAmount;     //订单总金额，0.01-100000000
+    private String externalLogonId;             //用户在商户网站的登录账号，如果商户接口中未传，则不会返回
     
-    private String sellerId;        //收款方支付宝用户ID
-    
-    private String merchantOrderNo;          //商户原始订单号， <32位
-    
-    //wap+app
-    
-    
-    
-    
-    //page+app
-    
-    
-    
-    
-    //wap
-    private String form;                      //form创建字符串   
-    
-    //page
+    private String alipayUserId;                //用户签约的支付宝账号对应的支付宝唯一用户号。以2088开头的16位纯数字组成。(只有签约成功时才会返回)
 
-    
-    
-    
-    public String getOutTradeNo() {
-        return outTradeNo;
+    public String getExternalAgreementNo() {
+        return externalAgreementNo;
     }
 
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
+    public void setExternalAgreementNo(String externalAgreementNo) {
+        this.externalAgreementNo = externalAgreementNo;
     }
 
-    public String getTradeNo() {
-        return tradeNo;
+    public String getExternalLogonId() {
+        return externalLogonId;
     }
 
-    public void setTradeNo(String tradeNo) {
-        this.tradeNo = tradeNo;
+    public void setExternalLogonId(String externalLogonId) {
+        this.externalLogonId = externalLogonId;
     }
 
-    public double getTotalAmount() {
-        return totalAmount;
+    public String getAlipayUserId() {
+        return alipayUserId;
     }
 
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
+    public void setAlipayUserId(String alipayUserId) {
+        this.alipayUserId = alipayUserId;
     }
-
-    public String getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(String sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public String getMerchantOrderNo() {
-        return merchantOrderNo;
-    }
-
-    public void setMerchantOrderNo(String merchantOrderNo) {
-        this.merchantOrderNo = merchantOrderNo;
-    }
-
-    public String getForm() {
-        return form;
-    }
-
-    public void setForm(String form) {
-        this.form = form;
-    }
-   
+    
     
 }

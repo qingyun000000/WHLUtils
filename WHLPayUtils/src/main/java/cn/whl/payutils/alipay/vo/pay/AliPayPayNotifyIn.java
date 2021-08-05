@@ -1,7 +1,7 @@
 package cn.whl.payutils.alipay.vo.pay;
 
 import cn.whl.payutils.alipay.vo.AliPayNotifyIn;
-import cn.whl.payutils.common.PayNotifyIn;
+import cn.whl.payutils.common.pay.PayNotifyIn;
 
 
 /**

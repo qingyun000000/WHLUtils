@@ -2,15 +2,6 @@ package cn.whl.payutils.alipay.vo.agreement;
 
 import cn.whl.payutils.alipay.vo.AliPayNotifyIn;
 import cn.whl.payutils.common.agreement.SignNotifyIn;
-import com.alipay.api.domain.AgreementSignParams;
-import com.alipay.api.domain.ExtUserInfo;
-import com.alipay.api.domain.ExtendParams;
-import com.alipay.api.domain.GoodsDetail;
-import com.alipay.api.domain.InvoiceInfo;
-import com.alipay.api.domain.RoyaltyInfo;
-import com.alipay.api.domain.SettleInfo;
-import com.alipay.api.domain.SubMerchant;
-import java.util.List;
 
 
 /**
@@ -19,342 +10,205 @@ import java.util.List;
  */
 public class AliPaySignNotifyIn extends AliPayNotifyIn implements SignNotifyIn{
     
-    //通用部分 
-    private String outTradeNo;   //必选， 商户网站唯一订单号
-
-    private String productCode;      //必选，销售商品码，商家和支付宝签约的产品码， <64位   
-
-    private double totalAmount;     //必选，订单总金额，0.01-100000000
-
-    private String subject;      //必选， 商品标题/订单标题， <256位
-
-    private String body;         //可选， 交易描述，<128位
-
-    private String timeoutExpress;  //可选， 最晚付款时间 1m-15d  m, h, d, 1c-当天
-
-    private String timeExpire;      //可选， 绝对超时时间 yyyy-MM-dd HH:mm
-
-    private String goodsType;       //可选，商品主类型 0-虚拟类 1-实物类
-
-    private String passbackParams;   //可选，公共回传参数，同步返回或异步通知时原样返回，<512位， 需UrlEncode
-
-    private String promoParams;      //可选，优惠参数（仅与支付宝协商后可用），<512位
-
-    private ExtendParams extendParams;   //可选， 业务扩展参数
-          //sys_service_provider_id  64 系统商编号
-          //hb_fq_num        5  花呗分期数
-          //hb_fq_seller_percent    3  手续续比例百分值
-          //industry_reflux_info    512  行业数据回流信息
-          //card_type           32  卡类型
+    private String invalid_time;                //用户代扣协议的失效时间，格式为yyyy-MM-dd HH:mm:ss。（只有签约成功才会返回）
     
-    private String merchantOrderNo;          //可选， 商户原始订单号， <32位
+    private String sign_scene;                  //当前签约的协议场景。
     
-    private String enablePayChannels;        //可选， 可用渠道，只能在指定渠道内付款，与disable_pay_channel互斥， <128位
+    private String sign_time;                   //支付宝代扣协议的实际签约时间，格式为yyyy-MM-dd HH:mm:ss。(只有签约成功才会返回)
     
-    private String disablePayChannels;       //可选， 禁用渠道，只能在指定渠道内付款，与enable_pay_channel互斥， <128位
+    private String alipay_user_id;              //用户签约的支付宝账号对应的支付宝唯一用户号。以2088开头的16位纯数字组成。(只有签约成功时才会返回)
     
-    private String storeId;                  //可选， 商户门店编号， <32位
-     
-    private String businessParams;           //可选， 商户传入业务信息，具体值要与支付宝约定，json格式， <512位
+    private String status;                      //协议的当前状态。1. TEMP：暂存，协议未生效过；2. NORMAL：正常；3. STOP：暂停。（只有签约成功才会返回）
     
-    private ExtUserInfo extUserInfo;         //可选， 外部指定买家
-          //name    16  姓名，仅need_check_info=T有效
-          //mobile  20  手机号，暂不校验
-          //cert_type  32 证件类型，仅need_check_info=T有效  身份证：IDENTITY_CARD, 护照：PASSPORT，军官证：OFFICER_CARD，士兵证：SOLDIER_CARD，户口本：HOKOU
-          //cert_no    64 证件号
-          //min_age    3  最小买家年龄
-          //fix_buyer  8   是否强制校验付款人身份信息  T/F
-          //need_check_info   1  是否强制校验身份信息  T/F
+    private String forex_eligible;              //是否海外购汇身份。值：T/F（只有在签约成功时才会返回）
     
+    private String external_logon_id;           //用户在商户网站的登录账号，如果商户接口中未传，则不会返回
     
+    private String auth_app_id;                 //
     
-    //wap+app
-    private String specifiedChannel;         //可选， 指定渠道，目前仅支持pcredit，不能与花呗分期参数同时传入
+    private String external_agreement_no;       //代扣协议中标示用户的唯一签约号（确保在商户系统中唯一）。
     
+    private String personal_product_code;       //协议产品码，商户和支付宝签约时确定，不同业务场景对应不同的签约产品码。
     
+    private String valid_time;                  //用户代扣协议的实际生效时间，格式为yyyy-MM-dd HH:mm:ss。（只有签约成功才会返回）
     
-    //page+app
-    private List<GoodsDetail> goodsDetails;            //可选， 商品列表信息
+    private String agreement_no;                //支付宝系统中用以唯一标识用户签约记录的编号。（只有签约成功时才会返回）
     
-    private AgreementSignParams agreementSignParams;   //签约信息，支付后签约场景使用
+    private String zm_open_id;                  //用户的芝麻信用openId，供商户查询用户芝麻信用使用。（只有签约成功时才返回）
     
+    private String alipay_logon_id;             //返回脱敏的支付宝账号。
     
+    private String zm_score;                    //
     
-    //wap
-    private String sellerId;        //可选，收款方支付宝用户ID，为空则默认位商户签约账号对应的支付宝用户ID
+    private String login_token;                 //
     
-    private String authToken;       //可选，用户授权接口，<40位
+    private String device_id;                   //
     
-    private String quitUrl;          //必选，付款中途退出返回商户网站地址， <400位
-      
-        
-       
-    //page
-    private RoyaltyInfo royaltyInfo;               //可选， 分账信息
+    private String credit_auth_mode;            //授信模式，取值：DEDUCT_HUAZHI-花芝GO。	
     
-    private SubMerchant subMerchant;               //可选， 间接受理商户信息体
+    private String specified_sort_assets;       //
     
-    private String qrPayMode;                     //前置模式（二维码潜入到商户页面iframe, 0-简约前置，w600h300px;1-前置，w300h600px;3-迷你前置w75h75px;4-自定义)
-                                                  //跳转模式（支付宝生成的扫码页面，2）
+    private String modify_type;                 //
+
+    public String getInvalid_time() {
+        return invalid_time;
+    }
+
+    public void setInvalid_time(String invalid_time) {
+        this.invalid_time = invalid_time;
+    }
+
+    public String getSign_scene() {
+        return sign_scene;
+    }
+
+    public void setSign_scene(String sign_scene) {
+        this.sign_scene = sign_scene;
+    }
+
+    public String getSign_time() {
+        return sign_time;
+    }
+
+    public void setSign_time(String sign_time) {
+        this.sign_time = sign_time;
+    }
+
+    public String getAlipay_user_id() {
+        return alipay_user_id;
+    }
+
+    public void setAlipay_user_id(String alipay_user_id) {
+        this.alipay_user_id = alipay_user_id;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getForex_eligible() {
+        return forex_eligible;
+    }
+
+    public void setForex_eligible(String forex_eligible) {
+        this.forex_eligible = forex_eligible;
+    }
+
+    public String getExternal_logon_id() {
+        return external_logon_id;
+    }
+
+    public void setExternal_logon_id(String external_logon_id) {
+        this.external_logon_id = external_logon_id;
+    }
+
+    public String getAuth_app_id() {
+        return auth_app_id;
+    }
+
+    public void setAuth_app_id(String auth_app_id) {
+        this.auth_app_id = auth_app_id;
+    }
+
+    public String getExternal_agreement_no() {
+        return external_agreement_no;
+    }
+
+    public void setExternal_agreement_no(String external_agreement_no) {
+        this.external_agreement_no = external_agreement_no;
+    }
+
+    public String getPersonal_product_code() {
+        return personal_product_code;
+    }
+
+    public void setPersonal_product_code(String personal_product_code) {
+        this.personal_product_code = personal_product_code;
+    }
+
+    public String getValid_time() {
+        return valid_time;
+    }
+
+    public void setValid_time(String valid_time) {
+        this.valid_time = valid_time;
+    }
+
+    public String getAgreement_no() {
+        return agreement_no;
+    }
+
+    public void setAgreement_no(String agreement_no) {
+        this.agreement_no = agreement_no;
+    }
+
+    public String getZm_open_id() {
+        return zm_open_id;
+    }
+
+    public void setZm_open_id(String zm_open_id) {
+        this.zm_open_id = zm_open_id;
+    }
+
+    public String getAlipay_logon_id() {
+        return alipay_logon_id;
+    }
+
+    public void setAlipay_logon_id(String alipay_logon_id) {
+        this.alipay_logon_id = alipay_logon_id;
+    }
+
+    public String getZm_score() {
+        return zm_score;
+    }
+
+    public void setZm_score(String zm_score) {
+        this.zm_score = zm_score;
+    }
+
+    public String getLogin_token() {
+        return login_token;
+    }
+
+    public void setLogin_token(String login_token) {
+        this.login_token = login_token;
+    }
+
+    public String getDevice_id() {
+        return device_id;
+    }
+
+    public void setDevice_id(String device_id) {
+        this.device_id = device_id;
+    }
+
+    public String getCredit_auth_mode() {
+        return credit_auth_mode;
+    }
+
+    public void setCredit_auth_mode(String credit_auth_mode) {
+        this.credit_auth_mode = credit_auth_mode;
+    }
+
+    public String getSpecified_sort_assets() {
+        return specified_sort_assets;
+    }
+
+    public void setSpecified_sort_assets(String specified_sort_assets) {
+        this.specified_sort_assets = specified_sort_assets;
+    }
+
+    public String getModify_type() {
+        return modify_type;
+    }
+
+    public void setModify_type(String modify_type) {
+        this.modify_type = modify_type;
+    }
     
-    private Long qrcodeWidth;                    //自定义二维码宽度，qrPayMode=4时有效
-    
-    private SettleInfo settleInfo;                //描述结算信息
-    
-    private InvoiceInfo invoiceInfo;              //开票信息
-    
-    private String integrationType;               //请求后页面集成方式，ALIAPP：支付宝钱包内，PCWEB（默认）：PC端访问
-    
-    private String requestFromUrl;               //请求来源地址，ALIAPP集成方式中途取消返回地址
-    
-    
-
-    public String getBody() {
-        return body;
-    }
-
-    public void setBody(String body) {
-        this.body = body;
-    }
-
-    public String getSubject() {
-        return subject;
-    }
-
-    public void setSubject(String subject) {
-        this.subject = subject;
-    }
-
-    public String getOutTradeNo() {
-        return outTradeNo;
-    }
-
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
-    }
-
-    public String getTimeoutExpress() {
-        return timeoutExpress;
-    }
-
-    public void setTimeoutExpress(String timeoutExpress) {
-        this.timeoutExpress = timeoutExpress;
-    }
-
-    public String getTimeExpire() {
-        return timeExpire;
-    }
-
-    public void setTimeExpire(String timeExpire) {
-        this.timeExpire = timeExpire;
-    }
-
-    public double getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(double totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
-    public String getSellerId() {
-        return sellerId;
-    }
-
-    public void setSellerId(String sellerId) {
-        this.sellerId = sellerId;
-    }
-
-    public String getAuthToken() {
-        return authToken;
-    }
-
-    public void setAuthToken(String authToken) {
-        this.authToken = authToken;
-    }
-
-    public String getGoodsType() {
-        return goodsType;
-    }
-
-    public void setGoodsType(String goodsType) {
-        this.goodsType = goodsType;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
-    }
-
-    public String getPassbackParams() {
-        return passbackParams;
-    }
-
-    public void setPassbackParams(String passbackParams) {
-        this.passbackParams = passbackParams;
-    }
-
-    public String getPromoParams() {
-        return promoParams;
-    }
-
-    public void setPromoParams(String promoParams) {
-        this.promoParams = promoParams;
-    }
-
-    public String getQuitUrl() {
-        return quitUrl;
-    }
-
-    public void setQuitUrl(String quitUrl) {
-        this.quitUrl = quitUrl;
-    }
-
-    public ExtendParams getExtendParams() {
-        return extendParams;
-    }
-
-    public void setExtendParams(ExtendParams extendParams) {
-        this.extendParams = extendParams;
-    }
-
-    public String getMerchantOrderNo() {
-        return merchantOrderNo;
-    }
-
-    public void setMerchantOrderNo(String merchantOrderNo) {
-        this.merchantOrderNo = merchantOrderNo;
-    }
-
-    public String getEnablePayChannels() {
-        return enablePayChannels;
-    }
-
-    public void setEnablePayChannels(String enablePayChannels) {
-        this.enablePayChannels = enablePayChannels;
-    }
-
-    public String getDisablePayChannels() {
-        return disablePayChannels;
-    }
-
-    public void setDisablePayChannels(String disablePayChannels) {
-        this.disablePayChannels = disablePayChannels;
-    }
-
-    public String getStoreId() {
-        return storeId;
-    }
-
-    public void setStoreId(String storeId) {
-        this.storeId = storeId;
-    }
-
-    public String getSpecifiedChannel() {
-        return specifiedChannel;
-    }
-
-    public void setSpecifiedChannel(String specifiedChannel) {
-        this.specifiedChannel = specifiedChannel;
-    }
-
-    public String getBusinessParams() {
-        return businessParams;
-    }
-
-    public void setBusinessParams(String businessParams) {
-        this.businessParams = businessParams;
-    }
-
-    public ExtUserInfo getExtUserInfo() {
-        return extUserInfo;
-    }
-
-    public void setExtUserInfo(ExtUserInfo extUserInfo) {
-        this.extUserInfo = extUserInfo;
-    }
-
-    public List<GoodsDetail> getGoodsDetails() {
-        return goodsDetails;
-    }
-
-    public void setGoodsDetails(List<GoodsDetail> goodsDetails) {
-        this.goodsDetails = goodsDetails;
-    }
-
-    public AgreementSignParams getAgreementSignParams() {
-        return agreementSignParams;
-    }
-
-    public void setAgreementSignParams(AgreementSignParams agreementSignParams) {
-        this.agreementSignParams = agreementSignParams;
-    }
-
-    public RoyaltyInfo getRoyaltyInfo() {
-        return royaltyInfo;
-    }
-
-    public void setRoyaltyInfo(RoyaltyInfo royaltyInfo) {
-        this.royaltyInfo = royaltyInfo;
-    }
-
-    public SubMerchant getSubMerchant() {
-        return subMerchant;
-    }
-
-    public void setSubMerchant(SubMerchant subMerchant) {
-        this.subMerchant = subMerchant;
-    }
-
-    public String getQrPayMode() {
-        return qrPayMode;
-    }
-
-    public void setQrPayMode(String qrPayMode) {
-        this.qrPayMode = qrPayMode;
-    }
-
-    public Long getQrcodeWidth() {
-        return qrcodeWidth;
-    }
-
-    public void setQrcodeWidth(Long qrcodeWidth) {
-        this.qrcodeWidth = qrcodeWidth;
-    }
-
-    public SettleInfo getSettleInfo() {
-        return settleInfo;
-    }
-
-    public void setSettleInfo(SettleInfo settleInfo) {
-        this.settleInfo = settleInfo;
-    }
-
-    public InvoiceInfo getInvoiceInfo() {
-        return invoiceInfo;
-    }
-
-    public void setInvoiceInfo(InvoiceInfo invoiceInfo) {
-        this.invoiceInfo = invoiceInfo;
-    }
-
-    public String getIntegrationType() {
-        return integrationType;
-    }
-
-    public void setIntegrationType(String integrationType) {
-        this.integrationType = integrationType;
-    }
-
-    public String getRequestFromUrl() {
-        return requestFromUrl;
-    }
-
-    public void setRequestFromUrl(String requestFromUrl) {
-        this.requestFromUrl = requestFromUrl;
-    }
     
 }

@@ -81,7 +81,6 @@ public class AliPayCreateUtils {
         if (response.isSuccess()) {
             System.out.println("调用成功");
             AliPayCreateOut out = new AliPayCreateOut();
-            //wap支付方式，返回的生成表单的字符串
             out.setPayType(PayType.PRE);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
@@ -104,7 +103,6 @@ public class AliPayCreateUtils {
         if (response.isSuccess()) {
             System.out.println("调用成功");
             AliPayCreateOut out = new AliPayCreateOut();
-            //wap支付方式，返回的生成表单的字符串
             out.setPayType(PayType.CREATE);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());
@@ -196,7 +194,7 @@ public class AliPayCreateUtils {
 
         if(response.isSuccess()){
             AliPayCreateOut out = new AliPayCreateOut();
-            //page支付方式，返回的生成表单的字符串
+            //wap支付方式，返回的生成表单的字符串
             out.setPayType(PayType.PAGE);
             out.setForm(response.getBody());
             return out;
@@ -400,7 +398,7 @@ public class AliPayCreateUtils {
 
         if ("10000".equals(response.getCode())) {
             AliPayCreateOut out = new AliPayCreateOut();
-            //page支付方式，返回的生成表单的字符串
+            //app支付方式，返回的生成表单的字符串
             out.setPayType(PayType.WAP);
             out.setCode(response.getCode());
             out.setMsg(response.getMsg());

@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import cn.whl.payutils.common.pay.PayNotifyResult;
 
 /**
- * 阿里支付下单回调结果参数封装
+ * 阿里支付支付回调结果参数封装
  * @author wuhailong
  */
 public class AliPayPayNotifyResult extends AliPayNotifyResult implements PayNotifyResult{
@@ -15,6 +15,8 @@ public class AliPayPayNotifyResult extends AliPayNotifyResult implements PayNoti
     private String outTradeNo;
     
     private BigDecimal payAmt;
+    
+    private String payer;
 
     @Override
     public String getTradeNo() {
@@ -44,6 +46,16 @@ public class AliPayPayNotifyResult extends AliPayNotifyResult implements PayNoti
     @Override
     public void setPayAmt(BigDecimal payAmt) {
         this.payAmt = payAmt;
+    }
+
+    @Override
+    public String getPayer() {
+        return payer;
+    }
+
+    @Override
+    public void setPayer(String payer) {
+        this.payer = payer;
     }
     
 }

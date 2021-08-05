@@ -2,7 +2,6 @@ package cn.whl.payutils.alipay;
 
 import cn.whl.payutils.alipay.vo.close.AliPayCloseIn;
 import cn.whl.payutils.alipay.vo.close.AliPayCloseOut;
-import cn.whl.payutils.enums.Platform;
 import com.alipay.api.AlipayApiException;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.DefaultAlipayClient;
