@@ -16,7 +16,7 @@ public class TokenUtils {
         return decodeToken(code, new SimpleToken());
     }
     
-    public static String createToken(String id, Token token) throws Exception{
+    public static String createToken(String id, Token token) throws CommonException{
         return token.createToken(id);
     }
     

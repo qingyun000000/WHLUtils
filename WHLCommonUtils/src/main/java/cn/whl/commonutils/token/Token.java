@@ -8,7 +8,7 @@ import cn.whl.commonutils.exception.CommonException;
  */
 public interface Token {
     
-    public String createToken(String str) throws Exception;
+    public String createToken(String str) throws CommonException;
     
     public String decodeToken(String token) throws CommonException;
     

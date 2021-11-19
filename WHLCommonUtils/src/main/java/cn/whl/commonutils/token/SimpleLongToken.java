@@ -14,7 +14,7 @@ public class SimpleLongToken implements Token{
     private final static String START  = "TOKEN";
 
     @Override
-    public String createToken(String str) throws Exception{
+    public String createToken(String str) throws CommonException{
         ThreadCommonArea.info(str);
         Long id = new Long(str);
         id = id + (1L<<60) + ENTR;
