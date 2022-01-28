@@ -1,4 +1,4 @@
-package cn.whl.commonutils.image;
+package cn.whl.commonutils.file.image;
 
 import cn.whl.commonutils.Result;
 import cn.whl.commonutils.file.common.FileSaveUtils;

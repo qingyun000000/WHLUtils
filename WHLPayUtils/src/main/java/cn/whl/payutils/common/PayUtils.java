@@ -43,9 +43,9 @@ import cn.whl.payutils.wx.vo.agreement.WeChatSignNotifyIn;
  */
 public class PayUtils {
     
-    private static final Pay alipay = new AliPay();
+    private static final Pay ALIPAY = new AliPay();
 
-    private static final Pay wechat = new WeChat();
+    private static final Pay WECHAT = new WeChat();
     
     /**
      * 创建订单
@@ -56,10 +56,10 @@ public class PayUtils {
     public static CreateOut create(CreateIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayCreateIn createIn = (AliPayCreateIn)in;
-            return alipay.create(createIn);
+            return ALIPAY.create(createIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatCreateIn createIn = (WeChatCreateIn)in;
-            return wechat.create(createIn);
+            return WECHAT.create(createIn);
         }
         
         return null;
@@ -74,7 +74,7 @@ public class PayUtils {
     public static PayOut pay(PayIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayPayIn payIn = (AliPayPayIn)in;
-            return alipay.pay(payIn);
+            return ALIPAY.pay(payIn);
         }
         
         return null;
@@ -89,10 +89,10 @@ public class PayUtils {
     public static PayNotifyResult payNotify(PayNotifyIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayPayNotifyIn payNotifyIn = (AliPayPayNotifyIn)in;
-            return alipay.payNotify(payNotifyIn);
+            return ALIPAY.payNotify(payNotifyIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatPayNotify payIn = (WeChatPayNotify)in;
-            return wechat.payNotify(payIn);
+            return WECHAT.payNotify(payIn);
         }
         
         return null;
@@ -107,10 +107,10 @@ public class PayUtils {
     public static QueryOut query(QueryIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayQueryIn payIn = (AliPayQueryIn)in;
-            return alipay.query(payIn);
+            return ALIPAY.query(payIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatQueryIn payIn = (WeChatQueryIn)in;
-            return wechat.query(payIn);
+            return WECHAT.query(payIn);
         }
         
         return null;
@@ -125,10 +125,10 @@ public class PayUtils {
     public static CloseOut close(CloseIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayCloseIn payIn = (AliPayCloseIn)in;
-            return alipay.close(payIn);
+            return ALIPAY.close(payIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatCloseIn payIn = (WeChatCloseIn)in;
-            return wechat.close(payIn);
+            return WECHAT.close(payIn);
         }
         
         return null;
@@ -153,10 +153,10 @@ public class PayUtils {
     public static RefundOut refund(RefundIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayRefundIn refundIn = (AliPayRefundIn)in;
-            return alipay.refund(refundIn);
+            return ALIPAY.refund(refundIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatRefundIn refundIn = (WeChatRefundIn)in;
-            return wechat.refund(refundIn);
+            return WECHAT.refund(refundIn);
         }
         
         return null;
@@ -191,10 +191,10 @@ public class PayUtils {
     public static PayByMchOut payByMch(PayByMchIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPayPayByMchIn payByMchIn = (AliPayPayByMchIn)in;
-            return alipay.payByMch(payByMchIn);
+            return ALIPAY.payByMch(payByMchIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatPayByMchIn payByMchIn = (WeChatPayByMchIn)in;
-            return wechat.payByMch(payByMchIn);
+            return WECHAT.payByMch(payByMchIn);
         }
         
         return null;
@@ -239,10 +239,10 @@ public class PayUtils {
     public static SignOut sign(SignIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPaySignIn payIn = (AliPaySignIn)in;
-            return alipay.sign(payIn);
+            return ALIPAY.sign(payIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatSignIn payIn = (WeChatSignIn)in;
-            return wechat.sign(payIn);
+            return WECHAT.sign(payIn);
         }
         return null;
     }
@@ -256,10 +256,10 @@ public class PayUtils {
     public static SignNotifyResult signNotify(SignNotifyIn in) throws Exception{
         if(in.getPlatform() == Platform.ALIPAY){
             AliPaySignNotifyIn payIn = (AliPaySignNotifyIn)in;
-            return alipay.signNotify(payIn);
+            return ALIPAY.signNotify(payIn);
         }else if(in.getPlatform() == Platform.WECHAT){
             WeChatSignNotifyIn payIn = (WeChatSignNotifyIn)in;
-            return wechat.signNotify(payIn);
+            return WECHAT.signNotify(payIn);
         }
         
         return null;
