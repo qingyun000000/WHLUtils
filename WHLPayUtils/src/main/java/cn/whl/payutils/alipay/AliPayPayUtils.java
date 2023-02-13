@@ -11,7 +11,7 @@ import com.alipay.api.request.AlipayTradePayRequest;
 import com.alipay.api.response.AlipayTradePayResponse;
 
 /**
- * 阿里支付创建订单方法工具
+ * 阿里支付支付方法工具
  *
  * @author wuhailong
  */

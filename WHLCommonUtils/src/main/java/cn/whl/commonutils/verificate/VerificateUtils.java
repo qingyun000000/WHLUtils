@@ -5,7 +5,6 @@ package cn.whl.commonutils.verificate;
  * @author wuhailong
  */
 public class VerificateUtils {
-    
     /**
      * 手机号码校验
      * @param str
@@ -41,12 +40,33 @@ public class VerificateUtils {
     }
     
     /**
+     * Boolean非空校验
+     * @param bool
+     * @return 
+     */
+    public static boolean notEmpty(Boolean bool){
+        return !isEmpty(bool);
+    }
+    
+    /**
      * 空字符串校验
      * @param str
      * @return
      */
     public static boolean isEmpty(String str){
         if(str == null || str.trim().length() == 0){
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Boolean空校验
+     * @param bool
+     * @return 
+     */
+    public static boolean isEmpty(Boolean bool){
+        if(bool == null){
             return true;
         }
         return false;
@@ -142,6 +162,11 @@ public class VerificateUtils {
         return false;
     }
     
+    /**
+     * Long类型非空非零校验
+     * @param num
+     * @return 
+     */
     public static boolean existAndGreaterThanZero(Long num){
         if(num != null && num > 0 ){
             return true;
