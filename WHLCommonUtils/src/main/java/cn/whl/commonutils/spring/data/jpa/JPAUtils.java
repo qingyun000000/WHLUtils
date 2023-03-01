@@ -8,6 +8,7 @@ import cn.whl.commonutils.spring.data.jpa.strategy.ConstructStrategy;
 import cn.whl.commonutils.spring.data.jpa.strategy.QueryStrategy;
 import cn.whl.commonutils.spring.data.jpa.strategy.ResultStrategy;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -163,12 +164,25 @@ public class JPAUtils {
      * @param <T>
      * @param list
      * @param page
-     * @param total
      * @return
      */
-    public static <T> DataPageResponse<T> constructByList(List<T> list, Page page, int total){
-        page = PageUtils.getPage(page, total);
+    public static <T> DataPageResponse<T> constructByList(List<T> list, Page page){
+        page = PageUtils.getPage(page, list.size());
+        
+        //截取列表
         
         return new DataPageResponse<>(page, list);
+    }
+    
+    /**
+     * list封装为分页列表对象
+     * @param <T>
+     * @param array
+     * @param page
+     * @return
+     */
+    public static <T> DataPageResponse<T> constructByArray(T[] array, Page page){
+        List<T> list = Arrays.asList(array);
+        return constructByList(list, page);
     }
 }
