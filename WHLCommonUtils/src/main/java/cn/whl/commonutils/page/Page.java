@@ -15,7 +15,7 @@ public class Page {
     private int countOfOnePage = 5;        //每页显示条数
     private int countAllPage = 10;         //显示页码数
     private String orderByParamName = "tms";       //排序属性名
-    private boolean desc = false;                  //是否倒序
+    private boolean desc = true;                  //是否倒序
     
     /**
      * 获取要显示的所有页码

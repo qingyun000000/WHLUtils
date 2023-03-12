@@ -1,6 +1,5 @@
 package cn.whl.commonutils.spring.data.jpa;
 
-import cn.whl.commonutils.exception.NotExistException;
 import cn.whl.commonutils.page.Page;
 import cn.whl.commonutils.page.PageUtils;
 import cn.whl.commonutils.response.page.DataPageResponse;
@@ -99,7 +98,7 @@ public class JPAUtils {
     }
     
     /**
-     * 封装的分页查询方法
+     * 封装的分页查询方法，基础方法
      * @param <T>
      * @param <S>
      * @param <K>
@@ -158,6 +157,50 @@ public class JPAUtils {
     public static <T> DataPageResponse<T> queryByPageable(Class<T> listClass, Page page, QueryStrategy<T> qs){
         return queryByPageable(DataPageResponse.class, listClass, listClass, page, qs, (t)->t, (pg, responses)-> new DataPageResponse<>(pg, responses));
     }
+    
+    /**
+     * 转换分页里的泛型对象，常用于queryByPageable(Class<T> listClass, Page page, QueryStrategy<T> qs)查询后，两者组合可替代queryByPageable(Class<T> listClass, Class<S> responseClass, Page page,
+            QueryStrategy<T> qs, ConstructStrategy<T, S> cs)方法
+     * @param <T>
+     * @param <K>
+     * @param datePageResponse
+     * @param cs
+     * @return 
+     */
+    public static <T, K> DataPageResponse<K> transferClass(DataPageResponse<T> datePageResponse, ConstructStrategy<T, K> cs){
+       
+       List<K> responses = new ArrayList<K>(datePageResponse.getList().size());
+       
+       for(T t : datePageResponse.getList()){
+            K result = cs.construct(t);
+
+            responses.add(result);
+        }
+       
+        return new DataPageResponse<>(datePageResponse.getPage(), responses);
+    }
+    
+//    /**
+//     * 转换分页里的泛型对象，常用于queryByPageable(Class<T> listClass, Page page, QueryStrategy<T> qs)查询后，两者组合可替代queryByPageable(Class<T> listClass, Class<S> responseClass, Page page,
+//            QueryStrategy<T> qs, ConstructStrategy<T, S> cs)方法
+//     * @param <T>
+//     * @param <K>
+//     * @param datePageResponse
+//     * @param resonpseClass
+//     * @return 
+//     */
+//    public static <T, K> DataPageResponse<K> transferClass(DataPageResponse<T> datePageResponse, Class<K> resonpseClass){
+//       
+//       List<K> responses = new ArrayList<K>(datePageResponse.getList().size());
+//       
+//       for(T t : datePageResponse.getList()){
+//            K result = new K(t);
+//
+//            responses.add(result);
+//        }
+//       
+//        return new DataPageResponse<>(datePageResponse.getPage(), responses);
+//    }
     
     /**
      * list封装为分页列表对象
