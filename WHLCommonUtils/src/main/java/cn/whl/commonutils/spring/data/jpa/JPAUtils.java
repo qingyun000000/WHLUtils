@@ -159,6 +159,17 @@ public class JPAUtils {
     }
     
     /**
+     * 封装的分页查询方法（返回值为DataPageResponse类，其中封装返回对象为查询对象）
+     * @param <T>
+     * @param page
+     * @param qs
+     * @return 
+     */
+    public static <T> DataPageResponse<T> queryByPageable(Page page, QueryStrategy<T> qs){
+        return queryByPageable(null, null, null, page, qs, (t)->t, (pg, responses)-> new DataPageResponse<>(pg, responses));
+    }
+    
+    /**
      * 转换分页里的泛型对象，常用于queryByPageable(Class<T> listClass, Page page, QueryStrategy<T> qs)查询后，两者组合可替代queryByPageable(Class<T> listClass, Class<S> responseClass, Page page,
             QueryStrategy<T> qs, ConstructStrategy<T, S> cs)方法
      * @param <T>
