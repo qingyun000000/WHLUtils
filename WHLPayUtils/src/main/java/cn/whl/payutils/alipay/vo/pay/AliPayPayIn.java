@@ -5,6 +5,7 @@ import com.alipay.api.domain.ExtUserInfo;
 import com.alipay.api.domain.ExtendParams;
 import java.math.BigDecimal;
 import cn.whl.payutils.common.pay.PayIn;
+import com.alipay.api.domain.AgreementParams;
 
 
 /**
@@ -14,6 +15,16 @@ import cn.whl.payutils.common.pay.PayIn;
 public class AliPayPayIn extends AliPayIn implements PayIn{
     //通用部分 
     private String outTradeNo;   //必选， 商户网站唯一订单号
+    
+    private String productCode;     //可选，产品码。
+                                    //商家和支付宝签约的产品码。 枚举值（点击查看签约情况）：
+                                    //FACE_TO_FACE_PAYMENT：当面付产品；
+                                    //CYCLE_PAY_AUTH：周期扣款产品；
+                                    //GENERAL_WITHHOLDING：代扣产品；
+                                    //PRE_AUTH_ONLINE：支付宝预授权产品；
+                                    //PRE_AUTH：新当面资金授权产品；
+                                    //默认值为FACE_TO_FACE_PAYMENT。
+                                    //注意：非当面付产品使用本接口时，本参数必填。请传入对应产品码。
     
     private String scene;       //必选, 支付场景。枚举值：
                                 //bar_code：当面付条码支付场景；
@@ -27,16 +38,9 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
                                 //周期扣款或代扣场景无需传入，协议号通过agreement_params参数传递；
                                 //支付宝预授权和新当面资金授权场景无需传入，授权订单号通过 auth_no字段传入。
                                 //注：交易的买家与卖家不能相同。
-
-    private String productCode;     //可选，产品码。
-                                    //商家和支付宝签约的产品码。 枚举值（点击查看签约情况）：
-                                    //FACE_TO_FACE_PAYMENT：当面付产品；
-                                    //CYCLE_PAY_AUTH：周期扣款产品；
-                                    //GENERAL_WITHHOLDING：代扣产品；
-                                    //PRE_AUTH_ONLINE：支付宝预授权产品；
-                                    //PRE_AUTH：新当面资金授权产品；
-                                    //默认值为FACE_TO_FACE_PAYMENT。
-                                    //注意：非当面付产品使用本接口时，本参数必填。请传入对应产品码。
+    
+    private AgreementParams agreementParams;    //代扣信息。
+                                               //代扣业务需要传入的协议相关信息，使用本参数传入协议号后scene和auth_code不需要再传值。
 
     private BigDecimal totalAmount;     //必选，订单总金额，0.01-100000000
 
@@ -79,16 +83,53 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
           //min_age    3  最小买家年龄
           //fix_buyer  8   是否强制校验付款人身份信息  T/F
           //need_check_info   1  是否强制校验身份信息  T/F
-    
-    
-    
 
-    public String getBody() {
-        return body;
+    public String getOutTradeNo() {
+        return outTradeNo;
     }
 
-    public void setBody(String body) {
-        this.body = body;
+    public void setOutTradeNo(String outTradeNo) {
+        this.outTradeNo = outTradeNo;
+    }
+
+    public String getProductCode() {
+        return productCode;
+    }
+
+    public void setProductCode(String productCode) {
+        this.productCode = productCode;
+    }
+    
+    public String getScene() {
+        return scene;
+    }
+
+    public void setScene(String scene) {
+        this.scene = scene;
+    }
+
+    public String getAuthCode() {
+        return authCode;
+    }
+
+    public void setAuthCode(String authCode) {
+        this.authCode = authCode;
+    }
+
+    public AgreementParams getAgreementParams() {
+        return agreementParams;
+    }
+
+    public void setAgreementParams(AgreementParams agreementParams) {
+        this.agreementParams = agreementParams;
+    }
+
+    public BigDecimal getTotalAmount() {
+        return totalAmount;
+    }
+
+    public void setTotalAmount(BigDecimal totalAmount) {
+        this.totalAmount = totalAmount;
     }
 
     public String getSubject() {
@@ -99,12 +140,12 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
         this.subject = subject;
     }
 
-    public String getOutTradeNo() {
-        return outTradeNo;
+    public String getBody() {
+        return body;
     }
 
-    public void setOutTradeNo(String outTradeNo) {
-        this.outTradeNo = outTradeNo;
+    public void setBody(String body) {
+        this.body = body;
     }
 
     public String getTimeoutExpress() {
@@ -122,15 +163,6 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
     public void setTimeExpire(String timeExpire) {
         this.timeExpire = timeExpire;
     }
-    
-    public BigDecimal getTotalAmount() {
-        return totalAmount;
-    }
-
-    public void setTotalAmount(BigDecimal totalAmount) {
-        this.totalAmount = totalAmount;
-    }
-
 
     public String getGoodsType() {
         return goodsType;
@@ -138,14 +170,6 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
 
     public void setGoodsType(String goodsType) {
         this.goodsType = goodsType;
-    }
-
-    public String getProductCode() {
-        return productCode;
-    }
-
-    public void setProductCode(String productCode) {
-        this.productCode = productCode;
     }
 
     public String getPassbackParams() {
@@ -219,6 +243,7 @@ public class AliPayPayIn extends AliPayIn implements PayIn{
     public void setExtUserInfo(ExtUserInfo extUserInfo) {
         this.extUserInfo = extUserInfo;
     }
-
+    
+    
     
 }

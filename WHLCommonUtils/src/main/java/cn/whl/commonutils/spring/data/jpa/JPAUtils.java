@@ -4,8 +4,11 @@ import cn.whl.commonutils.page.Page;
 import cn.whl.commonutils.page.PageUtils;
 import cn.whl.commonutils.response.page.DataPageResponse;
 import cn.whl.commonutils.spring.data.jpa.strategy.ConstructStrategy;
+import cn.whl.commonutils.spring.data.jpa.strategy.ConstructStrategyByTwo;
 import cn.whl.commonutils.spring.data.jpa.strategy.QueryStrategy;
 import cn.whl.commonutils.spring.data.jpa.strategy.ResultStrategy;
+import cn.whl.commonutils.thread.ThreadCommonArea;
+import static com.google.zxing.qrcode.decoder.ErrorCorrectionLevel.L;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -117,8 +120,9 @@ public class JPAUtils {
 
         org.springframework.data.domain.Page<T> ts = qs.query(pageable);
 
+        ThreadCommonArea.info("111===================================="+ ts.getTotalElements());
         page = PageUtils.getPage(page, (int) ts.getTotalElements());
-
+        ThreadCommonArea.info("222===================================="+ page.getTotalCount() + "||" + page.getTotalPage());
         List<S> responses = new ArrayList<>();
 
         for (T t : ts) {
@@ -167,6 +171,22 @@ public class JPAUtils {
      */
     public static <T> DataPageResponse<T> queryByPageable(Page page, QueryStrategy<T> qs){
         return queryByPageable(null, null, null, page, qs, (t)->t, (pg, responses)-> new DataPageResponse<>(pg, responses));
+        
+//        Pageable pageable = JPAUtils.getPageable(page.getCountOfOnePage(), page.getShowPage(), page.getOrderByParamName(), page.isDesc());
+//
+//        org.springframework.data.domain.Page<T> ts = qs.query(pageable);
+//
+//        page = PageUtils.getPage(page, (int) ts.getTotalElements());
+//
+//        List<T> responses = new ArrayList<>();
+//
+//        for (T t : ts) {
+//            T s = t;
+//
+//            responses.add(s);
+//        }
+//        
+//        return new DataPageResponse<>(page, responses);
     }
     
     /**
@@ -180,10 +200,34 @@ public class JPAUtils {
      */
     public static <T, K> DataPageResponse<K> transferClass(DataPageResponse<T> datePageResponse, ConstructStrategy<T, K> cs){
        
-       List<K> responses = new ArrayList<K>(datePageResponse.getList().size());
+       List<K> responses = new ArrayList<>(datePageResponse.getList().size());
        
        for(T t : datePageResponse.getList()){
             K result = cs.construct(t);
+
+            responses.add(result);
+        }
+       
+        return new DataPageResponse<>(datePageResponse.getPage(), responses);
+    }
+    
+    /**
+     * 转换分页里的泛型对象，常用于queryByPageable(Class<T> listClass, Page page, QueryStrategy<T> qs)查询后，两者组合可替代queryByPageable(Class<T> listClass, Class<S> responseClass, Page page,
+            QueryStrategy<T> qs, ConstructStrategy<T, S> cs)方法
+     * @param <T>
+     * @param <K>
+     * @param <L>
+     * @param datePageResponse
+     * @param k
+     * @param cs
+     * @return 
+     */
+    public static <T, K, L> DataPageResponse<L> transferClass(DataPageResponse<T> datePageResponse, K k, ConstructStrategyByTwo<T, K, L> cs){
+       
+       List<L> responses = new ArrayList<>(datePageResponse.getList().size());
+       
+       for(T t : datePageResponse.getList()){
+            L result = cs.construct(t, k);
 
             responses.add(result);
         }

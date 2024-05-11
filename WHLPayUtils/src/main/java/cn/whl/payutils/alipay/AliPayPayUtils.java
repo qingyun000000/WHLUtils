@@ -34,6 +34,7 @@ public class AliPayPayUtils {
         }
         model.setTotalAmount(in.getTotalAmount().toPlainString());
         model.setProductCode(in.getProductCode());
+        model.setAgreementParams(in.getAgreementParams());
         if (in.getExtendParams() != null) {
             model.setExtendParams(in.getExtendParams());
         }
